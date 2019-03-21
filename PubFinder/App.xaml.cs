@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PubFinder.ViewModels;
+using PubFinder.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,7 +18,9 @@ namespace PubFinder
         protected override void OnStartup(StartupEventArgs e)
         {
             var locator = new ViewModelLocator();
-
+            var window = new AppView();
+            window.DataContext = locator.GetAppViewModel();
+            window.ShowDialog();
         }
     }
 }

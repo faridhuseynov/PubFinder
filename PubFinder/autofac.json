@@ -1,0 +1,20 @@
+{
+  "defaultAssembly": "PubFinder",
+  "components": [
+    { "type": "PubFinder.ViewModels.AppViewModel" },
+
+    {
+      "type": "PubFinder.Models.AppDbContext",
+      "instanceScope": "single-instance"
+    },
+    {
+      "type": "PubFinder.Services.NavigationService",
+      "services": [
+        {
+          "type": "PubFinder.Services.INavigationService"
+        }
+      ],
+      "instanceScope": "single-instance"
+    }
+  ]
+}
