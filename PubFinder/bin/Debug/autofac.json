@@ -2,6 +2,7 @@
   "defaultAssembly": "PubFinder",
   "components": [
     { "type": "PubFinder.ViewModels.AppViewModel" },
+    { "type": "PubFinder.ViewModels.StartPageViewModel" },
 
     {
       "type": "PubFinder.Models.AppDbContext",

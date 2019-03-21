@@ -161,3 +161,6 @@ C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\Autofac.Configuration.
 C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\Autofac.Configuration.pdb
 C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\Autofac.Configuration.xml
 C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\autofac.json
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\StartPageView.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\StartPageView.baml

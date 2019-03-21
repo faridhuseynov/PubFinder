@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PubFinder.Views"
         xmlns:vm="clr-namespace:PubFinder.ViewModels"
         mc:Ignorable="d"
-        Title="AppView" Height="450" Width="800"
+        Title="PubFinder" Height="450" Width="800"
         d:DataContext="{d:DesignInstance vm:AppViewModel}">
     <Window.Resources>
         <ResourceDictionary Source="../Resources/ViewModelTemplates.xaml"/>

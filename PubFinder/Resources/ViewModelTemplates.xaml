@@ -3,5 +3,7 @@
                     xmlns:local="clr-namespace:PubFinder.Resources"
                     xmlns:vm="clr-namespace:PubFinder.ViewModels"
                     xmlns:v="clr-namespace:PubFinder.Views">
-    <!--<DataTemplate DataType="{x:Type vm:}"-->
+    <DataTemplate DataType="{x:Type vm:StartPageViewModel}">
+        <v:StartPageView/>
+    </DataTemplate>
 </ResourceDictionary>

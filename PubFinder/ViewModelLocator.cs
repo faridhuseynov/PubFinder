@@ -16,6 +16,7 @@ namespace PubFinder
     class ViewModelLocator
     {
         private AppViewModel appViewModel;
+        private StartPageViewModel startPageViewModel;
         private INavigationService navigationService;
 
         public static IContainer Container;
@@ -32,6 +33,13 @@ namespace PubFinder
                 Container = builder.Build();
 
                 navigationService = Container.Resolve<INavigationService>();
+
+                appViewModel = Container.Resolve<AppViewModel>();
+                startPageViewModel = Container.Resolve<StartPageViewModel>();
+
+                navigationService.Register<StartPageViewModel>(startPageViewModel);
+
+                navigationService.Navigate<StartPageViewModel>();
             }
             catch (Exception ex)
             {
