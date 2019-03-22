@@ -6,8 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace PubFinder.ViewModels
@@ -45,7 +47,7 @@ namespace PubFinder.ViewModels
             get => loginCommand ?? (loginCommand = new RelayCommand<PasswordBox>(
                param =>
                {
-                   //var UserCheck = db.Users.FirstOrDefault(x => x.UserName == userName);
+                   var UserCheck = db.Users.FirstOrDefault(x => x.UserName == userName);
                    if (UserCheck == null)
                    {
                        MessageBox.Show("User with that username not found");

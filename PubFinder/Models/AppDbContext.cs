@@ -14,5 +14,6 @@ namespace PubFinder.Models
 
         }
 
+        public DbSet<Menu> MyProperty { get; set; }
     }
 }
