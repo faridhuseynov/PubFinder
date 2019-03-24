@@ -164,5 +164,7 @@ C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\autofac.json
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\StartPageView.g.cs
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\StartPageView.baml
-C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\SignUpPageView.g.cs
-C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\SignUpPageView.baml
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserSignUpPageView.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserSignUpPageView.baml
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\SignUpView.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\SignUpView.baml

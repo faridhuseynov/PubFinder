@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Farid\source\repos\PubFinder\PubFinder\App.xaml
-41342073718
+51518265984
 
-19-732796840
+21-1145538522
 1431584246862
-Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\SignUpPageView.xaml;Views\StartPageView.xaml;
+Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\SignUpView.xaml;Views\UserSignUpPageView.xaml;Views\StartPageView.xaml;
 
 False
 

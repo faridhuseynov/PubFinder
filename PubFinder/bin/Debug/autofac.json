@@ -3,7 +3,8 @@
   "components": [
     { "type": "PubFinder.ViewModels.AppViewModel" },
     { "type": "PubFinder.ViewModels.StartPageViewModel" },
-    { "type": "PubFinder.ViewModels.SignUpPageViewModel" },
+    { "type": "PubFinder.ViewModels.SignUpViewModel" },
+    { "type": "PubFinder.ViewModels.UserSignUpPageViewModel" },
 
     {
       "type": "PubFinder.Models.AppDbContext",

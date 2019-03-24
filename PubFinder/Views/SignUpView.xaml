@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="PubFinder.Views.SignUpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PubFinder.Views"
+             xmlns:vm="clr-namespace:PubFinder.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600"
+             d:DataContext="{d:DesignInstance vm:SignUpViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0"
+                Margin="20,220"
+                FontSize="20"
+                Command="{Binding UserSignUpCommand}">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="10" Background="Blue">
+                        <TextBlock Text="USER" Foreground="White"
+                                   HorizontalAlignment="Center"  
+                                   Padding="10"                    
+                                   Height="40"
+                                   FontWeight="Bold"
+                                   FontSize="20"></TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1"
+                 Margin="20,220"
+                FontSize="20"
+                Command="{Binding PubSignUpCommand}">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="10" Background="Green">
+                        <TextBlock Text="PUB" Foreground="White"
+                                   HorizontalAlignment="Center"  
+                                   Padding="10"                    
+                                   Height="40"
+                                   FontWeight="Bold"
+                                   FontSize="20"></TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+                <Button Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Margin="5"
+                        Height="40"
+                        FontSize="20"
+                        Command="{Binding CancelSignUpCommand}">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="10" Background="Red">
+                        <TextBlock Text="CANCEL" Foreground="White"
+                                   HorizontalAlignment="Center"  
+                                   Padding="5"                                   Height="40"
+                                   FontWeight="Bold"
+                                   FontSize="20"></TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</UserControl>

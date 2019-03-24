@@ -15,7 +15,7 @@ using System.Windows.Controls;
 
 namespace PubFinder.ViewModels
 {
-    class SignUpPageViewModel:ViewModelBase
+    class UserSignUpPageViewModel:ViewModelBase
     {
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
@@ -29,7 +29,7 @@ namespace PubFinder.ViewModels
             NewUser.Email = NewUser.Name = NewUser.PhotoLink = NewUser.Surname = NewUser.UserName = "";
         }
 
-        public SignUpPageViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
+        public UserSignUpPageViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
         {
             this.navigation = navigation;
             this.db = db;

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PubFinder.Views
 {
     /// <summary>
-    /// Interaction logic for SignUpPageView.xaml
+    /// Interaction logic for SignUpView.xaml
     /// </summary>
-    public partial class SignUpPageView : UserControl
+    public partial class SignUpView : UserControl
     {
-        public SignUpPageView()
+        public SignUpView()
         {
             InitializeComponent();
         }
