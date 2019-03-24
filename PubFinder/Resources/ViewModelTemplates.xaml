@@ -6,4 +6,8 @@
     <DataTemplate DataType="{x:Type vm:StartPageViewModel}">
         <v:StartPageView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SignUpPageViewModel}">
+        <v:SignUpPageView/>
+    </DataTemplate>
 </ResourceDictionary>

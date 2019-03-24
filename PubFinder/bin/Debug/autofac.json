@@ -3,6 +3,7 @@
   "components": [
     { "type": "PubFinder.ViewModels.AppViewModel" },
     { "type": "PubFinder.ViewModels.StartPageViewModel" },
+    { "type": "PubFinder.ViewModels.SignUpPageViewModel" },
 
     {
       "type": "PubFinder.Models.AppDbContext",
@@ -13,6 +14,15 @@
       "services": [
         {
           "type": "PubFinder.Services.INavigationService"
+        }
+      ],
+      "instanceScope": "single-instance"
+    },
+    {
+      "type": "PubFinder.Services.MessageService",
+      "services": [
+        {
+          "type": "PubFinder.Services.IMessageService"
         }
       ],
       "instanceScope": "single-instance"

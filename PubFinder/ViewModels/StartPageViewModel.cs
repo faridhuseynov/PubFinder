@@ -18,6 +18,9 @@ namespace PubFinder.ViewModels
 {
     class StartPageViewModel : ViewModelBase
     {
+        private RelayCommand<PasswordBox> loginCommand;
+        private readonly INavigationService navigation;
+        private readonly AppDbContext db;
 
         private string userName;
         [Required]
@@ -35,14 +38,10 @@ namespace PubFinder.ViewModels
             get => signUpCommand ?? (signUpCommand = new RelayCommand(
                 () =>
                 {
-                    //navigation.Navigate<SignUpViewModel>();
+                    navigation.Navigate<SignUpPageViewModel>();
                 }
             ));
         }
-
-        private RelayCommand<PasswordBox> loginCommand;
-        private readonly INavigationService navigation;
-        private readonly AppDbContext db;
 
         public RelayCommand<PasswordBox> LoginCommand
         {

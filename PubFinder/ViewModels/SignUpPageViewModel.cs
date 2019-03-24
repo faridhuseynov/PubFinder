@@ -19,7 +19,8 @@ namespace PubFinder.ViewModels
     {
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
-        //private readonly IMessageService message;
+        private readonly IMessageService message;
+
         private User newUser = new User();
         public User NewUser { get => newUser; set => Set(ref newUser, value); }
 
@@ -28,10 +29,11 @@ namespace PubFinder.ViewModels
             NewUser.Email = NewUser.Name = NewUser.PhotoLink = NewUser.Surname = NewUser.UserName = "";
         }
 
-        public SignUpPageViewModel(INavigationService navigation, AppDbContext db)
+        public SignUpPageViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
         {
             this.navigation = navigation;
             this.db = db;
+            this.message = message;
         }
 
         //taken from StackOverflow for email validation
@@ -60,7 +62,7 @@ namespace PubFinder.ViewModels
                 && !String.IsNullOrEmpty(param.Password) && IsValid(NewUser.Email))
                     {
                         if (db.Users.FirstOrDefault(x => x.UserName == NewUser.UserName) != null)
-                            //message.ShowError("This Username is already being used, please choose new username");
+                            message.ShowError("This Username is already being used, please choose new username");
                         else
                         {
                             RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
@@ -85,7 +87,7 @@ namespace PubFinder.ViewModels
                     }
                     else
                     {
-                        //message.ShowError("Please check validation errors");
+                        message.ShowError("Please check validation errors");
                     }
                 }
             ));
