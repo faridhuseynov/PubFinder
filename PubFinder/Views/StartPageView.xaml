@@ -46,18 +46,17 @@
                    HorizontalAlignment="Center"
                    FontSize="25"
                    FontWeight="Bold">I'm</Label>
-            <UniformGrid DockPanel.Dock="Bottom"
-                         >
-                <CheckBox FontSize="20"
+            <UniformGrid DockPanel.Dock="Bottom">
+                <RadioButton FontSize="20"
                           BorderThickness="5"
                           HorizontalContentAlignment="Center"
                           HorizontalAlignment="Center">
-                    User</CheckBox>
-                <CheckBox FontSize="20"
+                    User</RadioButton>
+                <RadioButton FontSize="20"
                           BorderThickness="5"
                           HorizontalAlignment="Center"
                           HorizontalContentAlignment="Center">
-                    Pub Owner</CheckBox>
+                    Pub Owner</RadioButton>
             </UniformGrid>        
         </DockPanel>
         <UniformGrid Grid.Row="7" HorizontalAlignment="Stretch"
@@ -67,7 +66,8 @@
                     Command="{Binding SignUpCommand}">Sign Up</Button>
             <Button FontSize="30"
                     Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding ElementName=password}">Login</Button>
+                    CommandParameter="{Binding ElementName=password}"
+                    IsEnabled="False">Login</Button>
         </UniformGrid>
     </Grid>
 </UserControl>
