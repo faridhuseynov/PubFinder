@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
+using PubFinder.Messages;
 using PubFinder.Models;
 using PubFinder.Services;
 using System;
@@ -64,8 +66,8 @@ namespace PubFinder.ViewModels
                    string hashToCompare = Convert.ToBase64String(hash);
                    if (hashValueFromDB.Equals(hashToCompare))
                    {
-                       Messenger.Default.Send(new UserLoggedInOrOutOrRegistered { UserId = UserCheck.Id });
-                       navigation.Navigate<TripBoardViewModel>();
+                       Messenger.Default.Send(new UserLogInOutMessage { UserId = UserCheck.Id });
+                       //navigation.Navigate<TripBoardViewModel>();
                    }
                    else
                        Console.WriteLine("Login credentials incorrect. User not validated.");

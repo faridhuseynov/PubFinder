@@ -19,11 +19,14 @@ namespace PubFinder.Models
                 
         public string PhoneNum { get; set; }
 
-        public IEnumerable<Ranking> Rankings { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
 
-        public IEnumerable<Menu> Menus { get; set; }
+        //public IEnumerable<Ranking> Rankings { get; set; }
 
+        //public IEnumerable<Menu> Menus { get; set; }
 
+        //public IEnumerable<Comment> Comments { get; set; }
 
     }
 }

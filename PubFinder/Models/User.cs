@@ -18,7 +18,7 @@ namespace PubFinder.Models
         public string Name { get; set; }
 
         [Required]
-        public string Surame { get; set; }
+        public string Surname { get; set; }
 
         public string PhotoLink { get; set; }
 
@@ -26,7 +26,7 @@ namespace PubFinder.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        //public IEnumerable<Trip> Trips { get; set; }
+        public IEnumerable<Pub> Pubs { get; set; }
 
         public string SaltValue { get; set; }
         public string HashValue { get; set; }
