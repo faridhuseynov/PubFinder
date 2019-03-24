@@ -17,10 +17,11 @@
             <RowDefinition Height="0.8*"></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="1.0*"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Image Grid.Row="0"
                HorizontalAlignment="Center"
-               Source="C:\Users\Farid\source\repos\PubFinder\PubFinder\Icons\StartIcon.jpg">            
+               Source="C:\Users\Farid\source\repos\PubFinder\PubFinder\Icons\StartIcon.jpg">
         </Image>
         <Label Grid.Row="1" HorizontalAlignment="Center" 
                FontSize="20"
@@ -35,19 +36,38 @@
         <Label Grid.Row="3" HorizontalAlignment="Center" 
                FontSize="20"
                Content="Password"></Label>
-    <PasswordBox Grid.Row="4" x:Name="password" FontSize="30"
+        <PasswordBox Grid.Row="4" x:Name="password" FontSize="30"
                      HorizontalContentAlignment="Center"                     
                      Width="400"></PasswordBox>
-    <Label Grid.Row="5" FontSize="20"
+        <Label Grid.Row="5" FontSize="20"
                Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=password}"/>
-    <UniformGrid Grid.Row="6" HorizontalAlignment="Stretch"
+        <DockPanel Grid.Row="6">
+            <Label DockPanel.Dock="Top"
+                   HorizontalAlignment="Center"
+                   FontSize="25"
+                   FontWeight="Bold">I'm</Label>
+            <UniformGrid DockPanel.Dock="Bottom"
+                         >
+                <CheckBox FontSize="20"
+                          BorderThickness="5"
+                          HorizontalContentAlignment="Center"
+                          HorizontalAlignment="Center">
+                    User</CheckBox>
+                <CheckBox FontSize="20"
+                          BorderThickness="5"
+                          HorizontalAlignment="Center"
+                          HorizontalContentAlignment="Center">
+                    Pub Owner</CheckBox>
+            </UniformGrid>        
+        </DockPanel>
+        <UniformGrid Grid.Row="7" HorizontalAlignment="Stretch"
                      Rows="1" Columns="2"
                      Margin="50,10,50,10">
-        <Button FontSize="30"
+            <Button FontSize="30"
                     Command="{Binding SignUpCommand}">Sign Up</Button>
-        <Button FontSize="30"
+            <Button FontSize="30"
                     Command="{Binding LoginCommand}"
                     CommandParameter="{Binding ElementName=password}">Login</Button>
-    </UniformGrid>
+        </UniformGrid>
     </Grid>
 </UserControl>

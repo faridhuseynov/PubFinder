@@ -82,7 +82,7 @@ namespace PubFinder.ViewModels
                             db.SaveChanges();
                             Messenger.Default.Send(new UserLogInOutMessage{ UserId = NewUser.Id });
                             UserDataClear();
-                            //navigation.Navigate<TripBoardViewModel>();
+                            navigation.Navigate<StartPageViewModel>();
                         }
                     }
                     else
