@@ -22,6 +22,12 @@ namespace PubFinder.ViewModels
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
 
+        private bool userRadBut=false;
+        public bool UserRadBut { get => userRadBut; set => Set(ref userRadBut, value); }
+
+        private bool ownerRadBut=false;
+        public bool OwnerRadBut { get => ownerRadBut; set => Set(ref ownerRadBut, value); }
+
         private string userName;
         [Required]
         public string Username { get => userName; set => Set(ref userName, value); }
