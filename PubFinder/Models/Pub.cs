@@ -27,8 +27,10 @@ namespace PubFinder.Models
 
         public string LogoLink { get; set; }
 
-        public int UserId { get; set; }
-        public User User { get; set; }
+        //this caused error, therefore better to create separate database comments
+        //with UserId and PubId
+        //public int UserId { get; set; }
+        //public User User { get; set; }
 
         public string SaltValue { get; set; }
         public string HashValue { get; set; }
