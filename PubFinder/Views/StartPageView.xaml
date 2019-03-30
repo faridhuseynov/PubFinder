@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PubFinder.Views"
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800"
+             d:DesignHeight="800" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance vm:StartPageViewModel}">
     <Grid>
         <Grid.RowDefinitions>
@@ -42,10 +42,10 @@
         <Label Grid.Row="5" FontSize="20"
                Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=password}"/>
         <DockPanel Grid.Row="6">
-            <Label DockPanel.Dock="Top"
+            <!--<Label DockPanel.Dock="Top"
                    HorizontalAlignment="Center"
                    FontSize="25"
-                   FontWeight="Bold">I'm</Label>
+                   FontWeight="Bold">I'm</Label>-->
             <UniformGrid DockPanel.Dock="Bottom">
                 <RadioButton FontSize="20"
                              x:Name="UserButton"
@@ -67,7 +67,21 @@
                      Rows="1" Columns="2"
                      Margin="50,10,50,10">
             <Button FontSize="30"
-                    Command="{Binding SignUpCommand}">Sign Up</Button>
+                    Command="{Binding SignUpCommand}" Content="Sign Up">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button FontSize="30"
                     Command="{Binding LoginCommand}"
                     CommandParameter="{Binding ElementName=password}"

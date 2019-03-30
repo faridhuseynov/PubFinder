@@ -44,7 +44,10 @@ namespace PubFinder.ViewModels
             get => signUpCommand ?? (signUpCommand = new RelayCommand(
                 () =>
                 {
-                    navigation.Navigate<SignUpViewModel>();
+                    if (UserRadBut)
+                        navigation.Navigate<UserSignUpViewModel>();
+                    else
+                        navigation.Navigate<PubOwnerSignUpViewModel>();
                 }
             ));
         }

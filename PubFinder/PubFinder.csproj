@@ -137,17 +137,20 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
-    <Compile Include="ViewModels\SignUpViewModel.cs" />
-    <Compile Include="ViewModels\UserSignUpPageViewModel.cs" />
+    <Compile Include="ViewModels\PubOwnerSignUpViewModel.cs" />
+    <Compile Include="ViewModels\UserSignUpViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
     <Compile Include="Views\AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PubOwnerSignUpView.xaml.cs">
+      <DependentUpon>PubOwnerSignUpView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SignUpView.xaml.cs">
       <DependentUpon>SignUpView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserSignUpPageView.xaml.cs">
-      <DependentUpon>UserSignUpPageView.xaml</DependentUpon>
+    <Compile Include="Views\UserSignUpView.xaml.cs">
+      <DependentUpon>UserSignUpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartPageView.xaml.cs">
       <DependentUpon>StartPageView.xaml</DependentUpon>
@@ -193,11 +196,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PubOwnerSignUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SignUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserSignUpPageView.xaml">
+    <Page Include="Views\UserSignUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

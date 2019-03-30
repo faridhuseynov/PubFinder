@@ -12,6 +12,7 @@
         <ResourceDictionary Source="../Resources/ViewModelTemplates.xaml"/>
     </Window.Resources>
     <DockPanel>
+        <!--<Border Background="AliceBlue"></Border>-->
         <ContentControl Content="{Binding CurrentPage}"/>
     </DockPanel>
 </Window>

@@ -7,13 +7,12 @@
         <v:StartPageView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:SignUpViewModel}">
-        <v:SignUpView/>
+    <DataTemplate DataType="{x:Type vm:UserSignUpViewModel}">
+        <v:UserSignUpView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:UserSignUpPageViewModel}">
-        <v:UserSignUpPageView/>
+    <DataTemplate DataType="{x:Type vm:PubOwnerSignUpViewModel}">
+        <v:PubOwnerSignUpView/>
     </DataTemplate>
-
 
 </ResourceDictionary>

@@ -18,9 +18,9 @@ namespace PubFinder.Views
     /// <summary>
     /// Interaction logic for SignUpPageView.xaml
     /// </summary>
-    public partial class UserSignUpPageView : UserControl
+    public partial class UserSignUpView : UserControl
     {
-        public UserSignUpPageView()
+        public UserSignUpView()
         {
             InitializeComponent();
         }
