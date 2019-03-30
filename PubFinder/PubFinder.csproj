@@ -127,6 +127,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Messages\PubLogInOutMessage.cs" />
     <Compile Include="Messages\UserLogInOutMessage.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\Pub.cs" />

@@ -16,11 +16,22 @@ namespace PubFinder.Models
 
         [Required]
         public string Address { get; set; }
-                
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [Phone]
         public string PhoneNum { get; set; }
+
+        public string LogoLink { get; set; }
 
         public int UserId { get; set; }
         public User User { get; set; }
+
+        public string SaltValue { get; set; }
+        public string HashValue { get; set; }
 
         //public IEnumerable<Ranking> Rankings { get; set; }
 

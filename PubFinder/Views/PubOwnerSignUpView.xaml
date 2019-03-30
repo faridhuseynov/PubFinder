@@ -16,7 +16,6 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
             <Label DockPanel.Dock="Top" FontSize="20">Pub Name*</Label>
@@ -26,42 +25,42 @@
             <TextBox DockPanel.Dock="Bottom" x:Name="NameTextBox"
                      FontSize="20"
                  Margin="10,0"
-                 Text="{Binding NewUser.Name, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                 Text="{Binding NewPub.Name, ValidatesOnDataErrors=True,NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </DockPanel>
-        <DockPanel Grid.Row="1">
-            <Label DockPanel.Dock="Top" FontSize="20">Address*</Label>
-            <!--<Label DockPanel.Dock="Bottom" FontSize="10" HorizontalContentAlignment="Center"
-               Content="{Binding (Validation.Errors)[0].ErrorContent,ElementName=SurnameTextBox}"
-               />-->
-            <TextBox DockPanel.Dock="Bottom" x:Name="SurnameTextBox"  FontSize="20"
-                 Margin="10,0"
-                 Text="{Binding NewUser.Surname, ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        </DockPanel>
-        <DockPanel Grid.Row="2">
-            <!--<Label DockPanel.Dock="Top" FontSize="20">Username*</Label>
+        <!--<DockPanel Grid.Row="2">
+            <Label DockPanel.Dock="Top" FontSize="20">Username*</Label>
             <Label DockPanel.Dock="Bottom"  FontSize="10" HorizontalContentAlignment="Center"
                Content="{Binding (Validation.Errors)[0].ErrorContent,ElementName=UserNameTextBox}"
                />
             <TextBox DockPanel.Dock="Bottom" x:Name="UserNameTextBox" FontSize="20"
                  Margin="10,0"
-                 Text="{Binding NewUser.UserName,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
+                 Text="{Binding NewUser.UserName,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </DockPanel>-->
+        <DockPanel Grid.Row="1">
+            <Label DockPanel.Dock="Top" FontSize="20">Password*</Label>
+            <PasswordBox DockPanel.Dock="Bottom" x:Name="passwordRegister" FontSize="20"
+                     Margin="10,0"></PasswordBox>
         </DockPanel>
-        <DockPanel Grid.Row="3">
+        <DockPanel Grid.Row="2">
             <Label DockPanel.Dock="Top" FontSize="20">Email*</Label>
             <Label DockPanel.Dock="Bottom" FontSize="10" HorizontalContentAlignment="Center"
                Content="{Binding (Validation.Errors)[0].ErrorContent,ElementName=EmailTextBox}"
                />
             <TextBox DockPanel.Dock="Bottom" x:Name="EmailTextBox" FontSize="20"           
                  Margin="10,0"
-                 Text="{Binding NewUser.Email,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                 Text="{Binding NewPub.Email,ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="3">
+            <Label DockPanel.Dock="Top" FontSize="20">Address*</Label>
+            <Label DockPanel.Dock="Bottom" FontSize="10" HorizontalContentAlignment="Center"
+               Content="{Binding (Validation.Errors)[0].ErrorContent,ElementName=AddressTextBox}"
+               />
+            <TextBox DockPanel.Dock="Bottom" x:Name="AddressTextBox"  FontSize="20"
+                 Margin="10,0"
+                 Text="{Binding NewPub.Address, ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </DockPanel>
         <DockPanel Grid.Row="4">
-            <Label DockPanel.Dock="Top" FontSize="20">Password*</Label>
-            <PasswordBox DockPanel.Dock="Bottom" x:Name="passwordRegister" FontSize="20"
-                     Margin="10,0"></PasswordBox>
-        </DockPanel>
-        <DockPanel Grid.Row="5">
-            <Label DockPanel.Dock="Top" FontSize="20">Photo Link</Label>
+            <Label DockPanel.Dock="Top" FontSize="20">Logo Link</Label>
             <DockPanel DockPanel.Dock="Bottom">
                 <Button DockPanel.Dock="Right"
                     Margin="10,0"
@@ -70,14 +69,13 @@
                 <TextBox DockPanel.Dock="Left" FontSize="20"
                      Margin="10,0,0,0"
                      HorizontalContentAlignment="Stretch"
-                 
-                 Text="{Binding NewUser.PhotoLink}"></TextBox>
+                     Text="{Binding NewPub.LogoLink}"></TextBox>
             </DockPanel>
         </DockPanel>
         <!--<Label FontSize="20"
                Content="All fields with * should be filled in"
                Foreground="Red"></Label>-->
-        <UniformGrid Grid.Row="6" Rows="1" Columns="2">
+        <UniformGrid Grid.Row="5" Rows="1" Columns="2">
             <Button FontSize="30"
                     Margin="10"
                     Command="{Binding CancelCommand}">Cancel</Button>
