@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="PubFinder.Views.UserAccountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PubFinder.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid Background="AliceBlue">
+        <Grid Height="50" VerticalAlignment="Top" Background="#FF0D16D6">
+            <materialDesign:PopupBox HorizontalAlignment="Right" 
+                                     PlacementMode="BottomAndAlignRightEdges"
+                                     StaysOpen="False"
+                                     Margin="5" Foreground="#FFFBFBFB">
+                <Button Content="Log out">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+
+                </Button>
+            </materialDesign:PopupBox>
+        </Grid>
+        <Grid Width="150" HorizontalAlignment="Left" Background="#FF3ACAF5">
+            <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="10"
+                            Width="60"
+                            Height="60"
+                            Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Height="25" Width="25"
+                                                 Foreground="#FF3ACAF5" Kind="Menu"/>
+                    </Button>
+                    <Button VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="10"
+                            Width="60"
+                            Height="60"
+                            Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Height="25" Width="25"
+                                                 Foreground="#FF3ACAF5"
+                                                 Kind="ArrowLeft" Visibility="Collapsed"/>
+                    </Button>
+                    <Image Width="60" Height="60" VerticalAlignment="Center"
+                           Margin="45,45,45,0" Source="../Icons/beerdaha_logo.png"></Image>
+                </Grid>
+                <ListView>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="RestaurantMenu"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="20 10" FontSize="20"
+                                       Width="100" Foreground="Indigo"
+                                       >Menu</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Beer"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="20 10" FontSize="20"
+                                       Width="100" Foreground="Indigo"
+                                       >Beer Sets</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

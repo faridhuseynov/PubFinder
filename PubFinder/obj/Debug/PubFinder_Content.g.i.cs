@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/starticon.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/beerdaha_logo.png")]
 
 
