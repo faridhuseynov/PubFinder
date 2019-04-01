@@ -19,6 +19,7 @@ namespace PubFinder
         private StartPageViewModel startPageViewModel;
         private UserSignUpViewModel userSignUpViewModel;
         private PubOwnerSignUpViewModel pubOwnerSignUpViewModel;
+        private UserAccountViewModel userAccountViewModel;
 
         private INavigationService navigationService;
         private IMessageService messageService;
@@ -43,10 +44,12 @@ namespace PubFinder
                 startPageViewModel = Container.Resolve<StartPageViewModel>();
                 userSignUpViewModel = Container.Resolve<UserSignUpViewModel>();
                 pubOwnerSignUpViewModel = Container.Resolve<PubOwnerSignUpViewModel>();
+                userAccountViewModel = Container.Resolve<UserAccountViewModel>();
 
                 navigationService.Register<StartPageViewModel>(startPageViewModel);
                 navigationService.Register<UserSignUpViewModel>(userSignUpViewModel);
                 navigationService.Register<PubOwnerSignUpViewModel>(pubOwnerSignUpViewModel);
+                navigationService.Register<UserAccountViewModel>(userAccountViewModel);
 
                 navigationService.Navigate<StartPageViewModel>();
             }

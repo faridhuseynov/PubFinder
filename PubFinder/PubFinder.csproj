@@ -145,6 +145,7 @@
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\PubOwnerSignUpViewModel.cs" />
+    <Compile Include="ViewModels\UserAccountViewModel.cs" />
     <Compile Include="ViewModels\UserSignUpViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
     <Compile Include="Views\AppView.xaml.cs">

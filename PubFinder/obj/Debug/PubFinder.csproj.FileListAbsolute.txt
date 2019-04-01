@@ -170,3 +170,11 @@ C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubOwnerSignUpVi
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserSignUpView.g.cs
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubOwnerSignUpView.baml
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserSignUpView.baml
+C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\MaterialDesignColors.dll
+C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserAccountView.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\App.baml
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserAccountView.baml

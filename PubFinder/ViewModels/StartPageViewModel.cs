@@ -57,28 +57,56 @@ namespace PubFinder.ViewModels
             get => loginCommand ?? (loginCommand = new RelayCommand<PasswordBox>(
                param =>
                {
-                   var UserCheck = db.Users.FirstOrDefault(x => x.UserName == userName);
-                   if (UserCheck == null)
+                   if (UserRadBut)
                    {
-                       MessageBox.Show("User with that username not found");
-                       return;
-                   }
-                   // Read the user's salt value from the database
-                   string saltValueFromDB = UserCheck.SaltValue;
-                   // Read the user's hash value from the database
-                   string hashValueFromDB = UserCheck.HashValue;
-                   byte[] saltedPassword = Encoding.UTF8.GetBytes(saltValueFromDB + param.Password);
-                   // Hash the salted password using SHA256
-                   SHA256Managed hashstring = new SHA256Managed();
-                   byte[] hash = hashstring.ComputeHash(saltedPassword);
-                   string hashToCompare = Convert.ToBase64String(hash);
-                   if (hashValueFromDB.Equals(hashToCompare))
-                   {
-                       Messenger.Default.Send(new UserLogInOutMessage { UserId = UserCheck.Id });
-                       //navigation.Navigate<SignUpPageViewModel>();
+                       var UserCheck = db.Users.FirstOrDefault(x => x.UserName == userName);
+                       if (UserCheck == null)
+                       {
+                           MessageBox.Show("User with that username not found");
+                           return;
+                       }
+                       // Read the user's salt value from the database
+                       string saltValueFromDB = UserCheck.SaltValue;
+                       // Read the user's hash value from the database
+                       string hashValueFromDB = UserCheck.HashValue;
+                       byte[] saltedPassword = Encoding.UTF8.GetBytes(saltValueFromDB + param.Password);
+                       // Hash the salted password using SHA256
+                       SHA256Managed hashstring = new SHA256Managed();
+                       byte[] hash = hashstring.ComputeHash(saltedPassword);
+                       string hashToCompare = Convert.ToBase64String(hash);
+                       if (hashValueFromDB.Equals(hashToCompare))
+                       {
+                           Messenger.Default.Send(new UserLogInOutMessage { UserId = UserCheck.Id });
+                           navigation.Navigate<UserAccountViewModel>();
+                       }
+                       else
+                           Console.WriteLine("Login credentials incorrect. User not validated.");
                    }
                    else
-                       Console.WriteLine("Login credentials incorrect. User not validated.");
+                   {
+                       var PubCheck = db.Pubs.FirstOrDefault(x => x.Name == Username);
+                       if (PubCheck == null)
+                       {
+                           MessageBox.Show("User with that username not found");
+                           return;
+                       }
+                       // Read the user's salt value from the database
+                       string saltValueFromDB = PubCheck.SaltValue;
+                       // Read the user's hash value from the database
+                       string hashValueFromDB = PubCheck.HashValue;
+                       byte[] saltedPassword = Encoding.UTF8.GetBytes(saltValueFromDB + param.Password);
+                       // Hash the salted password using SHA256
+                       SHA256Managed hashstring = new SHA256Managed();
+                       byte[] hash = hashstring.ComputeHash(saltedPassword);
+                       string hashToCompare = Convert.ToBase64String(hash);
+                       if (hashValueFromDB.Equals(hashToCompare))
+                       {
+                           Messenger.Default.Send(new PubLogInOutMessage { PubId = PubCheck.Id });
+                           navigation.Navigate<UserAccountViewModel>();
+                       }
+                       else
+                           Console.WriteLine("Login credentials incorrect. User not validated.");
+                   }
                }));
         }
     }
