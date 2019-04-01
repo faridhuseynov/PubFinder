@@ -178,3 +178,5 @@ C:\Users\Farid\source\repos\PubFinder\PubFinder\bin\Debug\MaterialDesignThemes.W
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserAccountView.g.cs
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\App.baml
 C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\UserAccountView.baml
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\Draft.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\Draft.baml
