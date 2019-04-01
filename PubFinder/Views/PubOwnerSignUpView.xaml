@@ -77,11 +77,13 @@
                Content="All fields with * should be filled in"
                Foreground="Red"></Label>-->
         <UniformGrid Grid.Row="6" Rows="1" Columns="2">
-            <Button FontSize="30"
+            <Button FontSize="25"
                     Margin="10"
+                    Padding="5,0"
                     Command="{Binding CancelCommand}">Cancel</Button>
-            <Button FontSize="30"
+            <Button FontSize="25"
                     Margin="10"
+                    Padding="5,0"
                     Command="{Binding RegisterCommand}"
                     CommandParameter="{Binding ElementName=passwordRegister}">Register</Button>
         </UniformGrid>
