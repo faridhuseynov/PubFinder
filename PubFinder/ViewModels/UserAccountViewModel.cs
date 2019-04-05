@@ -72,8 +72,8 @@ namespace PubFinder.ViewModels
             get => menuCloseCommand ?? (menuCloseCommand = new RelayCommand(
                 () =>
                 {
-                    MenuClose = true;
-                    MenuOpen = false;
+                    MenuClose = false;
+                    MenuOpen = true;
                 }
             ));
         }
@@ -84,8 +84,8 @@ namespace PubFinder.ViewModels
             get => menuOpenCommand ?? (menuOpenCommand = new RelayCommand(
                 () =>
                 {
-                    MenuClose = false;
-                    MenuOpen = true;
+                    MenuClose = true;
+                    MenuOpen = false;
                 }
             ));
         }
