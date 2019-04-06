@@ -101,6 +101,42 @@ namespace PubFinder.ViewModels
                 }
             ));
         }
-        
+
+        private RelayCommand favoritePubSelectedCommand;
+        public RelayCommand FavoritePubSelectedCommand
+        {
+            get => favoritePubSelectedCommand ?? (favoritePubSelectedCommand = new RelayCommand(
+                () =>
+                {
+                    //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+                    //navigation.Navigate<StartPageViewModel>();
+                }
+            ));
+        }
+
+        private RelayCommand feedbackSelectedCommand;
+        public RelayCommand FeedbackSelectedCommand
+        {
+            get => feedbackSelectedCommand ?? (feedbackSelectedCommand = new RelayCommand(
+                () =>
+                {
+                    //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+                    //navigation.Navigate<StartPageViewModel>();
+                }
+            ));
+        }
+
+        private RelayCommand savedEventsSelectedCommand;
+        public RelayCommand SavedEventsSelectedCommand
+        {
+            get => eventSelectedCommand ?? (eventSelectedCommand = new RelayCommand(
+                () =>
+                {
+                    //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+                    //navigation.Navigate<StartPageViewModel>();
+                }
+            ));
+        }
+
     }
 }
