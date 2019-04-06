@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:local="clr-namespace:PubFinder.Views"
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -23,6 +24,17 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <DataTemplate x:Key="pubLbTemplate">
+            <DockPanel LastChildFill="True">                
+                <Image DockPanel.Dock="Left" Source="{Binding LogoLink}"></Image>
+                <Label DockPanel.Dock="Right" Content="4.2"
+                       Foreground="Green" FontWeight="Bold"
+                       FontSize="20" Background="AliceBlue"></Label>
+                <Label DockPanel.Dock="Right" FontSize="20"
+                       Content="{Binding Name}" Background="AliceBlue"
+                       Foreground="DarkGoldenrod"></Label>
+            </DockPanel>
+        </DataTemplate>
     </UserControl.Resources>
 
     <UserControl.Triggers>
@@ -40,7 +52,7 @@
                                      PlacementMode="BottomAndAlignRightEdges"
                                      StaysOpen="False"
                                      Margin="5" Foreground="#FFFBFBFB">
-                <Button Content="Log out">
+                <Button Content="Log out" Command="{Binding LogOutCommand}">
                     <Button.Background>
                         <ImageBrush/>
                     </Button.Background>
@@ -75,17 +87,17 @@
                                                  Foreground="#FF3ACAF5"
                                                  Kind="Menu"/>
                     </Button>
-                    <Ellipse Width="80" Height="80" Margin="45,45,45,0">
+                    <Ellipse Width="80" Height="80" Margin="25,45,45,0">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
                         </Ellipse.Fill>
                     </Ellipse>
-                    <!--<Image Width="60" Height="60" VerticalAlignment="Center"
+                    <Image Width="60" Height="60" VerticalAlignment="Center"
                            Margin="45,45,45,0" Source="{Binding ActiveUser.PhotoLink}">
                         <Image.OpacityMask>
                             <ImageBrush/>
                         </Image.OpacityMask>
-                    </Image>-->
+                    </Image>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="60">
@@ -101,6 +113,11 @@
                                        Width="100" Foreground="Indigo"
                                        >Pubs</TextBlock>
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding PubSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
@@ -147,5 +164,11 @@
                 </ListView>
             </StackPanel>
         </Grid>
+        <ListBox Margin="200,140,0,0" HorizontalAlignment="Stretch"
+                 ItemsSource="{Binding Pubs}" Width="350" Height="450"
+                 ItemTemplate="{StaticResource pubLbTemplate}"
+                 HorizontalContentAlignment="Stretch"
+                 >
+        </ListBox>
     </Grid>
 </UserControl>

@@ -48,6 +48,8 @@ namespace PubFinder.Models
 
         public User(User user)
         {
+            if (user!=null)
+            {
             Name = user.Name;
             Surname = user.Surname;
             UserName = user.UserName;
@@ -56,6 +58,8 @@ namespace PubFinder.Models
             PhotoLink = user.PhotoLink;
             Email = user.Email;
             Id = user.Id;
+
+            }
             //User newUser = new User();
             //newUser=user;
         }

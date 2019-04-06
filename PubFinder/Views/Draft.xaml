@@ -8,8 +8,9 @@
 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
         <!--ListView for the Pub review-->
+
+    <Grid>
         <ListView>
             <ListViewItem Height="60">
                 <StackPanel Orientation="Horizontal">
@@ -65,4 +66,5 @@
             </ListViewItem>
         </ListView>  
     </Grid>
+
 </UserControl>

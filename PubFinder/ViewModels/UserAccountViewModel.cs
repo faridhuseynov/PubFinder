@@ -89,5 +89,18 @@ namespace PubFinder.ViewModels
                 }
             ));
         }
+
+        private RelayCommand logOutCommand;
+        public RelayCommand LogOutCommand
+        {
+            get => logOutCommand ?? (logOutCommand = new RelayCommand(
+                () =>
+                {
+                    Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+                    navigation.Navigate<StartPageViewModel>();
+                }
+            ));
+        }
+        
     }
 }

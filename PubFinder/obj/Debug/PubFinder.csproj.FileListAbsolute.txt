@@ -362,3 +362,5 @@ C:\Users\husf32\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.csproj.Core
 C:\Users\husf32\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.csproj.CopyComplete
 C:\Users\husf32\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.exe
 C:\Users\husf32\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.pdb
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\x.g.cs
+C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\Views\x.baml
