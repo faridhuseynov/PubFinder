@@ -23,6 +23,8 @@
     <DataTemplate DataType="{x:Type vm:UserMenuViewModel}">
         <v2:UserMenuView />
     </DataTemplate>
-
+    <DataTemplate DataType="{x:Type vm:UserBeerSetViewModel}">
+        <v2:UserBeerSetView />
+    </DataTemplate>
 
 </ResourceDictionary>

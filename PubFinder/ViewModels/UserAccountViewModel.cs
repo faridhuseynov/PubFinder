@@ -134,7 +134,6 @@ namespace PubFinder.ViewModels
             get => pubSelectedCommand ?? (pubSelectedCommand = new RelayCommand(
                 () =>
                 {
-                    var test = SelectedItem;
                     Messenger.Default.Send(new PubSelectedMessage() { PubId = SelectedItem.Id });
                     navigation.Navigate<UserMenuViewModel>();
 

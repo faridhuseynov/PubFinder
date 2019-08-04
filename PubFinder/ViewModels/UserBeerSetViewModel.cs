@@ -7,18 +7,16 @@ using PubFinder.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Data;
 
 namespace PubFinder.ViewModels
 {
-    class UserMenuViewModel : ViewModelBase
+    class UserBeerSetViewModel : ViewModelBase
     {
         //created this temporarily for testing the view. Instead of this will have quantity of setItem
+        public int QuantityTest { get; set; }
         private ObservableCollection<BeerSet> beerSets = new ObservableCollection<BeerSet>();
         public ObservableCollection<BeerSet> BeerSets { get => beerSets; set => Set(ref beerSets, value); }
 
@@ -47,7 +45,7 @@ namespace PubFinder.ViewModels
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
         private readonly IMessageService message;
-        public UserMenuViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
+        public UserBeerSetViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
         {
             this.navigation = navigation;
             this.db = db;
@@ -59,25 +57,26 @@ namespace PubFinder.ViewModels
                 ActiveUser = new User(db.Users.FirstOrDefault(x => x.Id == LoggedInUser));
             }, true);
             Messenger.Default.Register<PubSelectedMessage>(this, msg =>
-             {
-                 Pub = new Pub();
-                 Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
-                 BeerSets = new ObservableCollection<BeerSet>(db.BeerSets.Where(x => x.PubId == Pub.Id));
-                 //foreach (var item in BeerSets)
-                 //{
-                 //    item.SetItems = new ObservableCollection<SetItem>();
-                 //    item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
-                 //}
-             }, true);
+            {
+                Pub = new Pub();
+                Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
+                BeerSets = new ObservableCollection<BeerSet>(db.BeerSets.Where(x => x.PubId == Pub.Id));
+                    //foreach (var item in BeerSets)
+                    //{
+                    //    item.SetItems = new ObservableCollection<SetItem>();
+                    //    item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
+                    //}
+                }, true);
         }
-        
-        private RelayCommand beerSetSelectedCommand;
-        public RelayCommand BeerSetSelectedCommand
+
+        private RelayCommand setSelectedCommand;
+        public RelayCommand SetSelectedCommand
         {
-            get => beerSetSelectedCommand ?? (beerSetSelectedCommand = new RelayCommand(
+            get => setSelectedCommand ?? (setSelectedCommand = new RelayCommand(
                 () =>
                 {
-                    navigation.Navigate<UserBeerSetViewModel>();
+                    var test = SelectedSet;
+                    BeerSetItems = new ObservableCollection<SetItem>(db.SetItems.Where(x => x.BeerSetId == SelectedSet.Id));
                 }
             ));
         }

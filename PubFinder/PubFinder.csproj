@@ -228,6 +228,7 @@
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\PubOwnerSignUpViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
+    <Compile Include="ViewModels\UserBeerSetViewModel.cs" />
     <Compile Include="ViewModels\UserMenuViewModel.cs" />
     <Compile Include="ViewModels\UserSignUpViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
@@ -239,6 +240,9 @@
     </Compile>
     <Compile Include="Views\PubOwnerSignUpView.xaml.cs">
       <DependentUpon>PubOwnerSignUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PubViews\UserBeerSetView.xaml.cs">
+      <DependentUpon>UserBeerSetView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PubViews\UserMenuView.xaml.cs">
       <DependentUpon>UserMenuView.xaml</DependentUpon>
@@ -330,6 +334,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PubOwnerSignUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PubViews\UserBeerSetView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

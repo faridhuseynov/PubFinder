@@ -7,6 +7,7 @@
     { "type": "PubFinder.ViewModels.PubOwnerSignUpViewModel" },
     { "type": "PubFinder.ViewModels.UserAccountViewModel" },
     { "type": "PubFinder.ViewModels.UserMenuViewModel" },
+    { "type": "PubFinder.ViewModels.UserBeerSetViewModel" },
 
     {
       "type": "PubFinder.Models.AppDbContext",
