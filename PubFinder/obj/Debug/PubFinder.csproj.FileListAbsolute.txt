@@ -582,3 +582,5 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\System.Interactive.Asy
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.FavoritePubs.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserMenuView.g.cs
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserMenuView.baml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.BeerSetAdded.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.BeerSetAdded2.resources

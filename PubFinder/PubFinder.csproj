@@ -192,10 +192,20 @@
     <Compile Include="Migrations\201908040538519_FavoritePubs.Designer.cs">
       <DependentUpon>201908040538519_FavoritePubs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908040823558_BeerSetAdded.cs" />
+    <Compile Include="Migrations\201908040823558_BeerSetAdded.Designer.cs">
+      <DependentUpon>201908040823558_BeerSetAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908040825244_BeerSetAdded2.cs" />
+    <Compile Include="Migrations\201908040825244_BeerSetAdded2.Designer.cs">
+      <DependentUpon>201908040825244_BeerSetAdded2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
+    <Compile Include="Models\BeerSet.cs" />
     <Compile Include="Models\FavoritePub.cs" />
     <Compile Include="Models\Pub.cs" />
+    <Compile Include="Models\SetItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\INavigationService.cs" />
@@ -258,6 +268,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908040538519_FavoritePubs.resx">
       <DependentUpon>201908040538519_FavoritePubs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908040823558_BeerSetAdded.resx">
+      <DependentUpon>201908040823558_BeerSetAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908040825244_BeerSetAdded2.resx">
+      <DependentUpon>201908040825244_BeerSetAdded2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
