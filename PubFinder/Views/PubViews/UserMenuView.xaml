@@ -39,6 +39,21 @@
                 </DockPanel>
             </DockPanel>
         </DataTemplate>
+        <DataTemplate x:Key="beerSetItemsLbTemplate">
+            <DockPanel LastChildFill="False" Background="{x:Null}">
+                <Label DockPanel.Dock="Left" Content="{Binding Quantity}"
+                       Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
+                       FontSize="20" Background="AliceBlue"></Label>
+                <DockPanel DockPanel.Dock="Right" LastChildFill="False" HorizontalAlignment="Center">
+                    <Label DockPanel.Dock="Left" Content=" x "
+                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
+                       FontSize="20" Background="AliceBlue"></Label>
+                    <Label DockPanel.Dock="Right" Content="{Binding Product}"
+                       Foreground="Green" FontWeight="Bold" HorizontalContentAlignment="Stretch"
+                       FontSize="20" Background="AliceBlue"></Label>
+                </DockPanel>
+            </DockPanel>
+        </DataTemplate>
     </UserControl.Resources>
 
     <UserControl.Triggers>
@@ -198,9 +213,14 @@
                 </ListView>
             </StackPanel>
         </Grid>
-        <ListBox Margin="100,160,0,0" HorizontalAlignment="Right"
-                 SelectedIndex="{Binding SelectedSetIndex}"
-                 ItemsSource="{Binding BeerSets}" Width="420" Height="430"
+        <Grid Margin="100,160,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" HorizontalAlignment="Right"
+                 SelectedItem="{Binding SelectedSet}"
+                 ItemsSource="{Binding BeerSets}" Width="420"
                  ItemTemplate="{StaticResource beerSetLbTemplate}"
                  HorizontalContentAlignment="Stretch">
             <i:Interaction.Triggers>
@@ -209,5 +229,16 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListBox>
+            <ListBox Grid.Row="1" HorizontalAlignment="Right" Margin="0 20px 20px 20px"
+                 ItemsSource="{Binding BeerSetItems}" Width="420"
+                 ItemTemplate="{StaticResource beerSetItemsLbTemplate}"
+                 HorizontalContentAlignment="Stretch">
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding SetSelectedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+            </ListBox>
+        </Grid>
     </Grid>
 </UserControl>

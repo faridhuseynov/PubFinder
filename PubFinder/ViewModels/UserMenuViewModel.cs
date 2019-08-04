@@ -40,14 +40,17 @@ namespace PubFinder.ViewModels
         private ObservableCollection<BeerSet> beerSets = new ObservableCollection<BeerSet>();
         public ObservableCollection<BeerSet> BeerSets { get => beerSets; set => Set(ref beerSets, value); }
 
+        private ObservableCollection<SetItem> beerSetItems = new ObservableCollection<SetItem>();
+        public ObservableCollection<SetItem> BeerSetItems { get => beerSetItems; set => Set(ref beerSetItems, value); }
+
         private Pub pub = new Pub();
         public Pub Pub { get => pub; set => Set(ref pub, value); }
 
         private int loggedInUser = new int();
         public int LoggedInUser { get => loggedInUser; set => Set(ref loggedInUser, value); }
 
-        private int selectedSetIndex = new int();
-        public int SelectedSetIndex { get => selectedSetIndex; set => Set(ref selectedSetIndex, value); }
+        private BeerSet selectedSet = new BeerSet();
+        public BeerSet SelectedSet { get => selectedSet; set => Set(ref selectedSet, value); }
 
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
@@ -78,11 +81,11 @@ namespace PubFinder.ViewModels
                  Pub = new Pub();
                  Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
                  BeerSets = new ObservableCollection<BeerSet>(db.BeerSets.Where(x => x.PubId == Pub.Id));
-                 foreach (var item in BeerSets)
-                 {
-                     item.SetItems = new ObservableCollection<SetItem>();
-                     item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
-                 }
+                 //foreach (var item in BeerSets)
+                 //{
+                 //    item.SetItems = new ObservableCollection<SetItem>();
+                 //    item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
+                 //}
              }, true);
         }
 
@@ -92,8 +95,8 @@ namespace PubFinder.ViewModels
             get => setSelectedCommand ?? (setSelectedCommand = new RelayCommand(
                 () =>
                 {
-                    MenuClose = false;
-                    MenuOpen = true;
+                    var test = SelectedSet;
+                    BeerSetItems = new ObservableCollection<SetItem>(db.SetItems.Where(x => x.BeerSetId == SelectedSet.Id));
                 }
             ));
         }
