@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Farid\source\repos\PubFinder\PubFinder\obj\Debug\
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\
 PubFinder
 none
 false
 DEBUG;TRACE
-C:\Users\Farid\source\repos\PubFinder\PubFinder\App.xaml
-91065737186
+C:\Users\FH189\source\repos\PubFinder\PubFinder\App.xaml
+10-2041938634
 
-271300982990
-145-795683514
-Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\PubOwnerSignUpView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;Views\x.xaml;
+3758309502
+159-1135729171
+Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\PubOwnerSignUpView.xaml;Views\PubViews\UserMenuView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;Views\x.xaml;
 
 False
 

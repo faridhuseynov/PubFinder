@@ -16,7 +16,7 @@ using System.Windows.Data;
 
 namespace PubFinder.ViewModels
 {
-    public class BoolToVisibilityConverter : IValueConverter
+    public class BooleanToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -125,18 +125,28 @@ namespace PubFinder.ViewModels
                 }
             ));
         }
-
-        private RelayCommand savedEventsSelectedCommand;
-        public RelayCommand SavedEventsSelectedCommand
+        private RelayCommand pubSelectedCommand;
+        public RelayCommand PubSelectedCommand
         {
-            get => eventSelectedCommand ?? (eventSelectedCommand = new RelayCommand(
+            get => pubSelectedCommand ?? (pubSelectedCommand = new RelayCommand(
                 () =>
                 {
-                    //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
-                    //navigation.Navigate<StartPageViewModel>();
+                    navigation.Navigate<UserMenuViewModel>();
+
                 }
             ));
         }
+        //private RelayCommand savedEventsSelectedCommand;
+        //public RelayCommand SavedEventsSelectedCommand
+        //{
+        //    get => eventSelectedCommand ?? (eventSelectedCommand = new RelayCommand(
+        //        () =>
+        //        {
+        //            //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+        //            //navigation.Navigate<StartPageViewModel>();
+        //        }
+        //    ));
+        //}
 
     }
 }

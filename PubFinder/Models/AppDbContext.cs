@@ -13,9 +13,12 @@ namespace PubFinder.Models
         {
 
         }
+
+       
         public DbSet<User> Users { get; set; }
         //public DbSet<Menu> Menus { get; set; }
         public DbSet<Pub> Pubs { get; set; }
+        public DbSet<FavoritePub> FavoritePubs { get; set; }
         //public DbSet<Event> Events { get; set; }
         //public DbSet<Comment> Comments { get; set; }
 

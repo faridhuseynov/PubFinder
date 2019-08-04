@@ -2,7 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PubFinder.Resources"
                     xmlns:vm="clr-namespace:PubFinder.ViewModels"
-                    xmlns:v="clr-namespace:PubFinder.Views">
+                    xmlns:v="clr-namespace:PubFinder.Views"
+    xmlns:v2="clr-namespace:PubFinder.Views.PubViews">
+
     <DataTemplate DataType="{x:Type vm:StartPageViewModel}">
         <v:StartPageView/>
     </DataTemplate>
@@ -18,5 +20,9 @@
     <DataTemplate DataType="{x:Type vm:UserAccountViewModel}">
         <v:UserAccountView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:UserMenuViewModel}">
+        <v2:UserMenuView />
+    </DataTemplate>
+
 
 </ResourceDictionary>

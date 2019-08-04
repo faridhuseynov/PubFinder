@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\husf32\Source\Repos\PubFinder\PubFinder\obj\Release\
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Release\
 PubFinder
 none
 false
 TRACE
-C:\Users\husf32\Source\Repos\PubFinder\PubFinder\App.xaml
-8-1395560695
+C:\Users\FH189\source\repos\PubFinder\PubFinder\App.xaml
+91065737186
 
-261971082480
-1451131473905
-Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\PubOwnerSignUpView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;
+271300982990
+1451318964538
+Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\PubOwnerSignUpView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;Views\x.xaml;
 
 True
 

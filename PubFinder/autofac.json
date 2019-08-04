@@ -6,6 +6,7 @@
     { "type": "PubFinder.ViewModels.UserSignUpViewModel" },
     { "type": "PubFinder.ViewModels.PubOwnerSignUpViewModel" },
     { "type": "PubFinder.ViewModels.UserAccountViewModel" },
+    { "type": "PubFinder.ViewModels.UserMenuViewModel" },
 
     {
       "type": "PubFinder.Models.AppDbContext",
