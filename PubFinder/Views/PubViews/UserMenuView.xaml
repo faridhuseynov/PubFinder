@@ -24,15 +24,19 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
-        <DataTemplate x:Key="pubLbTemplate">
-            <DockPanel LastChildFill="True">
-                <Image DockPanel.Dock="Left" Source="{Binding LogoLink}" Width="50"></Image>
-                <Label DockPanel.Dock="Right" Content="4.2"
-                       Foreground="Green" FontWeight="Bold"
+        <DataTemplate x:Key="beerSetLbTemplate">
+            <DockPanel LastChildFill="False" Background="{x:Null}">
+                <Label DockPanel.Dock="Top" Content="{Binding Name}"
+                       Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
                        FontSize="20" Background="AliceBlue"></Label>
-                <Label DockPanel.Dock="Right" FontSize="20"
-                       Content="{Binding Name}" Background="AliceBlue"
-                       Foreground="DarkGoldenrod"></Label>
+                <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" HorizontalAlignment="Center">
+                    <Label DockPanel.Dock="Left" Content="{Binding Price}"
+                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
+                       FontSize="20" Background="AliceBlue"></Label>
+                    <Label DockPanel.Dock="Right" Content="AZN"
+                       Foreground="Green" FontWeight="Bold" HorizontalContentAlignment="Stretch"
+                       FontSize="20" Background="AliceBlue"></Label>
+                </DockPanel>
             </DockPanel>
         </DataTemplate>
     </UserControl.Resources>
@@ -115,7 +119,7 @@
                                        >Menu</TextBlock>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Beer"
                                                      Foreground="Indigo"
@@ -195,12 +199,13 @@
             </StackPanel>
         </Grid>
         <ListBox Margin="100,160,0,0" HorizontalAlignment="Right"
-                 ItemsSource="{Binding Pubs}" Width="420" Height="430"
-                 ItemTemplate="{StaticResource pubLbTemplate}"
+                 SelectedIndex="{Binding SelectedSetIndex}"
+                 ItemsSource="{Binding BeerSets}" Width="420" Height="430"
+                 ItemTemplate="{StaticResource beerSetLbTemplate}"
                  HorizontalContentAlignment="Stretch">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding PubSelectedCommand}"/>
+                    <i:InvokeCommandAction Command="{Binding SetSelectedCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListBox>

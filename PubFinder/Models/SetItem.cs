@@ -8,8 +8,10 @@ namespace PubFinder.Models
 {
     class SetItem
     {
-
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Product { get; set; }
         public int Quantity { get; set; }
+        public int BeerSetId { get; set; }
+        public BeerSet BeerSet { get; set; }
     }
 }

@@ -26,8 +26,8 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <DataTemplate x:Key="pubLbTemplate">
             <DockPanel LastChildFill="True">                
-                <Image DockPanel.Dock="Left" Source="{Binding LogoLink}" Width="50"></Image>
-                <Label DockPanel.Dock="Right" Content="4.2"
+                <Image DockPanel.Dock="Left"  Source="{Binding LogoLink}" Width="50"></Image>
+                <Label DockPanel.Dock="Right"  Content="4.2"
                        Foreground="Green" FontWeight="Bold"
                        FontSize="20" Background="AliceBlue"></Label>
                 <Label DockPanel.Dock="Right" FontSize="20"
@@ -99,9 +99,9 @@
                         </Image.OpacityMask>
                     </Image>
                 </Grid>
-                <ListView SelectedIndex="0"
+                <ListView 
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Restaurant"
                                                      Foreground="Indigo"
@@ -178,6 +178,7 @@
         <ListBox Margin="100,160,0,0" HorizontalAlignment="Right"
                  ItemsSource="{Binding Pubs}" Width="420" Height="430"
                  ItemTemplate="{StaticResource pubLbTemplate}"
+                 SelectedItem ="{Binding SelectedItem}"
                  HorizontalContentAlignment="Stretch">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">

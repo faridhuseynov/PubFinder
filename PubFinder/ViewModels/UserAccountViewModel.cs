@@ -43,6 +43,9 @@ namespace PubFinder.ViewModels
 
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
+        private Pub selectedItem;
+
+        public Pub SelectedItem {get => selectedItem; set => Set(ref selectedItem, value); }
 
         private bool menuOpen = true;
         public bool MenuOpen { get => menuOpen; set => Set(ref menuOpen, value); }
@@ -131,6 +134,8 @@ namespace PubFinder.ViewModels
             get => pubSelectedCommand ?? (pubSelectedCommand = new RelayCommand(
                 () =>
                 {
+                    var test = SelectedItem;
+                    Messenger.Default.Send(new PubSelectedMessage() { PubId = SelectedItem.Id });
                     navigation.Navigate<UserMenuViewModel>();
 
                 }

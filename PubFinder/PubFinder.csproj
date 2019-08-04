@@ -179,6 +179,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Messages\PubLogInOutMessage.cs" />
+    <Compile Include="Messages\PubSelectedMessage.cs" />
     <Compile Include="Messages\UserLogInOutMessage.cs" />
     <Compile Include="Migrations\201904281953445_InitialCreate.cs" />
     <Compile Include="Migrations\201904281953445_InitialCreate.Designer.cs">
@@ -199,6 +200,18 @@
     <Compile Include="Migrations\201908040825244_BeerSetAdded2.cs" />
     <Compile Include="Migrations\201908040825244_BeerSetAdded2.Designer.cs">
       <DependentUpon>201908040825244_BeerSetAdded2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908040838193_UpdatedBeerSetAndSetItemModels.cs" />
+    <Compile Include="Migrations\201908040838193_UpdatedBeerSetAndSetItemModels.Designer.cs">
+      <DependentUpon>201908040838193_UpdatedBeerSetAndSetItemModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908040839466_UpdatedBeerSetAndSetItemModels2.cs" />
+    <Compile Include="Migrations\201908040839466_UpdatedBeerSetAndSetItemModels2.Designer.cs">
+      <DependentUpon>201908040839466_UpdatedBeerSetAndSetItemModels2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908040902209_UpdatedBeerSetAndSetItemModels3.cs" />
+    <Compile Include="Migrations\201908040902209_UpdatedBeerSetAndSetItemModels3.Designer.cs">
+      <DependentUpon>201908040902209_UpdatedBeerSetAndSetItemModels3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
@@ -274,6 +287,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908040825244_BeerSetAdded2.resx">
       <DependentUpon>201908040825244_BeerSetAdded2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908040838193_UpdatedBeerSetAndSetItemModels.resx">
+      <DependentUpon>201908040838193_UpdatedBeerSetAndSetItemModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908040839466_UpdatedBeerSetAndSetItemModels2.resx">
+      <DependentUpon>201908040839466_UpdatedBeerSetAndSetItemModels2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908040902209_UpdatedBeerSetAndSetItemModels3.resx">
+      <DependentUpon>201908040902209_UpdatedBeerSetAndSetItemModels3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

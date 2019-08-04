@@ -584,3 +584,6 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserMen
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserMenuView.baml
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.BeerSetAdded.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.BeerSetAdded2.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.UpdatedBeerSetAndSetItemModels.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.UpdatedBeerSetAndSetItemModels2.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.UpdatedBeerSetAndSetItemModels3.resources

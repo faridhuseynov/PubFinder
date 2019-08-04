@@ -34,7 +34,7 @@ namespace PubFinder.Models
 
         public string SaltValue { get; set; }
         public string HashValue { get; set; }
-
+        public IEnumerable<BeerSet> BeerSets { get; set; }
         //public IEnumerable<Ranking> Rankings { get; set; }
 
         //public IEnumerable<Menu> Menus { get; set; }
