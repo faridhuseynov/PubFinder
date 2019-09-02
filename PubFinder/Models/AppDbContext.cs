@@ -21,6 +21,8 @@ namespace PubFinder.Models
         public DbSet<FavoritePub> FavoritePubs { get; set; }
         public DbSet<BeerSet> BeerSets { get; set; }
         public DbSet<SetItem> SetItems { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
         //public DbSet<Event> Events { get; set; }
         //public DbSet<Comment> Comments { get; set; }
 

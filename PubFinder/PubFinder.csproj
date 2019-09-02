@@ -213,10 +213,20 @@
     <Compile Include="Migrations\201908040902209_UpdatedBeerSetAndSetItemModels3.Designer.cs">
       <DependentUpon>201908040902209_UpdatedBeerSetAndSetItemModels3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909021810070_MenuAndMenuItems.cs" />
+    <Compile Include="Migrations\201909021810070_MenuAndMenuItems.Designer.cs">
+      <DependentUpon>201909021810070_MenuAndMenuItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909021813070_PubUpdatedWithMenus.cs" />
+    <Compile Include="Migrations\201909021813070_PubUpdatedWithMenus.Designer.cs">
+      <DependentUpon>201909021813070_PubUpdatedWithMenus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
     <Compile Include="Models\FavoritePub.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Pub.cs" />
     <Compile Include="Models\SetItem.cs" />
     <Compile Include="Models\User.cs" />
@@ -300,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908040902209_UpdatedBeerSetAndSetItemModels3.resx">
       <DependentUpon>201908040902209_UpdatedBeerSetAndSetItemModels3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021810070_MenuAndMenuItems.resx">
+      <DependentUpon>201909021810070_MenuAndMenuItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021813070_PubUpdatedWithMenus.resx">
+      <DependentUpon>201909021813070_PubUpdatedWithMenus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
