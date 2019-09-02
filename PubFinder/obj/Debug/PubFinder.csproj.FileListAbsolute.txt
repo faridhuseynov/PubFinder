@@ -591,3 +591,4 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserBee
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserBeerSetView.baml
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.MenuAndMenuItems.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.PubUpdatedWithMenus.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RankRemovedFromMenu.resources

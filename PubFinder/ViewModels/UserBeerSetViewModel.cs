@@ -76,7 +76,8 @@ namespace PubFinder.ViewModels
             get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
-                  navigation.Navigate<UserMenuViewModel>();
+                    BeerSetItems = null;
+                    navigation.Navigate<UserMenuViewModel>();
                 }
             ));
         }
@@ -102,6 +103,7 @@ namespace PubFinder.ViewModels
             get => returnToPubsCommand ?? (returnToPubsCommand = new RelayCommand(
                 () =>
                 {
+                    BeerSetItems = null;
                     navigation.Navigate<UserAccountViewModel>();
                 }
             ));

@@ -87,7 +87,21 @@ namespace PubFinder.ViewModels
             get => goToBeerSetPageCommand ?? (goToBeerSetPageCommand = new RelayCommand(
                 () =>
                 {
+                    MenuItems = null;
                     navigation.Navigate<UserBeerSetViewModel>();
+                }
+            ));
+        }
+
+        //this function redirects directly to Pubs usercontrol
+        private RelayCommand returnToPubsCommand;
+        public RelayCommand ReturnToPubsCommand
+        {
+            get => returnToPubsCommand ?? (returnToPubsCommand = new RelayCommand(
+                () =>
+                {
+                    MenuItems = null;
+                    navigation.Navigate<UserAccountViewModel>();
                 }
             ));
         }

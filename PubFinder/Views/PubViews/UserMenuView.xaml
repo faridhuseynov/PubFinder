@@ -222,6 +222,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.4*"></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
         <ListBox Grid.Row="0" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedMenu}"
@@ -244,6 +245,11 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>-->
             </ListBox>
+            <Button Grid.Row="2" VerticalAlignment="Bottom"
+                    Margin="0 0 20 20"
+                    Command="{Binding ReturnToPubsCommand}">
+                Back to Pubs
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

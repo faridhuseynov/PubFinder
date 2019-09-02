@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201909021813070_PubUpdatedWithMenus.Designer.cs">
       <DependentUpon>201909021813070_PubUpdatedWithMenus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909021920413_RankRemovedFromMenu.cs" />
+    <Compile Include="Migrations\201909021920413_RankRemovedFromMenu.Designer.cs">
+      <DependentUpon>201909021920413_RankRemovedFromMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
@@ -316,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909021813070_PubUpdatedWithMenus.resx">
       <DependentUpon>201909021813070_PubUpdatedWithMenus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909021920413_RankRemovedFromMenu.resx">
+      <DependentUpon>201909021920413_RankRemovedFromMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
