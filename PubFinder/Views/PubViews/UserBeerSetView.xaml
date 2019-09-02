@@ -133,6 +133,11 @@
                                        Width="100" Foreground="Indigo"
                                        >Menu</TextBlock>
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToMenuPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ListViewItem>
                     <ListViewItem Height="60" IsSelected="True">
                         <StackPanel Orientation="Horizontal">
@@ -147,11 +152,11 @@
                                        Width="100" Foreground="Indigo"
                                        >Beer Sets</TextBlock>
                         </StackPanel>
-                        <i:Interaction.Triggers>
+                        <!--<i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
                                 <i:InvokeCommandAction Command="{Binding FavoritePubSelectedCommand}"/>
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                        </i:Interaction.Triggers>-->
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
@@ -217,6 +222,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.4*"></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <ListBox Grid.Row="0" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedSet}"
@@ -225,7 +231,7 @@
                  HorizontalContentAlignment="Stretch">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding SetSelectedCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding BeerSetSelectedCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ListBox>
@@ -239,6 +245,11 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>-->
             </ListBox>
+            <Button Grid.Row="2" VerticalAlignment="Bottom"
+                    Margin="0 0 20 20"
+                    Command="{Binding ReturnToPubsCommand}">
+                Back to Pubs
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

@@ -19,11 +19,11 @@ namespace PubFinder.ViewModels
     class UserMenuViewModel : ViewModelBase
     {
         //created this temporarily for testing the view. Instead of this will have quantity of setItem
-        private ObservableCollection<BeerSet> beerSets = new ObservableCollection<BeerSet>();
-        public ObservableCollection<BeerSet> BeerSets { get => beerSets; set => Set(ref beerSets, value); }
+        private ObservableCollection<Menu> menus = new ObservableCollection<Menu>();
+        public ObservableCollection<Menu> Menus { get => menus; set => Set(ref menus, value); }
 
-        private ObservableCollection<SetItem> beerSetItems = new ObservableCollection<SetItem>();
-        public ObservableCollection<SetItem> BeerSetItems { get => beerSetItems; set => Set(ref beerSetItems, value); }
+        private ObservableCollection<MenuItem> menuItems = new ObservableCollection<MenuItem>();
+        public ObservableCollection<MenuItem> MenuItems { get => menuItems; set => Set(ref menuItems, value); }
 
         private Pub pub = new Pub();
         public Pub Pub { get => pub; set => Set(ref pub, value); }
@@ -31,8 +31,8 @@ namespace PubFinder.ViewModels
         private int loggedInUser = new int();
         public int LoggedInUser { get => loggedInUser; set => Set(ref loggedInUser, value); }
 
-        private BeerSet selectedSet = new BeerSet();
-        public BeerSet SelectedSet { get => selectedSet; set => Set(ref selectedSet, value); }
+        private Menu selectedMenu = new Menu();
+        public Menu SelectedMenu { get => selectedMenu; set => Set(ref selectedMenu, value); }
 
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
@@ -62,7 +62,7 @@ namespace PubFinder.ViewModels
              {
                  Pub = new Pub();
                  Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
-                 BeerSets = new ObservableCollection<BeerSet>(db.BeerSets.Where(x => x.PubId == Pub.Id));
+                 Menus = new ObservableCollection<Menu>(db.Menus.Where(x => x.PubId == Pub.Id));
                  //foreach (var item in BeerSets)
                  //{
                  //    item.SetItems = new ObservableCollection<SetItem>();
@@ -70,11 +70,21 @@ namespace PubFinder.ViewModels
                  //}
              }, true);
         }
-        
-        private RelayCommand beerSetSelectedCommand;
-        public RelayCommand BeerSetSelectedCommand
+
+        private RelayCommand menuSelectedCommand;
+        public RelayCommand MenuSelectedCommand
         {
-            get => beerSetSelectedCommand ?? (beerSetSelectedCommand = new RelayCommand(
+            get => menuSelectedCommand ?? (menuSelectedCommand = new RelayCommand(
+                () =>
+                {
+                    MenuItems = new ObservableCollection<MenuItem>(db.MenuItems.Where(x => x.MenuId == SelectedMenu.Id));
+                }
+            ));
+        }
+        private RelayCommand goToBeerSetPageCommand;
+        public RelayCommand GoToBeerSetPageCommand
+        {
+            get => goToBeerSetPageCommand ?? (goToBeerSetPageCommand = new RelayCommand(
                 () =>
                 {
                     navigation.Navigate<UserBeerSetViewModel>();

@@ -69,18 +69,43 @@ namespace PubFinder.ViewModels
                 }, true);
         }
 
-        private RelayCommand setSelectedCommand;
-        public RelayCommand SetSelectedCommand
+        //this function redirects from beers usercontrol to menus usercontrol
+        private RelayCommand goToMenuPageCommand;
+        public RelayCommand GoToMenuPageCommand
         {
-            get => setSelectedCommand ?? (setSelectedCommand = new RelayCommand(
+            get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
-                    var test = SelectedSet;
-                    BeerSetItems = new ObservableCollection<SetItem>(db.SetItems.Where(x => x.BeerSetId == SelectedSet.Id));
+                  navigation.Navigate<UserMenuViewModel>();
                 }
             ));
         }
 
+        //
+        //this is to show the set items once you double click with mouse on the set name
+        private RelayCommand beerSetSelectedCommand;
+        public RelayCommand BeerSetSelectedCommand
+        {
+            get => beerSetSelectedCommand ?? (beerSetSelectedCommand = new RelayCommand(
+                () =>
+                {
+                    BeerSetItems = new ObservableCollection<SetItem>(db.SetItems.Where(x => x.BeerSetId == SelectedSet.Id));
+                }
+            ));
+        }
+        
+
+        //this function redirects directly to Pubs usercontrol
+        private RelayCommand returnToPubsCommand;
+        public RelayCommand ReturnToPubsCommand
+        {
+            get => returnToPubsCommand ?? (returnToPubsCommand = new RelayCommand(
+                () =>
+                {
+                    navigation.Navigate<UserAccountViewModel>();
+                }
+            ));
+        }
         private RelayCommand menuOpenCommand;
         public RelayCommand MenuOpenCommand
         {

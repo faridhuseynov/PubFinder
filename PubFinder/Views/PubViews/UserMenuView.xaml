@@ -24,7 +24,7 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
-        <DataTemplate x:Key="beerSetLbTemplate">
+        <DataTemplate x:Key="menuLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
                 <Label DockPanel.Dock="Top" Content="{Binding Name}"
                        Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
@@ -39,7 +39,7 @@
                 </DockPanel>
             </DockPanel>
         </DataTemplate>
-        <DataTemplate x:Key="beerSetItemsLbTemplate">
+        <DataTemplate x:Key="menuItemsLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
                 <Label DockPanel.Dock="Left" Content="{Binding Quantity}"
                        Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
@@ -133,11 +133,11 @@
                                        Width="100" Foreground="Indigo"
                                        >Menu</TextBlock>
                         </StackPanel>
-                        <i:Interaction.Triggers>
+                        <!--<i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
                                 <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                        </i:Interaction.Triggers>-->
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
@@ -154,7 +154,7 @@
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding BeerSetSelectedCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding GoToBeerSetPageCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
@@ -224,19 +224,19 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
         <ListBox Grid.Row="0" HorizontalAlignment="Right"
-                 SelectedItem="{Binding SelectedSet}"
-                 ItemsSource="{Binding BeerSets}" Width="420"
-                 ItemTemplate="{StaticResource beerSetLbTemplate}"
+                 SelectedItem="{Binding SelectedMenu}"
+                 ItemsSource="{Binding Menus}" Width="420"
+                 ItemTemplate="{StaticResource menuLbTemplate}"
                  HorizontalContentAlignment="Stretch">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding SetSelectedCommand}"/>
+                    <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListBox>
             <ListBox Grid.Row="1" HorizontalAlignment="Right" Margin="0 20px 20px 20px"
-                 ItemsSource="{Binding BeerSetItems}" Width="420"
-                 ItemTemplate="{StaticResource beerSetItemsLbTemplate}"
+                 ItemsSource="{Binding MenuItems}" Width="420"
+                 ItemTemplate="{StaticResource menuItemsLbTemplate}"
                  HorizontalContentAlignment="Stretch">
                 <!--<i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
