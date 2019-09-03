@@ -140,6 +140,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
     </Reference>
@@ -153,6 +154,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -225,9 +227,14 @@
     <Compile Include="Migrations\201909021920413_RankRemovedFromMenu.Designer.cs">
       <DependentUpon>201909021920413_RankRemovedFromMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909031830515_AddedCommentsInitial.cs" />
+    <Compile Include="Migrations\201909031830515_AddedCommentsInitial.Designer.cs">
+      <DependentUpon>201909031830515_AddedCommentsInitial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\FavoritePub.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -243,6 +250,7 @@
     <Compile Include="ViewModels\PubOwnerSignUpViewModel.cs" />
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
     <Compile Include="ViewModels\UserBeerSetViewModel.cs" />
+    <Compile Include="ViewModels\UserCommentViewModel.cs" />
     <Compile Include="ViewModels\UserMenuViewModel.cs" />
     <Compile Include="ViewModels\UserSignUpViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
@@ -257,6 +265,9 @@
     </Compile>
     <Compile Include="Views\PubViews\UserBeerSetView.xaml.cs">
       <DependentUpon>UserBeerSetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PubViews\UserCommentView.xaml.cs">
+      <DependentUpon>UserCommentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PubViews\UserMenuView.xaml.cs">
       <DependentUpon>UserMenuView.xaml</DependentUpon>
@@ -324,6 +335,9 @@
     <EmbeddedResource Include="Migrations\201909021920413_RankRemovedFromMenu.resx">
       <DependentUpon>201909021920413_RankRemovedFromMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909031830515_AddedCommentsInitial.resx">
+      <DependentUpon>201909031830515_AddedCommentsInitial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -361,6 +375,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PubViews\UserBeerSetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PubViews\UserCommentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

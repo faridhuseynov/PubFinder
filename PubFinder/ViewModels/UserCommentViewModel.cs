@@ -7,23 +7,20 @@ using PubFinder.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Data;
 
 namespace PubFinder.ViewModels
 {
-    class UserMenuViewModel : ViewModelBase
+    class UserCommentViewModel: ViewModelBase
     {
         //created this temporarily for testing the view. Instead of this will have quantity of setItem
-        private ObservableCollection<Menu> menus = new ObservableCollection<Menu>();
-        public ObservableCollection<Menu> Menus { get => menus; set => Set(ref menus, value); }
+        //private ObservableCollection<Menu> menus = new ObservableCollection<Menu>();
+        //public ObservableCollection<Menu> Menus { get => menus; set => Set(ref menus, value); }
 
-        private ObservableCollection<MenuItem> menuItems = new ObservableCollection<MenuItem>();
-        public ObservableCollection<MenuItem> MenuItems { get => menuItems; set => Set(ref menuItems, value); }
+        private ObservableCollection<Comment> comments = new ObservableCollection<Comment>();
+        public ObservableCollection<Comment> Comments { get => comments; set => Set(ref comments, value); }
 
         private Pub pub = new Pub();
         public Pub Pub { get => pub; set => Set(ref pub, value); }
@@ -31,8 +28,8 @@ namespace PubFinder.ViewModels
         private int loggedInUser = new int();
         public int LoggedInUser { get => loggedInUser; set => Set(ref loggedInUser, value); }
 
-        private Menu selectedMenu = new Menu();
-        public Menu SelectedMenu { get => selectedMenu; set => Set(ref selectedMenu, value); }
+        private Comment selectedComment = new Comment();
+        public Comment SelectedComment { get => selectedComment; set => Set(ref selectedComment, value); }
 
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
@@ -47,7 +44,7 @@ namespace PubFinder.ViewModels
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
         private readonly IMessageService message;
-        public UserMenuViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
+        public UserCommentViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
         {
             this.navigation = navigation;
             this.db = db;
@@ -59,48 +56,48 @@ namespace PubFinder.ViewModels
                 ActiveUser = new User(db.Users.FirstOrDefault(x => x.Id == LoggedInUser));
             }, true);
             Messenger.Default.Register<PubSelectedMessage>(this, msg =>
-             {
-                 Pub = new Pub();
-                 Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
-                 Menus = new ObservableCollection<Menu>(db.Menus.Where(x => x.PubId == Pub.Id));
-                 //foreach (var item in BeerSets)
-                 //{
-                 //    item.SetItems = new ObservableCollection<SetItem>();
-                 //    item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
-                 //}
-             }, true);
+            {
+                Pub = new Pub();
+                Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
+                Comments = new ObservableCollection<Comment>(db.Comments.Where(x => x.PubId == Pub.Id));
+                //foreach (var item in BeerSets)
+                //{
+                //    item.SetItems = new ObservableCollection<SetItem>();
+                //    item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
+                //}
+            }, true);
         }
 
-        private RelayCommand menuSelectedCommand;
-        public RelayCommand MenuSelectedCommand
-        {
-            get => menuSelectedCommand ?? (menuSelectedCommand = new RelayCommand(
-                () =>
-                {
-                    MenuItems = new ObservableCollection<MenuItem>(db.MenuItems.Where(x => x.MenuId == SelectedMenu.Id));
-                }
-            ));
-        }
+        //private RelayCommand menuSelectedCommand;
+        //public RelayCommand MenuSelectedCommand
+        //{
+        //    get => menuSelectedCommand ?? (menuSelectedCommand = new RelayCommand(
+        //        () =>
+        //        {
+        //            MenuItems = new ObservableCollection<MenuItem>(db.MenuItems.Where(x => x.MenuId == SelectedMenu.Id));
+        //        }
+        //    ));
+        //}
         private RelayCommand goToBeerSetPageCommand;
         public RelayCommand GoToBeerSetPageCommand
         {
             get => goToBeerSetPageCommand ?? (goToBeerSetPageCommand = new RelayCommand(
                 () =>
                 {
-                    MenuItems = null;
+                    Comments = null;
                     navigation.Navigate<UserBeerSetViewModel>();
                 }
             ));
         }
 
-        private RelayCommand goToCommentsPageCommand;
-        public RelayCommand GoToCommentsPageCommand
+        private RelayCommand goToMenuPageCommand;
+        public RelayCommand GoToMenuPageCommand
         {
-            get => goToCommentsPageCommand ?? (goToCommentsPageCommand = new RelayCommand(
+            get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
-                    MenuItems = null;
-                    navigation.Navigate<UserCommentViewModel>();
+                    Comments = null;
+                    navigation.Navigate<UserMenuViewModel>();
                 }
             ));
         }
@@ -111,7 +108,7 @@ namespace PubFinder.ViewModels
             get => returnToPubsCommand ?? (returnToPubsCommand = new RelayCommand(
                 () =>
                 {
-                    MenuItems = null;
+                    Comments = null;
                     navigation.Navigate<UserAccountViewModel>();
                 }
             ));

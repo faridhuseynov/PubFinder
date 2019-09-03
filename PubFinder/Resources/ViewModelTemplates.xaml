@@ -26,5 +26,7 @@
     <DataTemplate DataType="{x:Type vm:UserBeerSetViewModel}">
         <v2:UserBeerSetView />
     </DataTemplate>
-
+    <DataTemplate DataType="{x:Type vm:UserCommentViewModel}">
+        <v2:UserCommentView />
+    </DataTemplate>
 </ResourceDictionary>

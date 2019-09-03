@@ -23,6 +23,8 @@ namespace PubFinder.Models
         public DbSet<SetItem> SetItems { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
         //public DbSet<Event> Events { get; set; }
         //public DbSet<Comment> Comments { get; set; }
 
