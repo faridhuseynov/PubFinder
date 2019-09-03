@@ -68,35 +68,26 @@ namespace PubFinder.ViewModels
             }, true);
         }
 
-        //private RelayCommand menuSelectedCommand;
-        //public RelayCommand MenuSelectedCommand
-        //{
-        //    get => menuSelectedCommand ?? (menuSelectedCommand = new RelayCommand(
-        //        () =>
-        //        {
-        //            MenuItems = new ObservableCollection<MenuItem>(db.MenuItems.Where(x => x.MenuId == SelectedMenu.Id));
-        //        }
-        //    ));
-        //}
+
         private RelayCommand goToBeerSetPageCommand;
         public RelayCommand GoToBeerSetPageCommand
         {
             get => goToBeerSetPageCommand ?? (goToBeerSetPageCommand = new RelayCommand(
                 () =>
                 {
-                    Comments = null;
                     navigation.Navigate<UserBeerSetViewModel>();
                 }
             ));
         }
 
+        //this function redirects from beers usercontrol to menus usercontrol
         private RelayCommand goToMenuPageCommand;
         public RelayCommand GoToMenuPageCommand
         {
             get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
-                    Comments = null;
+                    var check = "Hello";
                     navigation.Navigate<UserMenuViewModel>();
                 }
             ));

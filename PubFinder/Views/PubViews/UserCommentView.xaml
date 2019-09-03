@@ -41,21 +41,6 @@
                 </DockPanel>
             </DockPanel>
         </DataTemplate>
-        <DataTemplate x:Key="menuItemsLbTemplate">
-            <DockPanel LastChildFill="False" Background="{x:Null}">
-                <Label DockPanel.Dock="Left" Content="{Binding Quantity}"
-                       Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
-                       FontSize="20" Background="AliceBlue"></Label>
-                <DockPanel DockPanel.Dock="Right" LastChildFill="False" HorizontalAlignment="Center">
-                    <Label DockPanel.Dock="Left" Content=" x "
-                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
-                       FontSize="20" Background="AliceBlue"></Label>
-                    <Label DockPanel.Dock="Right" Content="{Binding Product}"
-                       Foreground="Green" FontWeight="Bold" HorizontalContentAlignment="Stretch"
-                       FontSize="20" Background="AliceBlue"></Label>
-                </DockPanel>
-            </DockPanel>
-        </DataTemplate>
     </UserControl.Resources>
 
     <UserControl.Triggers>
@@ -122,7 +107,7 @@
                 </Grid>
                 <ListView SelectedIndex="0"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60" IsSelected="True">
+                    <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="RestaurantMenu"
                                                      Foreground="Indigo"
@@ -137,7 +122,7 @@
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding GoToMenuPageCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
@@ -198,7 +183,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60"  IsSelected="True">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Feedback"
                                                      Foreground="Indigo"
@@ -211,11 +196,11 @@
                                        Width="100" Foreground="Indigo"
                                        >Feedback</TextBlock>
                         </StackPanel>
-                        <i:Interaction.Triggers>
+                        <!--<i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
                                 <i:InvokeCommandAction Command="{Binding GoToCommentsPageCommand}"/>
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                        </i:Interaction.Triggers>-->
                     </ListViewItem>
                 </ListView>
             </StackPanel>
@@ -235,11 +220,11 @@
                  ItemsSource="{Binding Comments}" Width="420"
                  ItemTemplate="{StaticResource commentsLbTemplate}"
                  HorizontalContentAlignment="Stretch">
-                <i:Interaction.Triggers>
+                <!--<i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
                     </i:EventTrigger>
-                </i:Interaction.Triggers>
+                </i:Interaction.Triggers>-->
             </ListBox>
             <Button Grid.Row="2" VerticalAlignment="Bottom"
                     Margin="0 0 20 20"

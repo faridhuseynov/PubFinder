@@ -133,11 +133,6 @@
                                        Width="100" Foreground="Indigo"
                                        >Menu</TextBlock>
                         </StackPanel>
-                        <!--<i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>-->
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
@@ -173,7 +168,7 @@
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding FeedbackSelectedCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding }"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>

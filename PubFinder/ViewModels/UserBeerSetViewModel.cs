@@ -82,6 +82,18 @@ namespace PubFinder.ViewModels
             ));
         }
 
+        //this function redirects from beers usercontrol to Comments usercontrol
+        private RelayCommand goToCommentsPageCommand;
+        public RelayCommand GoToCommentsPageCommand
+        {
+            get => goToCommentsPageCommand ?? (goToCommentsPageCommand = new RelayCommand(
+                () =>
+                {
+                    BeerSetItems = null;
+                    navigation.Navigate<UserCommentViewModel>();
+                }
+            ));
+        }
         //
         //this is to show the set items once you double click with mouse on the set name
         private RelayCommand beerSetSelectedCommand;

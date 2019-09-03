@@ -211,7 +211,7 @@
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding SavedEventsSelectedCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding GoToCommentsPageCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
