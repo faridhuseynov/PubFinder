@@ -25,11 +25,10 @@ namespace PubFinder.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        public IEnumerable<IdentityRole> IdentityRoles { get; set; }
 
         public IEnumerable<Pub> Pubs { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
-
+        public IEnumerable<Role> Roles { get; set; }
         public string SaltValue { get; set; }
         public string HashValue { get; set; }
 

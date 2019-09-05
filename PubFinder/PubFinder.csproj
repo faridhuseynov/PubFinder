@@ -235,15 +235,23 @@
     <Compile Include="Migrations\201909051902154_IdentityRoleAdded.Designer.cs">
       <DependentUpon>201909051902154_IdentityRoleAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909051924047_FailedFix.cs" />
+    <Compile Include="Migrations\201909051924047_FailedFix.Designer.cs">
+      <DependentUpon>201909051924047_FailedFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909051930453_RoleSecond.cs" />
+    <Compile Include="Migrations\201909051930453_RoleSecond.Designer.cs">
+      <DependentUpon>201909051930453_RoleSecond.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\FavoritePub.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Pub.cs" />
-    <Compile Include="Models\IdentityRole.cs" />
     <Compile Include="Models\SetItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IMessageService.cs" />
@@ -348,6 +356,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909051902154_IdentityRoleAdded.resx">
       <DependentUpon>201909051902154_IdentityRoleAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909051924047_FailedFix.resx">
+      <DependentUpon>201909051924047_FailedFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909051930453_RoleSecond.resx">
+      <DependentUpon>201909051930453_RoleSecond.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace PubFinder.Models
 {
-    class IdentityRole
+    class Role
     {
         public int Id { get; set; }
 
         [Required]
         public string RoleName { get; set; }
+
         public int UserId { get; set; }
         public User User { get; set; }
     }
