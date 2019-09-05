@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\FH189\source\repos\PubFinder\PubFinder\App.xaml
-12544309003
+131890822684
 
-651510683310
+69-1540844336
 161-721001559
-Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\PubOwnerSignUpView.xaml;Views\PubViews\UserBeerSetView.xaml;Views\PubViews\UserCommentView.xaml;Views\PubViews\UserMenuView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;Views\x.xaml;
+Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\OwnerViews\OwnerAccountView.xaml;Views\PubOwnerSignUpView.xaml;Views\PubViews\UserBeerSetView.xaml;Views\PubViews\UserCommentView.xaml;Views\PubViews\UserMenuView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;Views\x.xaml;
 
 False
 

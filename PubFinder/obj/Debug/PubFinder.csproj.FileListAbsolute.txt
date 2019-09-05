@@ -595,3 +595,6 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.R
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserCommentView.g.cs
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserCommentView.baml
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.AddedCommentsInitial.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\OwnerViews\OwnerAccountView.g.cs
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\OwnerViews\OwnerAccountView.baml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.IdentityRoleAdded.resources

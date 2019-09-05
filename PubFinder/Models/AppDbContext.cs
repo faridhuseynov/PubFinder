@@ -16,7 +16,7 @@ namespace PubFinder.Models
 
        
         public DbSet<User> Users { get; set; }
-        //public DbSet<Menu> Menus { get; set; }
+        public DbSet<IdentityRole> IdentityRoles { get; set; }
         public DbSet<Pub> Pubs { get; set; }
         public DbSet<FavoritePub> FavoritePubs { get; set; }
         public DbSet<BeerSet> BeerSets { get; set; }
@@ -25,6 +25,7 @@ namespace PubFinder.Models
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
+        
         //public DbSet<Event> Events { get; set; }
         //public DbSet<Comment> Comments { get; set; }
 

@@ -25,6 +25,7 @@ namespace PubFinder.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+        public IEnumerable<IdentityRole> IdentityRoles { get; set; }
 
         public IEnumerable<Pub> Pubs { get; set; }
         public IEnumerable<Comment> Comments { get; set; }

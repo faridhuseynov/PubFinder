@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201909031830515_AddedCommentsInitial.Designer.cs">
       <DependentUpon>201909031830515_AddedCommentsInitial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909051902154_IdentityRoleAdded.cs" />
+    <Compile Include="Migrations\201909051902154_IdentityRoleAdded.Designer.cs">
+      <DependentUpon>201909051902154_IdentityRoleAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
@@ -239,6 +243,7 @@
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Pub.cs" />
+    <Compile Include="Models\IdentityRole.cs" />
     <Compile Include="Models\SetItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\IMessageService.cs" />
@@ -259,6 +264,9 @@
     </Compile>
     <Compile Include="Views\Draft.xaml.cs">
       <DependentUpon>Draft.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OwnerViews\OwnerAccountView.xaml.cs">
+      <DependentUpon>OwnerAccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PubOwnerSignUpView.xaml.cs">
       <DependentUpon>PubOwnerSignUpView.xaml</DependentUpon>
@@ -338,6 +346,9 @@
     <EmbeddedResource Include="Migrations\201909031830515_AddedCommentsInitial.resx">
       <DependentUpon>201909031830515_AddedCommentsInitial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909051902154_IdentityRoleAdded.resx">
+      <DependentUpon>201909051902154_IdentityRoleAdded.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -367,6 +378,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Draft.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OwnerViews\OwnerAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -412,6 +427,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\OwnerViewModels\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
