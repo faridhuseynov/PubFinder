@@ -31,6 +31,9 @@ namespace PubFinder.ViewModels
         private Comment selectedComment = new Comment();
         public Comment SelectedComment { get => selectedComment; set => Set(ref selectedComment, value); }
 
+        private string newFeedback;
+        public string NewFeedback { get => newFeedback; set => Set(ref newFeedback, value); }
+        
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
 
@@ -92,6 +95,19 @@ namespace PubFinder.ViewModels
                 }
             ));
         }
+
+        //this commant for adding new comment
+        private RelayCommand addNewCommentCommand;
+        public RelayCommand AddNewCommentCommand
+        {
+            get => addNewCommentCommand ?? (addNewCommentCommand = new RelayCommand(
+                () =>
+                {
+
+                }
+            ));
+        }
+
         //this function redirects directly to Pubs usercontrol
         private RelayCommand returnToPubsCommand;
         public RelayCommand ReturnToPubsCommand

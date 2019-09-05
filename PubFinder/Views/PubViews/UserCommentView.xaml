@@ -205,14 +205,15 @@
                 </ListView>
             </StackPanel>
         </Grid>
-        <Grid Margin="100,160,0,0">
+        <Grid Margin="100,100,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="3.5*"></RowDefinition>
+                <RowDefinition Height="1.7*"></RowDefinition>
                 <RowDefinition Height="0.7*"></RowDefinition>
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" LastChildFill="False" HorizontalAlignment="Center">
-                <Label DockPanel.Dock="Left">Feedback for: </Label>
+                <Label DockPanel.Dock="Left">Feedback for:</Label>
                 <Label DockPanel.Dock="Right" Content="{Binding Pub.Name}"></Label>
             </DockPanel>
             <ListBox Grid.Row="1" HorizontalAlignment="Stretch"
@@ -220,13 +221,20 @@
                  ItemsSource="{Binding Comments}" Width="420"
                  ItemTemplate="{StaticResource commentsLbTemplate}"
                  HorizontalContentAlignment="Stretch">
-                <!--<i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>-->
             </ListBox>
-            <Button Grid.Row="2" VerticalAlignment="Bottom"
+            <DockPanel Grid.Row="2" Margin="0 0 20 0">
+                <Button DockPanel.Dock="Bottom" Margin="0 0 0 10" Background="LightGreen">
+                    Add Comment
+                </Button>
+                <TextBox DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="2"
+                         Text="{Binding NewFeedback}" 
+                         HorizontalContentAlignment="Stretch"
+                         VerticalScrollBarVisibility="Auto"
+                         VerticalContentAlignment="Top"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"></TextBox>
+            </DockPanel>
+            <Button Grid.Row="3" VerticalAlignment="Bottom"
                     Margin="0 0 20 20"
                     Command="{Binding ReturnToPubsCommand}">
                 Back to Pubs
