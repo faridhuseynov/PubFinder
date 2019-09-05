@@ -223,7 +223,8 @@
                  HorizontalContentAlignment="Stretch">
             </ListBox>
             <DockPanel Grid.Row="2" Margin="0 0 20 0">
-                <Button DockPanel.Dock="Bottom" Margin="0 0 0 10" Background="LightGreen">
+                <Button DockPanel.Dock="Bottom" Margin="0 0 0 10" Background="LightGreen"
+                        Command="{Binding AddNewCommentCommand}">
                     Add Comment
                 </Button>
                 <TextBox DockPanel.Dock="Top" BorderBrush="LightGray" BorderThickness="2"

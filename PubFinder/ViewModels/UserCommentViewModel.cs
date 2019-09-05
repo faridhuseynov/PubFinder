@@ -10,15 +10,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PubFinder.ViewModels
 {
     class UserCommentViewModel: ViewModelBase
     {
-        //created this temporarily for testing the view. Instead of this will have quantity of setItem
-        //private ObservableCollection<Menu> menus = new ObservableCollection<Menu>();
-        //public ObservableCollection<Menu> Menus { get => menus; set => Set(ref menus, value); }
-
         private ObservableCollection<Comment> comments = new ObservableCollection<Comment>();
         public ObservableCollection<Comment> Comments { get => comments; set => Set(ref comments, value); }
 
@@ -90,7 +87,6 @@ namespace PubFinder.ViewModels
             get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
-                    var check = "Hello";
                     navigation.Navigate<UserMenuViewModel>();
                 }
             ));
@@ -103,7 +99,17 @@ namespace PubFinder.ViewModels
             get => addNewCommentCommand ?? (addNewCommentCommand = new RelayCommand(
                 () =>
                 {
-
+                    if (!String.IsNullOrWhiteSpace(NewFeedback))
+                    {
+                        db.Comments.Add(new Comment { Feedback = NewFeedback, Weight = 0, UserId = LoggedInUser, PubId = Pub.Id });
+                        db.SaveChanges();
+                        NewFeedback = "";
+                        Comments = new ObservableCollection<Comment>(db.Comments.Where(x => x.PubId == Pub.Id));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Comment field is empty!");
+                    }
                 }
             ));
         }
