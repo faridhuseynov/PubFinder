@@ -3,6 +3,7 @@ FC:\Users\FH189\source\repos\PubFinder\PubFinder\App.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Resources\ViewModelTemplates.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\AppView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\Draft.xaml;;
+FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\OwnerViews\OwnerAccountView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\PubOwnerSignUpView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\PubViews\UserBeerSetView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\PubViews\UserCommentView.xaml;;
@@ -11,6 +12,4 @@ FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\SignUpView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\UserAccountView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\UserSignUpView.xaml;;
 FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\StartPageView.xaml;;
-FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\x.xaml;;
-FC:\Users\FH189\source\repos\PubFinder\PubFinder\Views\OwnerViews\OwnerAccountView.xaml;;
 

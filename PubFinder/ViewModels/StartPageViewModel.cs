@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Messaging;
 using PubFinder.Messages;
 using PubFinder.Models;
 using PubFinder.Services;
+using PubFinder.ViewModels.OwnerViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -77,7 +78,9 @@ namespace PubFinder.ViewModels
                        if (hashValueFromDB.Equals(hashToCompare))
                        {
                            Messenger.Default.Send(new UserLogInOutMessage { UserId = UserCheck.Id });
-                           navigation.Navigate<UserAccountViewModel>();
+                           //navigation.Navigate<UserAccountViewModel>();
+                           navigation.Navigate<OwnerAccountViewModel>();
+
                        }
                        else
                            Console.WriteLine("Login credentials incorrect. User not validated.");
@@ -102,7 +105,8 @@ namespace PubFinder.ViewModels
                        if (hashValueFromDB.Equals(hashToCompare))
                        {
                            Messenger.Default.Send(new PubLogInOutMessage { PubId = PubCheck.Id });
-                           navigation.Navigate<UserAccountViewModel>();
+                           //navigation.Navigate<UserAccountViewModel>();
+                           navigation.Navigate<OwnerAccountViewModel>();
                        }
                        else
                            Console.WriteLine("Login credentials incorrect. User not validated.");

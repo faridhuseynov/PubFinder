@@ -25,18 +25,11 @@
         </Storyboard>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <DataTemplate x:Key="menuLbTemplate">
-            <DockPanel LastChildFill="False" Background="{x:Null}">
-                <Label DockPanel.Dock="Top" Content="{Binding Name}"
+            <DockPanel Background="{x:Null}">
+                <!--<Button DockPanel.Dock="Right">✏</Button>-->
+                <Label DockPanel.Dock="Left" Content="{Binding Name}"
                        Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
                        FontSize="20" Background="AliceBlue"></Label>
-                <!--<DockPanel DockPanel.Dock="Bottom" LastChildFill="True" HorizontalAlignment="Center">
-                    <Label DockPanel.Dock="Left" Content="{Binding Price}"
-                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
-                       FontSize="20" Background="AliceBlue"></Label>
-                    <Label DockPanel.Dock="Right" Content="AZN"
-                       Foreground="Green" FontWeight="Bold" HorizontalContentAlignment="Stretch"
-                       FontSize="20" Background="AliceBlue"></Label>
-                </DockPanel>-->
             </DockPanel>
         </DataTemplate>
         <DataTemplate x:Key="menuItemsLbTemplate">
@@ -219,26 +212,21 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-        <ListBox Grid.Row="0" HorizontalAlignment="Right"
+            <ListBox Grid.Row="0" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedMenu}"
                  ItemsSource="{Binding Menus}" Width="420"
                  ItemTemplate="{StaticResource menuLbTemplate}"
                  HorizontalContentAlignment="Stretch">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </ListBox>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
             <ListBox Grid.Row="1" HorizontalAlignment="Right" Margin="0 20px 20px 20px"
                  ItemsSource="{Binding MenuItems}" Width="420"
                  ItemTemplate="{StaticResource menuItemsLbTemplate}"
                  HorizontalContentAlignment="Stretch">
-                <!--<i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding SetSelectedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>-->
             </ListBox>
             <Button Grid.Row="2" VerticalAlignment="Bottom"
                     Margin="0 0 20 20"

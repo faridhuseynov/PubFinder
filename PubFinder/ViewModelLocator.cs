@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight;
 using Microsoft.Extensions.Configuration;
 using PubFinder.Services;
 using PubFinder.ViewModels;
+using PubFinder.ViewModels.OwnerViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace PubFinder
         private UserMenuViewModel userMenuViewModel;
         private UserBeerSetViewModel userBeerSetViewModel;
         private UserCommentViewModel userCommentViewModel;
+        private OwnerAccountViewModel ownerAccountViewModel;
 
 
         private INavigationService navigationService;
@@ -52,6 +54,7 @@ namespace PubFinder
                 userMenuViewModel = Container.Resolve<UserMenuViewModel>();
                 userBeerSetViewModel = Container.Resolve<UserBeerSetViewModel>();
                 userCommentViewModel = Container.Resolve<UserCommentViewModel>();
+                ownerAccountViewModel = Container.Resolve<OwnerAccountViewModel>();
 
                 navigationService.Register<StartPageViewModel>(startPageViewModel);
                 navigationService.Register<UserSignUpViewModel>(userSignUpViewModel);
@@ -60,6 +63,7 @@ namespace PubFinder
                 navigationService.Register<UserMenuViewModel>(userMenuViewModel);
                 navigationService.Register<UserBeerSetViewModel>(userBeerSetViewModel);
                 navigationService.Register<UserCommentViewModel>(userCommentViewModel);
+                navigationService.Register<OwnerAccountViewModel>(ownerAccountViewModel);
 
                 navigationService.Navigate<StartPageViewModel>();
             }

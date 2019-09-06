@@ -373,7 +373,6 @@ C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\SignUpView.g.cs
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\UserAccountView.g.cs
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\UserSignUpView.g.cs
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\StartPageView.g.cs
-C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\x.g.cs
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\App.g.cs
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder_MarkupCompile.cache
@@ -542,7 +541,6 @@ C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\SignUpView.baml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\UserAccountView.baml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\UserSignUpView.baml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\StartPageView.baml
-C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\Views\x.baml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.g.resources
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.Properties.Resources.resources
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\obj\Debug\PubFinder.csproj.GenerateResource.cache

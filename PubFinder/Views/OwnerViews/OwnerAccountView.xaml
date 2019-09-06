@@ -1,12 +1,237 @@
 ﻿<UserControl x:Class="PubFinder.Views.OwnerViews.OwnerAccountView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:local="clr-namespace:PubFinder.Views.OwnerViews"
+             xmlns:vm="clr-namespace:PubFinder.ViewModels.OwnerViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="600" d:DesignWidth="600"
+             d:DataContext="{d:DesignInstance vm:OwnerAccountViewModel}">
+    <UserControl.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="55"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="155"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="155"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="55"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <DataTemplate x:Key="menuLbTemplate">
+            <DockPanel LastChildFill="False" Background="{x:Null}">
+                <Label DockPanel.Dock="Top" Content="{Binding Name}"
+                       Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
+                       FontSize="20" Background="AliceBlue"></Label>
+            </DockPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="menuItemsLbTemplate">
+            <DockPanel LastChildFill="False" Background="{x:Null}">
+                <Label DockPanel.Dock="Left" Content="{Binding Quantity}"
+                       Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
+                       FontSize="20" Background="AliceBlue"></Label>
+                <DockPanel DockPanel.Dock="Right" LastChildFill="False" HorizontalAlignment="Center">
+                    <Label DockPanel.Dock="Left" Content=" x "
+                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
+                       FontSize="20" Background="AliceBlue"></Label>
+                    <Label DockPanel.Dock="Right" Content="{Binding Product}"
+                       Foreground="Green" FontWeight="Bold" HorizontalContentAlignment="Stretch"
+                       FontSize="20" Background="AliceBlue"></Label>
+                </DockPanel>
+            </DockPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid Background="AliceBlue">
+        <Grid Height="50" VerticalAlignment="Top" Background="#FF0D16D6">
+            <materialDesign:PopupBox HorizontalAlignment="Right" 
+                                     PlacementMode="BottomAndAlignRightEdges"
+                                     StaysOpen="False"
+                                     Margin="5" Foreground="#FFFBFBFB">
+                <Button Content="Log out" Command="{Binding LogOutCommand}">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+
+                </Button>
+            </materialDesign:PopupBox>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="54" HorizontalAlignment="Left" Background="#FF3ACAF5">
+            <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button x:Name="ButtonCloseMenu"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0"
+                            Width="60"
+                            Height="60"
+                            Background="{x:Null}" BorderBrush="{x:Null}"
+                            Command="{Binding MenuCloseCommand}"
+                            Visibility="{Binding Path=MenuClose, Converter={StaticResource BoolToVis}}">
+                        <materialDesign:PackIcon Height="25" Width="25"
+                                                 Foreground="#FF3ACAF3" Kind="ArrowLeft"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"                            
+                            Width="60"
+                            Height="60"
+                            Background="{x:Null}" BorderBrush="{x:Null}"
+                            Command="{Binding MenuOpenCommand}"
+                            Visibility="{Binding Path=MenuOpen, Converter={StaticResource BoolToVis}}">
+                        <materialDesign:PackIcon Height="25" Width="25"
+                                                 Foreground="#FF3ACAF5"
+                                                 Kind="Menu"/>
+                    </Button>
+                    <Ellipse Width="80" Height="80" Margin="25,45,45,0">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Image Width="60" Height="60" VerticalAlignment="Center"
+                           Margin="45,45,45,0" Source="{Binding ActiveUser.PhotoLink}">
+                        <Image.OpacityMask>
+                            <ImageBrush/>
+                        </Image.OpacityMask>
+                    </Image>
+                </Grid>
+                <ListView SelectedIndex="0"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="60" IsSelected="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="RestaurantMenu"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     Margin="10"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 10" FontSize="15"
+                                       Width="100" Foreground="Indigo"
+                                       >Menu</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Beer"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     Margin="10"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 10" FontSize="15"
+                                       Width="100" Foreground="Indigo"
+                                       >Beer Sets</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToBeerSetPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Location"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     Margin="10"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 10" FontSize="15"
+                                       Width="100" Foreground="Indigo"
+                                       >Location</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding }"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Event"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     Margin="10"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 10" FontSize="15"
+                                       Width="100" Foreground="Indigo"
+                                       >Events</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SavedEventsSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Feedback"
+                                                     Foreground="Indigo"
+                                                     Width="25" Height="25"
+                                                     Margin="10"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 10" FontSize="15"
+                                       Width="100" Foreground="Indigo"
+                                       >Feedback</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToCommentsPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="100,160,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0" HorizontalAlignment="Right"
+                 SelectedItem="{Binding SelectedMenu}"
+                 ItemsSource="{Binding Menus}" Width="420"
+                 ItemTemplate="{StaticResource menuLbTemplate}"
+                 HorizontalContentAlignment="Stretch">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding MenuSelectedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
+            <ListBox Grid.Row="1" HorizontalAlignment="Right" Margin="0 20px 20px 20px"
+                 ItemsSource="{Binding MenuItems}" Width="420"
+                 ItemTemplate="{StaticResource menuItemsLbTemplate}"
+                 HorizontalContentAlignment="Stretch">
+            </ListBox>
+            <Button Grid.Row="2" VerticalAlignment="Bottom"
+                    Margin="0 0 20 20"
+                    Command="{Binding ReturnToPubsCommand}">
+                Back to Pubs
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>
