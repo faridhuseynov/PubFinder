@@ -78,9 +78,8 @@ namespace PubFinder.ViewModels
                        if (hashValueFromDB.Equals(hashToCompare))
                        {
                            Messenger.Default.Send(new UserLogInOutMessage { UserId = UserCheck.Id });
-                           //navigation.Navigate<UserAccountViewModel>();
-                           navigation.Navigate<OwnerAccountViewModel>();
-
+                           navigation.Navigate<UserAccountViewModel>();
+                           //navigation.Navigate<OwnerAccountViewModel>();
                        }
                        else
                            Console.WriteLine("Login credentials incorrect. User not validated.");

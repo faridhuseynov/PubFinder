@@ -78,6 +78,7 @@ namespace PubFinder.ViewModels
                             // Save both the salt and the hash in the user's database record.
                             NewUser.SaltValue = Convert.ToBase64String(salt);
                             NewUser.HashValue = Convert.ToBase64String(hash);
+                            NewUser.RoleId = 1;
                             db.Users.Add(NewUser);
                             db.SaveChanges();
                             Messenger.Default.Send(new UserLogInOutMessage{ UserId = NewUser.Id });

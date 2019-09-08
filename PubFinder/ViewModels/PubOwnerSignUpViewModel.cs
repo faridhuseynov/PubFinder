@@ -82,6 +82,17 @@ namespace PubFinder.ViewModels
                             db.SaveChanges();
                             Messenger.Default.Send(new PubLogInOutMessage { PubId = NewPub.Id });
                             PubDataClear();
+                            db.Users.Add(new User
+                            {
+                                Name = NewPub.Name.Trim(' '),
+                                HashValue = NewPub.HashValue,
+                                SaltValue = NewPub.SaltValue,
+                                PhotoLink=NewPub.LogoLink,
+                                Email=NewPub.Email,
+                                UserName=NewPub.Name,
+                                RoleId=2,
+                                Surname=""
+                            });
                             navigation.Navigate<StartPageViewModel>();
                         }
                     }

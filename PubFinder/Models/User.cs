@@ -28,7 +28,9 @@ namespace PubFinder.Models
 
         public IEnumerable<Pub> Pubs { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
-        public IEnumerable<Role> Roles { get; set; }
+        public int RoleId { get; set; }
+        public Role Role { get; set; }
+
         public string SaltValue { get; set; }
         public string HashValue { get; set; }
 
