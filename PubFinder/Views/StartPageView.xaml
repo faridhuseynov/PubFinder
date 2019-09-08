@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:PubFinder.Views"
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800"
+             d:DesignHeight="700" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance vm:StartPageViewModel}">
     <Grid>
         <Grid.RowDefinitions>
@@ -20,25 +21,25 @@
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
         <Image Grid.Row="0"
-               HorizontalAlignment="Center"
-               Source="C:\Users\Farid\source\repos\PubFinder\PubFinder\Icons\StartIcon.jpg">
+               HorizontalAlignment="Center">
         </Image>
         <Label Grid.Row="1" HorizontalAlignment="Center" 
                FontSize="20"
                Content="Username"></Label>
         <TextBox Grid.Row="2" Name="UserName" FontSize="30"
                  HorizontalContentAlignment="Center"
+                 Margin="50 0"
                  Text="{Binding Username,
             ValidatesOnDataErrors=True,
             NotifyOnValidationError=True,
-            UpdateSourceTrigger=PropertyChanged}"
-                 Width="400"></TextBox>
+            UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label Grid.Row="3" HorizontalAlignment="Center" 
                FontSize="20"
                Content="Password"></Label>
         <PasswordBox Grid.Row="4" x:Name="password" FontSize="30"
+                     Margin="50 0"
                      HorizontalContentAlignment="Center"                     
-                     Width="400"></PasswordBox>
+                     ></PasswordBox>
         <Label Grid.Row="5" FontSize="20"
                Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=password}"/>
         <DockPanel Grid.Row="6">
@@ -56,10 +57,10 @@
                     User</RadioButton>
                 <RadioButton FontSize="20"
                              x:Name="OwnerButton"
-                          BorderThickness="5"
-                          HorizontalAlignment="Center"
-                          HorizontalContentAlignment="Center"
-                          IsChecked="{Binding OwnerRadBut}">
+                             BorderThickness="5"
+                             HorizontalAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             IsChecked="{Binding OwnerRadBut}">
                     Pub Owner</RadioButton>
             </UniformGrid>
         </DockPanel>

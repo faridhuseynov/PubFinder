@@ -8,10 +8,10 @@
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600"
+             d:DesignHeight="700" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance vm:UserAccountViewModel}">
     <UserControl.Resources>
-        <Storyboard x:Key="MenuOpen">
+        <!--<Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="55"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="155"/>
@@ -23,9 +23,9 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="55"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />-->
         <DataTemplate x:Key="pubLbTemplate">
-            <DockPanel LastChildFill="True">                
+            <DockPanel LastChildFill="True">
                 <Image DockPanel.Dock="Left"  Source="{Binding LogoLink}" Width="50"></Image>
                 <Label DockPanel.Dock="Right"  Content="4.2"
                        Foreground="Green" FontWeight="Bold"
@@ -38,14 +38,14 @@
     </UserControl.Resources>
 
     <UserControl.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+        <!--<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
-        </EventTrigger>
+        </EventTrigger>-->
     </UserControl.Triggers>
-    
+
     <Grid Background="AliceBlue">
         <Grid Height="50" VerticalAlignment="Top" Background="#FF0D16D6">
             <materialDesign:PopupBox HorizontalAlignment="Right" 
@@ -56,77 +56,56 @@
                     <Button.Background>
                         <ImageBrush/>
                     </Button.Background>
-
                 </Button>
             </materialDesign:PopupBox>
         </Grid>
-        <Grid x:Name="GridMenu" Width="54" HorizontalAlignment="Left" Background="#FF3ACAF5">
-            <StackPanel>
-                <Grid Height="150" Background="White">
-                    <Button x:Name="ButtonCloseMenu"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            Margin="0"
-                            Width="60"
-                            Height="60"
-                            Background="{x:Null}" BorderBrush="{x:Null}"
-                            Command="{Binding MenuCloseCommand}"
-                            Visibility="{Binding Path=MenuClose, Converter={StaticResource BoolToVis}}">
-                        <materialDesign:PackIcon Height="25" Width="25"
-                                                 Foreground="#FF3ACAF5" Kind="ArrowLeft"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Left"                            
-                            Width="60"
-                            Height="60"
-                            Background="{x:Null}" BorderBrush="{x:Null}"
-                            Command="{Binding MenuOpenCommand}"
-                            Visibility="{Binding Path=MenuOpen, Converter={StaticResource BoolToVis}}">
-                        <materialDesign:PackIcon Height="25" Width="25"
-                                                 Foreground="#FF3ACAF5"
-                                                 Kind="Menu"/>
-                    </Button>
-                    <Ellipse Width="80" Height="80" Margin="25,45,45,0">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Image Width="60" Height="60" VerticalAlignment="Center"
-                           Margin="45,45,45,0" Source="{Binding ActiveUser.PhotoLink}">
-                        <Image.OpacityMask>
-                            <ImageBrush/>
-                        </Image.OpacityMask>
-                    </Image>
-                </Grid>
-                <ListView 
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60" IsSelected="True">
-                        <StackPanel Orientation="Horizontal">
+        <Grid x:Name="GridMenu" VerticalAlignment="Bottom" Background="Orange">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="80" Height="80" Margin="-9,-42,1.8,42">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!--<Image Width="60" Height="60" VerticalAlignment="Center"
+                           Source="{Binding ActiveUser.PhotoLink}">
+                    <Image.OpacityMask>
+                        <ImageBrush/>
+                    </Image.OpacityMask>
+                </Image>-->
+                <ListView Height="80" Grid.Column="1"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListViewItem Height="100" IsSelected="True">
+                        <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Restaurant"
                                                      Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     Margin="10"
+                                                     Width="50" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="0 10" FontSize="15"
-                                       Width="100" Foreground="Indigo"
+                            <TextBlock VerticalAlignment="Bottom"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
                                        >Pubs</TextBlock>
-                        </StackPanel>                        
+                        </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
+                    <ListViewItem Height="100">
+                        <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Star"
                                                      Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     Margin="10"
+                                                     Width="50" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="0 10" FontSize="15"
-                                       Width="100" Foreground="Indigo"
-                                       >Favorite Pubs</TextBlock>
+                            <TextBlock VerticalAlignment="Bottom"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Favorite</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
@@ -134,17 +113,16 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
+                    <ListViewItem Height="100">
+                        <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Feedback"
                                                      Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     Margin="10"
+                                                     Width="70" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 10" FontSize="15"
-                                       Width="100" Foreground="Indigo"
+                                       FontSize="15"
+                                       Width="70" Foreground="Indigo"
                                        >Feedback</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -153,17 +131,15 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
+                    <ListViewItem Height="100">
+                        <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Event"
                                                      Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     Margin="10"
+                                                     Width="90" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="0 10" FontSize="15"
-                                       Width="100" Foreground="Indigo"
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Foreground="Indigo"
                                        >Saved Events</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -173,10 +149,10 @@
                         </i:Interaction.Triggers>
                     </ListViewItem>
                 </ListView>
-            </StackPanel>
+            </Grid>
         </Grid>
-        <ListBox Margin="100,160,0,0" HorizontalAlignment="Right"
-                 ItemsSource="{Binding Pubs}" Width="420" Height="430"
+        <ListBox HorizontalAlignment="Right"
+                 ItemsSource="{Binding Pubs}" Width="420" Height="500"
                  ItemTemplate="{StaticResource pubLbTemplate}"
                  SelectedItem ="{Binding SelectedItem}"
                  HorizontalContentAlignment="Stretch">

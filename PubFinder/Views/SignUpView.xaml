@@ -3,71 +3,130 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:local="clr-namespace:PubFinder.Views"
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600"
+             d:DesignHeight="700" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance vm:UserSignUpViewModel}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="500"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Button Grid.Row="0" Grid.Column="0"
-                Margin="20,220"
-                FontSize="20"
-                Command="{Binding UserSignUpCommand}">
-            <Button.Template>
-                <ControlTemplate>
-                    <Border CornerRadius="10" Background="Blue">
-                        <TextBlock Text="USER" Foreground="White"
-                                   HorizontalAlignment="Center"  
-                                   Padding="10"                    
-                                   Height="40"
-                                   FontWeight="Bold"
-                                   FontSize="20"></TextBlock>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button Grid.Row="0" Grid.Column="1"
-                 Margin="20,220"
-                FontSize="20"
-                Command="{Binding PubSignUpCommand}">
-            <Button.Template>
-                <ControlTemplate>
-                    <Border CornerRadius="10" Background="Green">
-                        <TextBlock Text="PUB" Foreground="White"
-                                   HorizontalAlignment="Center"  
-                                   Padding="10"                    
-                                   Height="40"
-                                   FontWeight="Bold"
-                                   FontSize="20"></TextBlock>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-                <Button Grid.Row="1"
-                        Grid.ColumnSpan="2"
-                        Margin="5"
-                        Height="40"
-                        FontSize="20"
-                        Command="{Binding CancelSignUpCommand}">
-            <Button.Template>
-                <ControlTemplate>
-                    <Border CornerRadius="10" Background="Red">
-                        <TextBlock Text="CANCEL" Foreground="White"
-                                   HorizontalAlignment="Center"  
-                                   Padding="5"                                   Height="40"
-                                   FontWeight="Bold"
-                                   FontSize="20"></TextBlock>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+    <UserControl.Resources>
+        <DataTemplate x:Key="pubLbTemplate">
+            <DockPanel LastChildFill="True">
+                <Image DockPanel.Dock="Left"  Source="{Binding LogoLink}" Width="50"></Image>
+                <Label DockPanel.Dock="Right"  Content="4.2"
+                       Foreground="Green" FontWeight="Bold"
+                       FontSize="20" Background="AliceBlue"></Label>
+                <Label DockPanel.Dock="Right" FontSize="20"
+                       Content="{Binding Name}" Background="AliceBlue"
+                       Foreground="DarkGoldenrod"></Label>
+            </DockPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid Height="50" VerticalAlignment="Top" Background="#FF0D16D6">
+            <materialDesign:PopupBox HorizontalAlignment="Right" 
+                                     PlacementMode="BottomAndAlignRightEdges"
+                                     StaysOpen="False"
+                                     Margin="5" Foreground="#FFFBFBFB">
+                <Button Content="Log out" Command="{Binding LogOutCommand}">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                </Button>
+            </materialDesign:PopupBox>
+        </Grid>
+        <Grid x:Name="GridMenu" VerticalAlignment="Bottom" Background="Orange">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListView Height="80" Grid.Column="1"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListViewItem Height="100" IsSelected="True">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Restaurant"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Bottom"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Pubs</TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="100">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Star"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Bottom"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Favorite</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding FavoritePubSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="100">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Feedback"
+                                                     Foreground="Indigo"
+                                                     Width="70" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Width="70" Foreground="Indigo"
+                                       >Feedback</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding FeedbackSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="100">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Event"
+                                                     Foreground="Indigo"
+                                                     Width="90" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Foreground="Indigo"
+                                       >Saved Events</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SavedEventsSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+        </Grid>
+        <!--<ListBox Margin="100,160,0,0" HorizontalAlignment="Right"
+                 ItemsSource="{Binding Pubs}" Width="420" Height="430"
+                 ItemTemplate="{StaticResource pubLbTemplate}"
+                 SelectedItem ="{Binding SelectedItem}"
+                 HorizontalContentAlignment="Stretch">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding PubSelectedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>-->
     </Grid>
 </UserControl>

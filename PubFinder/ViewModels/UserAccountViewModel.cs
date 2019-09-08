@@ -16,24 +16,24 @@ using System.Windows.Data;
 
 namespace PubFinder.ViewModels
 {
-    public class BooleanToVisibilityConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            bool checkValue = (bool)value;
-            if (checkValue == true)
-                return Visibility.Visible;
-            else
-                return Visibility.Hidden;
-        }
+    //public class BooleanToVisibilityConverter
+    //{
+    //    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    //    {
+    //        bool checkValue = (bool)value;
+    //        if (checkValue == true)
+    //            return Visibility.Visible;
+    //        else
+    //            return Visibility.Hidden;
+    //    }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 
-    class UserAccountViewModel:ViewModelBase
+    class UserAccountViewModel : ViewModelBase
     {
         private ObservableCollection<Pub> pubs = new ObservableCollection<Pub>();
         public ObservableCollection<Pub> Pubs { get => pubs; set => Set(ref pubs, value); }
@@ -45,13 +45,13 @@ namespace PubFinder.ViewModels
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
         private Pub selectedItem;
 
-        public Pub SelectedItem {get => selectedItem; set => Set(ref selectedItem, value); }
+        public Pub SelectedItem { get => selectedItem; set => Set(ref selectedItem, value); }
 
-        private bool menuOpen = true;
-        public bool MenuOpen { get => menuOpen; set => Set(ref menuOpen, value); }
+        //private bool menuOpen = true;
+        //public bool MenuOpen { get => menuOpen; set => Set(ref menuOpen, value); }
 
-        private bool menuClose = false;
-        public bool MenuClose { get => menuClose; set => Set(ref menuClose, value); }
+        //private bool menuClose = false;
+        //public bool MenuClose { get => menuClose; set => Set(ref menuClose, value); }
 
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
@@ -66,32 +66,32 @@ namespace PubFinder.ViewModels
                  LoggedInUser = msg.UserId;
                  ActiveUser = new User(db.Users.FirstOrDefault(x => x.Id == LoggedInUser));
                  Pubs = new ObservableCollection<Pub>(db.Pubs);
-             },true);
+             }, true);
         }
 
-        private RelayCommand menuCloseCommand;
-        public RelayCommand MenuCloseCommand
-        {
-            get => menuCloseCommand ?? (menuCloseCommand = new RelayCommand(
-                () =>
-                {
-                    MenuClose = false;
-                    MenuOpen = true;
-                }
-            ));
-        }
+        //private RelayCommand menuCloseCommand;
+        //public RelayCommand MenuCloseCommand
+        //{
+        //    get => menuCloseCommand ?? (menuCloseCommand = new RelayCommand(
+        //        () =>
+        //        {
+        //            MenuClose = false;
+        //            MenuOpen = true;
+        //        }
+        //    ));
+        //}
 
-        private RelayCommand menuOpenCommand;
-        public RelayCommand MenuOpenCommand
-        {
-            get => menuOpenCommand ?? (menuOpenCommand = new RelayCommand(
-                () =>
-                {
-                    MenuClose = true;
-                    MenuOpen = false;
-                }
-            ));
-        }
+        //private RelayCommand menuOpenCommand;
+        //public RelayCommand MenuOpenCommand
+        //{
+        //    get => menuOpenCommand ?? (menuOpenCommand = new RelayCommand(
+        //        () =>
+        //        {
+        //            MenuClose = true;
+        //            MenuOpen = false;
+        //        }
+        //    ));
+        //}
 
         private RelayCommand logOutCommand;
         public RelayCommand LogOutCommand
@@ -111,9 +111,9 @@ namespace PubFinder.ViewModels
             get => favoritePubSelectedCommand ?? (favoritePubSelectedCommand = new RelayCommand(
                 () =>
                 {
-                    //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
-                    //navigation.Navigate<StartPageViewModel>();
-                }
+                        //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+                        //navigation.Navigate<StartPageViewModel>();
+                    }
             ));
         }
 
@@ -123,9 +123,9 @@ namespace PubFinder.ViewModels
             get => feedbackSelectedCommand ?? (feedbackSelectedCommand = new RelayCommand(
                 () =>
                 {
-                    //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
-                    //navigation.Navigate<StartPageViewModel>();
-                }
+                        //Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
+                        //navigation.Navigate<StartPageViewModel>();
+                    }
             ));
         }
         private RelayCommand pubSelectedCommand;

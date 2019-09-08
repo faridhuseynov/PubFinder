@@ -79,20 +79,21 @@ namespace PubFinder.ViewModels
                             NewPub.SaltValue = Convert.ToBase64String(salt);
                             NewPub.HashValue = Convert.ToBase64String(hash);
                             db.Pubs.Add(NewPub);
+                            var NewUser = new User
+                            {
+                                Name = NewPub.Name.Replace(" ",""),
+                                HashValue = NewPub.HashValue,
+                                SaltValue = NewPub.SaltValue,
+                                PhotoLink = NewPub.LogoLink,
+                                Email = NewPub.Email,
+                                UserName = NewPub.Name.Trim(' '),
+                                RoleId = 2,
+                                Surname = "pub"
+                            };
+                            db.Users.Add(NewUser);
                             db.SaveChanges();
                             Messenger.Default.Send(new PubLogInOutMessage { PubId = NewPub.Id });
                             PubDataClear();
-                            db.Users.Add(new User
-                            {
-                                Name = NewPub.Name.Trim(' '),
-                                HashValue = NewPub.HashValue,
-                                SaltValue = NewPub.SaltValue,
-                                PhotoLink=NewPub.LogoLink,
-                                Email=NewPub.Email,
-                                UserName=NewPub.Name,
-                                RoleId=2,
-                                Surname=""
-                            });
                             navigation.Navigate<StartPageViewModel>();
                         }
                     }
