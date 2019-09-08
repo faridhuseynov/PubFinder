@@ -104,6 +104,19 @@ namespace PubFinder.ViewModels
                 }
             ));
         }
+
+        private RelayCommand goToLocationPageCommand;
+        public RelayCommand GoToLocationPageCommand
+        {
+            get => goToLocationPageCommand ?? (goToLocationPageCommand = new RelayCommand(
+                () =>
+                {
+                    MenuItems = null;
+                    navigation.Navigate<UserLocationViewModel>();
+                }
+            ));
+        }
+
         //this function redirects directly to Pubs usercontrol
         private RelayCommand returnToPubsCommand;
         public RelayCommand ReturnToPubsCommand

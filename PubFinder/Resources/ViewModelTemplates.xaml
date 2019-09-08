@@ -34,6 +34,9 @@
     <DataTemplate DataType="{x:Type vm:UserCommentViewModel}">
         <v2:UserCommentView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:UserLocationViewModel}">
+        <v2:UserLocationView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm2:OwnerAccountViewModel}">
         <v3:OwnerAccountView />
     </DataTemplate>

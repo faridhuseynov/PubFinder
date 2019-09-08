@@ -147,7 +147,7 @@
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding FeedbackSelectedCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding GoToLocationPageCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>

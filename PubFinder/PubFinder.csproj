@@ -119,6 +119,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -277,6 +280,7 @@
     <Compile Include="ViewModels\UserAccountViewModel.cs" />
     <Compile Include="ViewModels\UserBeerSetViewModel.cs" />
     <Compile Include="ViewModels\UserCommentViewModel.cs" />
+    <Compile Include="ViewModels\UserLocationViewModel.cs" />
     <Compile Include="ViewModels\UserMenuViewModel.cs" />
     <Compile Include="ViewModels\UserSignUpViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
@@ -297,6 +301,9 @@
     </Compile>
     <Compile Include="Views\PubViews\UserCommentView.xaml.cs">
       <DependentUpon>UserCommentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PubViews\UserLocationView.xaml.cs">
+      <DependentUpon>UserLocationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PubViews\UserMenuView.xaml.cs">
       <DependentUpon>UserMenuView.xaml</DependentUpon>
@@ -427,6 +434,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PubViews\UserCommentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PubViews\UserLocationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

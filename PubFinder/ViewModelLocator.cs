@@ -24,6 +24,7 @@ namespace PubFinder
         private UserMenuViewModel userMenuViewModel;
         private UserBeerSetViewModel userBeerSetViewModel;
         private UserCommentViewModel userCommentViewModel;
+        private UserLocationViewModel userLocationViewModel;
         private OwnerAccountViewModel ownerAccountViewModel;
 
 
@@ -54,6 +55,7 @@ namespace PubFinder
                 userMenuViewModel = Container.Resolve<UserMenuViewModel>();
                 userBeerSetViewModel = Container.Resolve<UserBeerSetViewModel>();
                 userCommentViewModel = Container.Resolve<UserCommentViewModel>();
+                userLocationViewModel= Container.Resolve<UserLocationViewModel>();
                 ownerAccountViewModel = Container.Resolve<OwnerAccountViewModel>();
 
                 navigationService.Register<StartPageViewModel>(startPageViewModel);
@@ -63,7 +65,9 @@ namespace PubFinder
                 navigationService.Register<UserMenuViewModel>(userMenuViewModel);
                 navigationService.Register<UserBeerSetViewModel>(userBeerSetViewModel);
                 navigationService.Register<UserCommentViewModel>(userCommentViewModel);
+                navigationService.Register<UserLocationViewModel>(userLocationViewModel);
                 navigationService.Register<OwnerAccountViewModel>(ownerAccountViewModel);
+
 
                 navigationService.Navigate<StartPageViewModel>();
             }

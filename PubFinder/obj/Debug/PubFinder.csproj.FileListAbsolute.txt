@@ -601,3 +601,7 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.R
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.LastTryRemoved.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RolesFixed.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.MenuItemPriceAdded.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserLocationView.g.cs
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserLocationView.baml

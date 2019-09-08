@@ -92,6 +92,16 @@ namespace PubFinder.ViewModels
             ));
         }
 
+        private RelayCommand goToLocationPageCommand;
+        public RelayCommand GoToLocationPageCommand
+        {
+            get => goToLocationPageCommand ?? (goToLocationPageCommand = new RelayCommand(
+                () =>
+                {
+                    navigation.Navigate<UserLocationViewModel>();
+                }
+            ));
+        }
         //this commant for adding new comment
         private RelayCommand addNewCommentCommand;
         public RelayCommand AddNewCommentCommand
