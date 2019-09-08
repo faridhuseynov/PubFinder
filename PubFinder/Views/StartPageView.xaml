@@ -67,7 +67,7 @@
         <UniformGrid Grid.Row="7" HorizontalAlignment="Stretch"
                      Rows="1" Columns="2"
                      Margin="50,10,50,10">
-            <Button FontSize="30"
+            <Button FontSize="30" 
                     Command="{Binding SignUpCommand}" Content="Sign Up">
                 <Button.Style>
                     <Style TargetType="Button">

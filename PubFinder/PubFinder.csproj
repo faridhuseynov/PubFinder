@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201909080613430_RolesFixed.Designer.cs">
       <DependentUpon>201909080613430_RolesFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909081230277_MenuItemPriceAdded.cs" />
+    <Compile Include="Migrations\201909081230277_MenuItemPriceAdded.Designer.cs">
+      <DependentUpon>201909081230277_MenuItemPriceAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
@@ -374,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909080613430_RolesFixed.resx">
       <DependentUpon>201909080613430_RolesFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909081230277_MenuItemPriceAdded.resx">
+      <DependentUpon>201909081230277_MenuItemPriceAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

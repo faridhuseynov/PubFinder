@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="1.0*"></ColumnDefinition>
                     <ColumnDefinition Width="4.0*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Ellipse Width="80" Height="80" Margin="-9,-42,1.8,42">
+                <Ellipse Width="60" Height="60" Margin="11,-21,9,21">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
                     </Ellipse.Fill>
@@ -85,7 +85,7 @@
                         <ImageBrush/>
                     </Image.OpacityMask>
                 </Image>-->
-                <ListView Height="80" Grid.Column="1"
+                <ListView Height="60" Grid.Column="1"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Disabled">
                     <ListView.ItemsPanel>
@@ -97,7 +97,7 @@
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Restaurant"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="30" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock VerticalAlignment="Bottom"
                                        FontSize="15"
