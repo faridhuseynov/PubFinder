@@ -16,7 +16,7 @@ namespace PubFinder.ViewModels
     class UserBeerSetViewModel : ViewModelBase
     {
         //created this temporarily for testing the view. Instead of this will have quantity of setItem
-        public int QuantityTest { get; set; }
+        //public int QuantityTest { get; set; }
         private ObservableCollection<BeerSet> beerSets = new ObservableCollection<BeerSet>();
         public ObservableCollection<BeerSet> BeerSets { get => beerSets; set => Set(ref beerSets, value); }
 
@@ -34,13 +34,6 @@ namespace PubFinder.ViewModels
 
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
-
-        private bool menuOpen = true;
-        public bool MenuOpen { get => menuOpen; set => Set(ref menuOpen, value); }
-
-        private bool menuClose = false;
-        public bool MenuClose { get => menuClose; set => Set(ref menuClose, value); }
-
 
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
@@ -120,17 +113,7 @@ namespace PubFinder.ViewModels
                 }
             ));
         }
-        private RelayCommand menuOpenCommand;
-        public RelayCommand MenuOpenCommand
-        {
-            get => menuOpenCommand ?? (menuOpenCommand = new RelayCommand(
-                () =>
-                {
-                    MenuClose = true;
-                    MenuOpen = false;
-                }
-            ));
-        }
+      
 
         private RelayCommand logOutCommand;
         public RelayCommand LogOutCommand
