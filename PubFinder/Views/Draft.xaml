@@ -3,68 +3,132 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PubFinder.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-
+             xmlns:local="clr-namespace:PubFinder.Views"
+             xmlns:vm="clr-namespace:PubFinder.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-        <!--ListView for the Pub review-->
-
+             d:DesignHeight="700" d:DesignWidth="400"
+             d:DataContext="{d:DesignInstance vm:StartPageViewModel}">
     <Grid>
-        <ListView>
-            <ListViewItem Height="60">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="RestaurantMenu"
-                                                     Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="20 10" FontSize="20"
-                                       Width="100" Foreground="Indigo"
-                                       >Menu</TextBlock>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Height="60">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Beer"
-                                                     Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="20 10" FontSize="20"
-                                       Width="100" Foreground="Indigo"
-                                       >Beer Sets</TextBlock>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Height="60">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Location"
-                                                     Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="20 10" FontSize="20"
-                                       Width="100" Foreground="Indigo"
-                                       >Address</TextBlock>
-                </StackPanel>
-            </ListViewItem>
-            <ListViewItem Height="60">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Event"
-                                                     Foreground="Indigo"
-                                                     Width="25" Height="25"
-                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBlock HorizontalAlignment="Right"
-                                       VerticalAlignment="Center"
-                                       Margin="20 10" FontSize="20"
-                                       Width="100" Foreground="Indigo"
-                                       >Events</TextBlock>
-                </StackPanel>
-            </ListViewItem>
-        </ListView>  
-    </Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\FH189\source\repos\PubFinder\PubFinder\Sources\beer-theme-bg9.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0"
+               HorizontalAlignment="Center">
+        </Image>
+        <DockPanel LastChildFill="False"
+                   Grid.Row="1"
+                   Margin="0 50">
+            <Label HorizontalAlignment="Center" 
+                   FontSize="20" Foreground="White"
+                   DockPanel.Dock="Top"
+                   Content="Username"></Label>
+            <TextBox DockPanel.Dock="Bottom" Name="UserName" FontSize="30"
+                     HorizontalContentAlignment="Center"
+                     Foreground="White"
+                     Text="{Binding Username,
+                ValidatesOnDataErrors=True,
+                NotifyOnValidationError=True,
+                UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="2"
+                   VerticalAlignment="Bottom"
+                   LastChildFill="False"
+                   HorizontalAlignment="Center">
+            <Label HorizontalAlignment="Center"
+               DockPanel.Dock="Top"
+               FontSize="20" Foreground="White"
+               Content="Password"></Label>
+            <PasswordBox x:Name="password" FontSize="30"
+                     VerticalAlignment="Bottom"
+                         Foreground="White"
+                     DockPanel.Dock="Bottom"
+                     HorizontalContentAlignment="Center"                     
+                     ></PasswordBox>
+        </DockPanel>
+        <DockPanel>
 
+        </DockPanel>
+        <Label  FontSize="20" Foreground="White"
+               Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=password}"/>
+        <DockPanel Grid.Row="3"  VerticalAlignment="Bottom">
+            <UniformGrid DockPanel.Dock="Bottom">
+                <RadioButton FontSize="20"
+                             x:Name="UserButton"
+                          BorderThickness="5" Foreground="White"
+                          HorizontalContentAlignment="Center"
+                          HorizontalAlignment="Center"
+                             BorderBrush="White"
+                          IsChecked="{Binding UserRadBut}">
+                    User</RadioButton>
+                <RadioButton FontSize="20"
+                             x:Name="OwnerButton"
+                             BorderThickness="5" Foreground="White"
+                             HorizontalAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             IsChecked="{Binding OwnerRadBut}">
+                    Pub Owner</RadioButton>
+            </UniformGrid>
+        </DockPanel>
+        <UniformGrid Grid.Row="4" HorizontalAlignment="Stretch"
+                     Rows="1" Columns="2"
+                     Height="60"
+                     
+                     Margin="50,10,50,10">
+            <UniformGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFA66565" Offset="1"/>
+                </LinearGradientBrush>
+            </UniformGrid.Background>
+            <Button FontSize="30" 
+                    Command="{Binding SignUpCommand}" Content="Sign Up">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF9F1515" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button FontSize="30"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding ElementName=password}"
+                    Content="Login">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </UniformGrid>
+    </Grid>
 </UserControl>
+

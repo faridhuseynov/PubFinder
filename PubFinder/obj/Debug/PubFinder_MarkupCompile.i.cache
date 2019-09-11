@@ -16,5 +16,5 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\App.xaml
 1621575899110
 Resources\ViewModelTemplates.xaml;Views\AppView.xaml;Views\Draft.xaml;Views\OwnerViews\OwnerAccountView.xaml;Views\PubOwnerSignUpView.xaml;Views\PubViews\UserBeerSetView.xaml;Views\PubViews\UserCommentView.xaml;Views\PubViews\UserLocationView.xaml;Views\PubViews\UserMenuView.xaml;Views\SignUpView.xaml;Views\UserAccountView.xaml;Views\UserSignUpView.xaml;Views\StartPageView.xaml;
 
-True
+False
 

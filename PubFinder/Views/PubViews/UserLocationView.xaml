@@ -155,6 +155,10 @@
             </Grid>
         </Grid>
         <Grid Margin="0,60,0,85">
+            <Grid.Background>
+                <ImageBrush ImageSource="https://themepack.me/i/c/749x468/media/g/1203/beer-theme-qe11.jpg"
+                            ></ImageBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="1.5*"></RowDefinition>

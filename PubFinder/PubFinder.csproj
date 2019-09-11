@@ -467,6 +467,26 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Sources\beerset-theme-gb2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\beermenu-theme-qe11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\beermenu-theme-it6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\paulaner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\beer-theme-bg9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\pin-place-beer-pub-location-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\start.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
