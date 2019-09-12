@@ -111,7 +111,7 @@ namespace PubFinder.ViewModels
                 {
                     if (!String.IsNullOrWhiteSpace(NewFeedback))
                     {
-                        db.Comments.Add(new Comment { Feedback = NewFeedback, Weight = 0, UserId = LoggedInUser, PubId = Pub.Id });
+                        db.Comments.Add(new Comment { Feedback = NewFeedback,  UserId = LoggedInUser, PubId = Pub.Id });
                         db.SaveChanges();
                         NewFeedback = "";
                         Comments = new ObservableCollection<Comment>(db.Comments.Where(x => x.PubId == Pub.Id));

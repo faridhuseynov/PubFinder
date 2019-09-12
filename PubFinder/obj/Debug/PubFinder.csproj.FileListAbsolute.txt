@@ -605,3 +605,4 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Microsoft.Maps.MapCont
 C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserLocationView.g.cs
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserLocationView.baml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.CommentRateAndVoteInitial.resources
