@@ -8,49 +8,44 @@
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600"
+             d:DesignHeight="700" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance vm:UserCommentViewModel}">
     <UserControl.Resources>
-        <Storyboard x:Key="MenuOpen">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="55"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="155"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="MenuClose">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="155"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="55"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <DataTemplate x:Key="commentsLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
                 <Label DockPanel.Dock="Top" Content="{Binding Feedback}"
-                       Foreground="Gold" FontWeight="Bold" HorizontalContentAlignment="Center"
+                       Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Left"
                        FontSize="20" Background="AliceBlue"></Label>
-                <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" HorizontalAlignment="Center">
-                    <Label DockPanel.Dock="Left" Content="{Binding Weight}"
-                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
-                       FontSize="20" Background="AliceBlue"></Label>
+                <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Left"
+                           >
                     <!--Want to add here button for like and dislike and based
                     on that the weight of the comment should change-->
-                    <DockPanel DockPanel.Dock="Right">
-                        <Button DockPanel.Dock="Left"></Button>
+                    <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left"
+                               >
+                        <Button DockPanel.Dock="Top">
+                            <materialDesign:PackIcon Kind="ThumbsUpOutline"
+                                                 ></materialDesign:PackIcon>
+                        </Button>
+                        <DockPanel DockPanel.Dock="Bottom">
+                            <Label DockPanel.Dock="Left"  Foreground="Green">+</Label>
+                            <Label DockPanel.Dock="Right">+</Label>
+                        </DockPanel>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right"
+                               Margin="20 0 0 0">
+                        <Button DockPanel.Dock="Top">
+                            <materialDesign:PackIcon Kind="ThumbDownOutline"
+                                                 ></materialDesign:PackIcon>
+                        </Button>
+                        <DockPanel DockPanel.Dock="Bottom">
+                            <Label DockPanel.Dock="Left" Foreground="Red">-</Label>
+                            <Label DockPanel.Dock="Right">-</Label>
+                        </DockPanel>
                     </DockPanel>
                 </DockPanel>
             </DockPanel>
         </DataTemplate>
     </UserControl.Resources>
-
-    <UserControl.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
-        </EventTrigger>
-    </UserControl.Triggers>
 
     <Grid Background="AliceBlue">
         <Grid Height="50" VerticalAlignment="Top" Background="#FF0D16D6">
@@ -66,33 +61,168 @@
                 </Button>
             </materialDesign:PopupBox>
         </Grid>
-        <Grid x:Name="GridMenu" Width="54" HorizontalAlignment="Left" Background="#FF3ACAF5">
+        <Grid x:Name="GridMenu" VerticalAlignment="Bottom" Background="Orange">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                    <ColumnDefinition Width="4.0*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="60" Height="60" Margin="5,-14,15,34">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <ListView Height="60" Grid.Column="1" SelectedIndex="0"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="RestaurantMenu"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Menu</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToMenuPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="60" IsSelected="True">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Beer"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Beer Sets</TextBlock>
+                        </StackPanel>
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding FavoritePubSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Location"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Center"                                       
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Location</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToLocationPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Event"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Events</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding SavedEventsSelectedCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Vertical">
+                            <materialDesign:PackIcon Kind="Feedback"
+                                                     Foreground="Indigo"
+                                                     Width="50" Height="25"
+                                                     VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock VerticalAlignment="Center"
+                                       FontSize="15"
+                                       Width="50" Foreground="Indigo"
+                                       >Feedback</TextBlock>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToCommentsPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+        </Grid>
+        <Grid Margin="0,60,0,85">
+            <!--<Grid.Background>
+                <ImageBrush
+                    ImageSource="C:\Users\FH189\source\repos\PubFinder\PubFinder\Sources\beerset-theme-gb2.jpg">
+                </ImageBrush>
+            </Grid.Background>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0" HorizontalAlignment="Right"
+                 SelectedItem="{Binding SelectedComment}"
+                 ItemsSource="{Binding Comments}" Width="360"
+                 ItemTemplate="{StaticResource commentsLbTemplate}"
+                     VerticalAlignment="Top"
+                     Margin="0 0 20 0"
+                     HorizontalContentAlignment="Stretch">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding BeerSetSelectedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
+            <DockPanel Grid.Row="1">
+                <Button DockPanel.Dock="Bottom"
+                        Margin="20 0 10 20"
+                        VerticalAlignment="Bottom"
+                        Background="LightGreen"
+                        Command="{Binding AddNewCommentCommand}">
+                    Add Comment</Button>
+                <TextBox DockPanel.Dock="Top"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Left" Margin="20,5,0,20"
+                 Text="{Binding NewFeedback}" Background="White"
+                 HorizontalContentAlignment="Stretch"
+                         VerticalScrollBarVisibility="Auto"
+                         VerticalContentAlignment="Top"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True" Height="130" Width="370">
+                </TextBox>
+            </DockPanel>
+
+            <Button Grid.Row="2" VerticalAlignment="Bottom"
+                    Margin="20 0 10 20" Background="IndianRed"
+                    Command="{Binding ReturnToPubsCommand}">
+                Back to Pubs
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>
+<!--<Grid x:Name="GridMenu" Width="54" HorizontalAlignment="Left" Background="#FF3ACAF5">
             <StackPanel>
                 <Grid Height="150" Background="White">
-                    <Button x:Name="ButtonCloseMenu"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            Margin="0"
-                            Width="60"
-                            Height="60"
-                            Background="{x:Null}" BorderBrush="{x:Null}"
-                            Command="{Binding MenuCloseCommand}"
-                            Visibility="{Binding Path=MenuClose, Converter={StaticResource BoolToVis}}">
-                        <materialDesign:PackIcon Height="25" Width="25"
-                                                 Foreground="#FF3ACAF3" Kind="ArrowLeft"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Left"                            
-                            Width="60"
-                            Height="60"
-                            Background="{x:Null}" BorderBrush="{x:Null}"
-                            Command="{Binding MenuOpenCommand}"
-                            Visibility="{Binding Path=MenuOpen, Converter={StaticResource BoolToVis}}">
-                        <materialDesign:PackIcon Height="25" Width="25"
-                                                 Foreground="#FF3ACAF5"
-                                                 Kind="Menu"/>
-                    </Button>
+                    
                     <Ellipse Width="80" Height="80" Margin="25,45,45,0">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
@@ -196,11 +326,13 @@
                                        Width="100" Foreground="Indigo"
                                        >Feedback</TextBlock>
                         </StackPanel>
-                        <!--<i:Interaction.Triggers>
+                        -->
+<!--<i:Interaction.Triggers>
                             <i:EventTrigger EventName="Selected">
                                 <i:InvokeCommandAction Command="{Binding GoToCommentsPageCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>-->
+<!--
                     </ListViewItem>
                 </ListView>
             </StackPanel>
@@ -242,4 +374,4 @@
             </Button>
         </Grid>
     </Grid>
-</UserControl>
+</UserControl>-->
