@@ -8,7 +8,7 @@
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="400"
+             d:DesignHeight="700" d:DesignWidth="400" Name="CommentViewWindow"
              d:DataContext="{d:DesignInstance vm:UserCommentViewModel}">
     <UserControl.Resources>
         <DataTemplate x:Key="commentsLbTemplate">
@@ -16,30 +16,49 @@
                 <Label DockPanel.Dock="Top" Content="{Binding Feedback}"
                        Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Left"
                        FontSize="20" Background="AliceBlue"></Label>
-                <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Left"
-                           >
+                <DockPanel DockPanel.Dock="Bottom"
+                           Background="Transparent"
+                           HorizontalAlignment="Left">
                     <!--Want to add here button for like and dislike and based
                     on that the weight of the comment should change-->
-                    <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left"
-                               >
-                        <Button DockPanel.Dock="Top">
+                    <DockPanel DockPanel.Dock="Left"
+                               Background="Transparent"
+                               HorizontalAlignment="Left">
+                        <Button DockPanel.Dock="Top" 
+                                Background="#FF33B6E0"
+                                Command="{Binding DataContext.CommentLikedCommand, ElementName=CommentViewWindow}"
+                               CommandParameter="{Binding}"
+                                >
+
                             <materialDesign:PackIcon Kind="ThumbsUpOutline"
                                                  ></materialDesign:PackIcon>
                         </Button>
                         <DockPanel DockPanel.Dock="Bottom">
-                            <Label DockPanel.Dock="Left"  Foreground="Green">+</Label>
-                            <Label DockPanel.Dock="Right">+</Label>
+                            <Label DockPanel.Dock="Left"
+                                   HorizontalContentAlignment="Right"
+                                   Foreground="Green">+</Label>
+                            <Label DockPanel.Dock="Right"
+                                   HorizontalContentAlignment="Left"
+                                   Foreground="Green"
+                                   Content="{Binding Like}"></Label>
                         </DockPanel>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right"
                                Margin="20 0 0 0">
-                        <Button DockPanel.Dock="Top">
+                        <Button DockPanel.Dock="Top" 
+                                Background="IndianRed"
+                                Command="{Binding CommentDislikedCommand}">
                             <materialDesign:PackIcon Kind="ThumbDownOutline"
                                                  ></materialDesign:PackIcon>
                         </Button>
                         <DockPanel DockPanel.Dock="Bottom">
-                            <Label DockPanel.Dock="Left" Foreground="Red">-</Label>
-                            <Label DockPanel.Dock="Right">-</Label>
+                            <Label DockPanel.Dock="Left"
+                                   HorizontalContentAlignment="Right"
+                                   Foreground="Red">-</Label>
+                            <Label DockPanel.Dock="Right"
+                                   Foreground="Red"
+                                   HorizontalContentAlignment="Left"
+                                   Content="{Binding Dislike}"></Label>
                         </DockPanel>
                     </DockPanel>
                 </DockPanel>
@@ -108,11 +127,6 @@
                                        Width="50" Foreground="Indigo"
                                        >Beer Sets</TextBlock>
                         </StackPanel>
-                        <!--<i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Selected">
-                                <i:InvokeCommandAction Command="{Binding FavoritePubSelectedCommand}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>-->
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Vertical">
@@ -186,11 +200,6 @@
                      VerticalAlignment="Top"
                      Margin="0 0 20 0"
                      HorizontalContentAlignment="Stretch">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding BeerSetSelectedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
             </ListBox>
             <DockPanel Grid.Row="1">
                 <Button DockPanel.Dock="Bottom"

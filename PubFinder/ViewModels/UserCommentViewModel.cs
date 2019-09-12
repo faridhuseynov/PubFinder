@@ -34,11 +34,7 @@ namespace PubFinder.ViewModels
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
 
-        private bool menuOpen = true;
-        public bool MenuOpen { get => menuOpen; set => Set(ref menuOpen, value); }
 
-        private bool menuClose = false;
-        public bool MenuClose { get => menuClose; set => Set(ref menuClose, value); }
 
 
         private readonly INavigationService navigation;
@@ -68,7 +64,39 @@ namespace PubFinder.ViewModels
             }, true);
         }
 
+        private RelayCommand commentLikedCommand;
+        public RelayCommand CommentLikedCommand
+        {
+            get => commentLikedCommand ?? (commentLikedCommand = new RelayCommand(
+                () =>
+                {
+                    if (db.CommentRates.FirstOrDefault(x=>x.PubId==Pub.Id && x.UserId==ActiveUser.Id)==null)
+                    {
+                        db.CommentRates.Add(new CommentRate { PubId = Pub.Id, UserId = ActiveUser.Id, VoteId = 1 });
+                        ++SelectedComment.Like;
+                        ++db.Comments.FirstOrDefault(x => x.Id == SelectedComment.Id).Like;
+                        db.SaveChanges();
+                    }
+                }
+            ));
+        }
 
+        private RelayCommand commentDislikedCommand;
+        public RelayCommand CommentDislikedCommand
+        {
+            get => commentDislikedCommand ?? (commentDislikedCommand = new RelayCommand(
+                () =>
+                {
+                    if (db.CommentRates.FirstOrDefault(x => x.PubId == Pub.Id && x.UserId == ActiveUser.Id) == null)
+                    {
+                        db.CommentRates.Add(new CommentRate { PubId = Pub.Id, UserId = ActiveUser.Id, VoteId = 2 });
+                        ++SelectedComment.Dislike;
+                        ++db.Comments.FirstOrDefault(x => x.Id == SelectedComment.Id).Dislike;
+                        db.SaveChanges();
+                    }
+                }
+            ));
+        }
         private RelayCommand goToBeerSetPageCommand;
         public RelayCommand GoToBeerSetPageCommand
         {
@@ -137,17 +165,7 @@ namespace PubFinder.ViewModels
             ));
         }
 
-        private RelayCommand menuOpenCommand;
-        public RelayCommand MenuOpenCommand
-        {
-            get => menuOpenCommand ?? (menuOpenCommand = new RelayCommand(
-                () =>
-                {
-                    MenuClose = true;
-                    MenuOpen = false;
-                }
-            ));
-        }
+
 
         private RelayCommand logOutCommand;
         public RelayCommand LogOutCommand

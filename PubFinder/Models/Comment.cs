@@ -10,7 +10,9 @@ namespace PubFinder.Models
     {
         public int Id { get; set; }
         public string Feedback { get; set; }
-        //public int Weight { get; set; }
+        public int Like { get; set; }
+        public int Dislike { get; set; }
+
         public int PubId { get; set; }
         public Pub Pub { get; set; }
         public int UserId { get; set; }
