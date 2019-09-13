@@ -116,11 +116,11 @@
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Beer"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="65" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock VerticalAlignment="Bottom"
                                        FontSize="15"
-                                       Width="50" Foreground="Indigo"
+                                       Width="65" Foreground="Indigo"
                                        >Beer Sets</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -133,12 +133,12 @@
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Location"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="65" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
                                        FontSize="15"
-                                       Width="50" Foreground="Indigo"
+                                       Width="65" Foreground="Indigo"
                                        >Location</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -147,7 +147,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <!--<ListViewItem Height="60">
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Event"
                                                      Foreground="Indigo"
@@ -164,17 +164,17 @@
                                 <i:InvokeCommandAction Command="{Binding SavedEventsSelectedCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </ListViewItem>
+                    </ListViewItem>-->
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Feedback"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="65" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
                                        FontSize="15"
-                                       Width="50" Foreground="Indigo"
+                                       Width="65" Foreground="Indigo"
                                        >Feedback</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -189,7 +189,7 @@
         <Grid Margin="0,50,0,75">
             <Grid.Background>
                 <ImageBrush
-                    ImageSource="C:\Users\FH189\source\repos\PubFinder\PubFinder\Sources\beermenu-theme-qe11.jpg"
+                    ImageSource="../../Sources/beermenu-theme-qe11.jpg"
                             ></ImageBrush>
             </Grid.Background>
             <Grid.RowDefinitions>

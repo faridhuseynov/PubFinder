@@ -117,15 +117,15 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem Height="60" IsSelected="True">
+                    <ListViewItem Height="60">
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Beer"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="65" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock VerticalAlignment="Center"
                                        FontSize="15"
-                                       Width="50" Foreground="Indigo"
+                                       Width="65" Foreground="Indigo"
                                        >Beer Sets</TextBlock>
                         </StackPanel>
                     </ListViewItem>
@@ -133,11 +133,11 @@
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Location"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="65" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock VerticalAlignment="Center"                                       
                                        FontSize="15"
-                                       Width="50" Foreground="Indigo"
+                                       Width="65" Foreground="Indigo"
                                        >Location</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -146,7 +146,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <!--<ListViewItem Height="60">
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Event"
                                                      Foreground="Indigo"
@@ -162,16 +162,17 @@
                                 <i:InvokeCommandAction Command="{Binding SavedEventsSelectedCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
+                    </ListViewItem>-->
+                    <ListViewItem Height="60" IsSelected="True"
+                                  >
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon Kind="Feedback"
                                                      Foreground="Indigo"
-                                                     Width="50" Height="25"
+                                                     Width="65" Height="25"
                                                      VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock VerticalAlignment="Center"
                                        FontSize="15"
-                                       Width="50" Foreground="Indigo"
+                                       Width="65" Foreground="Indigo"
                                        >Feedback</TextBlock>
                         </StackPanel>
                         <i:Interaction.Triggers>
@@ -190,11 +191,17 @@
                 </ImageBrush>
             </Grid.Background>-->
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
                 <RowDefinition Height="1.5*"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="0.3*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListBox Grid.Row="0" HorizontalAlignment="Right"
+            <Label Content="{Binding Pub.Name}"
+                   Foreground="DarkGreen"
+                   FontSize="30"
+                   HorizontalContentAlignment="Center"
+                   VerticalAlignment="Center"></Label>
+            <ListBox Grid.Row="1" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedComment}"
                  ItemsSource="{Binding Comments,UpdateSourceTrigger=PropertyChanged}" Width="360"
                  ItemTemplate="{StaticResource commentsLbTemplate}"
@@ -202,7 +209,7 @@
                      Margin="0 0 20 0"
                      HorizontalContentAlignment="Stretch">
             </ListBox>
-            <DockPanel Grid.Row="1">
+            <DockPanel Grid.Row="2">
                 <Button DockPanel.Dock="Bottom"
                         Margin="20 0 10 20"
                         VerticalAlignment="Bottom"
@@ -211,7 +218,7 @@
                     Add Comment</Button>
                 <TextBox DockPanel.Dock="Top"
                          VerticalAlignment="Top"
-                         HorizontalAlignment="Left" Margin="20,5,0,20"
+                         HorizontalAlignment="Left" Margin="20,5,20,20"
                  Text="{Binding NewFeedback}" Background="White"
                  HorizontalContentAlignment="Stretch"
                          VerticalScrollBarVisibility="Auto"
@@ -221,7 +228,7 @@
                 </TextBox>
             </DockPanel>
 
-            <Button Grid.Row="2" VerticalAlignment="Bottom"
+            <Button Grid.Row="3" VerticalAlignment="Bottom"
                     Margin="20 0 10 20" Background="IndianRed"
                     Command="{Binding ReturnToPubsCommand}">
                 Back to Pubs
