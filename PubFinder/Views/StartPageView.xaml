@@ -80,45 +80,45 @@
             </UniformGrid>
         </DockPanel>
         <DockPanel Grid.Row="4" HorizontalAlignment="Center" LastChildFill="False">
-            <Button FontSize="30" DockPanel.Dock="Right"
-                    Margin="0 0 20 30" Padding="30"
-                    Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding ElementName=password}"
-                    Content="Login">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="LightGreen" Offset="0"/>
-                        <GradientStop Color="#FF8FDC87" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="#FF27F408" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-                <Button.Style>
-                    <Style TargetType="Button" x:Name="LoginButton">
-                        <Setter Property="IsEnabled" Value="False"/>
+                <Button FontSize="30" DockPanel.Dock="Right"
+                        Margin="0 0 20 30" Padding="30"                    
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="{Binding ElementName=password}"
+                        Content="Login">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="LightGreen" Offset="0"/>
+                            <GradientStop Color="#FF8FDC87" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FF27F408" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.BorderBrush>
+                    <Button.Style>
+                        <Style TargetType="Button" x:Name="LoginButton">
+                            <Setter Property="IsEnabled" Value="False"/>
 
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
-                                <Setter Property="IsEnabled" Value="True"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
-                                <Setter Property="IsEnabled" Value="True"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             <Button FontSize="30" DockPanel.Dock="Left"
                     Margin="0 0 20 30" Padding="20"
                     Command="{Binding SignUpCommand}" Content="Sign Up">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="LightBlue" Offset="0"/>
-                        <GradientStop Color="#FFF2F4DC" Offset="1"/>
+                        <GradientStop Color="#FFC8FEFF" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
                 <Button.Style>

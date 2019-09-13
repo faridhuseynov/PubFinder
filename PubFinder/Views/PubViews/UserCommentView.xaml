@@ -128,6 +128,11 @@
                                        Width="65" Foreground="Indigo"
                                        >Beer Sets</TextBlock>
                         </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Selected">
+                                <i:InvokeCommandAction Command="{Binding GoToBeerSetPageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Vertical">
