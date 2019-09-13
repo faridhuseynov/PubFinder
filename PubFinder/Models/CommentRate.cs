@@ -13,5 +13,7 @@ namespace PubFinder.Models
         public Vote Vote { get; set; }
         public int UserId { get; set; }
         public int PubId { get; set; }
+        public int CommentId { get; set; }
+        public Comment Comment { get; set; }
     }
 }

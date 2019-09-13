@@ -47,7 +47,8 @@
                                Margin="20 0 0 0">
                         <Button DockPanel.Dock="Top" 
                                 Background="IndianRed"
-                                Command="{Binding CommentDislikedCommand}">
+                                Command="{Binding DataContext.CommentDislikedCommand, ElementName=CommentViewWindow}"
+                                CommandParameter="{Binding}">
                             <materialDesign:PackIcon Kind="ThumbDownOutline"
                                                  ></materialDesign:PackIcon>
                         </Button>
@@ -195,7 +196,7 @@
             </Grid.RowDefinitions>
             <ListBox Grid.Row="0" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedComment}"
-                 ItemsSource="{Binding Comments}" Width="360"
+                 ItemsSource="{Binding Comments,UpdateSourceTrigger=PropertyChanged}" Width="360"
                  ItemTemplate="{StaticResource commentsLbTemplate}"
                      VerticalAlignment="Top"
                      Margin="0 0 20 0"

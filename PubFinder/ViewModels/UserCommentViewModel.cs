@@ -64,39 +64,87 @@ namespace PubFinder.ViewModels
             }, true);
         }
 
-        private RelayCommand commentLikedCommand;
-        public RelayCommand CommentLikedCommand
+        private RelayCommand<Comment> commentLikedCommand;
+        public RelayCommand<Comment> CommentLikedCommand
         {
-            get => commentLikedCommand ?? (commentLikedCommand = new RelayCommand(
-                () =>
+            get => commentLikedCommand ?? (commentLikedCommand = new RelayCommand<Comment>(
+                param =>
                 {
-                    if (db.CommentRates.FirstOrDefault(x=>x.PubId==Pub.Id && x.UserId==ActiveUser.Id)==null)
+                    var commentRate = db.CommentRates.FirstOrDefault(x => x.PubId == Pub.Id
+                                        &&
+                                        x.UserId == ActiveUser.Id
+                                        &&
+                                        x.CommentId == param.Id);
+                    if (commentRate != null)
                     {
-                        db.CommentRates.Add(new CommentRate { PubId = Pub.Id, UserId = ActiveUser.Id, VoteId = 1 });
-                        ++SelectedComment.Like;
-                        ++db.Comments.FirstOrDefault(x => x.Id == SelectedComment.Id).Like;
-                        db.SaveChanges();
+                        if (commentRate.VoteId == 1)
+                            return;
+                        else if (commentRate.VoteId == 2)
+                        {
+                            db.CommentRates.Remove(commentRate);
+                            --param.Dislike;
+                        }
                     }
+
+                    db.CommentRates.Add(new CommentRate
+                    {
+                        PubId = Pub.Id,
+                        UserId = ActiveUser.Id,
+                        CommentId = param.Id,
+                        VoteId = 1
+                    });
+                    ++param.Like;
+                    db.SaveChanges();
+                    Comments = new ObservableCollection<Comment>(db.Comments.Where(x => x.PubId == Pub.Id));
                 }
             ));
         }
 
-        private RelayCommand commentDislikedCommand;
-        public RelayCommand CommentDislikedCommand
+        private RelayCommand<Comment> commentDislikedCommand;
+        public RelayCommand<Comment> CommentDislikedCommand
         {
-            get => commentDislikedCommand ?? (commentDislikedCommand = new RelayCommand(
-                () =>
+            get => commentDislikedCommand ?? (commentDislikedCommand = new RelayCommand<Comment>(
+                param =>
                 {
-                    if (db.CommentRates.FirstOrDefault(x => x.PubId == Pub.Id && x.UserId == ActiveUser.Id) == null)
+                    var commentRate = db.CommentRates.FirstOrDefault(x => x.PubId == Pub.Id
+                                        &&
+                                        x.UserId == ActiveUser.Id
+                                        &&
+                                        x.CommentId == param.Id);
+                    if (commentRate != null)
                     {
-                        db.CommentRates.Add(new CommentRate { PubId = Pub.Id, UserId = ActiveUser.Id, VoteId = 2 });
-                        ++SelectedComment.Dislike;
-                        ++db.Comments.FirstOrDefault(x => x.Id == SelectedComment.Id).Dislike;
-                        db.SaveChanges();
+                        if (commentRate.VoteId == 2)
+                            return;
+                        else if (commentRate.VoteId == 1)
+                        {
+                            db.CommentRates.Remove(commentRate);
+                            --param.Like;
+                        }
                     }
+                        //{
+                        //    db.CommentRates.Add(new CommentRate
+                        //    {
+                        //        PubId = Pub.Id,
+                        //        UserId = ActiveUser.Id,
+                        //        CommentId = param.Id,
+                        //        VoteId = 2
+                        //    });
+                        //    //++db.Comments.FirstOrDefault(x => x.Id == SelectedComment.Id).Like;
+                        //}
+                    db.CommentRates.Add(new CommentRate
+                    {
+                        PubId = Pub.Id,
+                        UserId = ActiveUser.Id,
+                        CommentId = param.Id,
+                        VoteId = 2
+                    });
+                    ++param.Dislike;
+                    db.SaveChanges();
+                    Comments = new ObservableCollection<Comment>(db.Comments.Where(x => x.PubId == Pub.Id));
                 }
             ));
         }
+
         private RelayCommand goToBeerSetPageCommand;
         public RelayCommand GoToBeerSetPageCommand
         {

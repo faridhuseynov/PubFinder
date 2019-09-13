@@ -266,6 +266,10 @@
     <Compile Include="Migrations\201909121833178_LikeDislikeAddedToComment.Designer.cs">
       <DependentUpon>201909121833178_LikeDislikeAddedToComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909131754564_CommetAndCommentRatesUpdate.cs" />
+    <Compile Include="Migrations\201909131754564_CommetAndCommentRatesUpdate.Designer.cs">
+      <DependentUpon>201909131754564_CommetAndCommentRatesUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
@@ -404,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909121833178_LikeDislikeAddedToComment.resx">
       <DependentUpon>201909121833178_LikeDislikeAddedToComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909131754564_CommetAndCommentRatesUpdate.resx">
+      <DependentUpon>201909131754564_CommetAndCommentRatesUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

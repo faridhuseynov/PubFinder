@@ -607,3 +607,4 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserLoc
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\Views\PubViews\UserLocationView.baml
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.CommentRateAndVoteInitial.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.LikeDislikeAddedToComment.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.CommetAndCommentRatesUpdate.resources
