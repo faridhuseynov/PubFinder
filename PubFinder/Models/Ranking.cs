@@ -8,7 +8,9 @@ namespace PubFinder.Models
 {
     class Ranking
     {
-        public int İd { get; set; }
+        public int Id { get; set; }
+        public int Score { get; set; }
+
         public int UserId { get; set; }
         public User User { get; set; }
         public int PubId { get; set; }

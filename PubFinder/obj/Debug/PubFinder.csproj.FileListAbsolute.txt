@@ -526,7 +526,6 @@ C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\Microsoft.Extensions.F
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\Microsoft.Extensions.FileProviders.Physical.xml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\Microsoft.Extensions.FileSystemGlobbing.xml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\Microsoft.Extensions.Primitives.xml
-C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\Newtonsoft.Json.xml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\System.Buffers.xml
 C:\Users\FH189\Source\Repos\PubFinder\PubFinder\bin\Debug\System.Memory.xml
@@ -609,3 +608,14 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.C
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.LikeDislikeAddedToComment.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.CommetAndCommentRatesUpdate.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RankingModelAdded.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.Licensing.dll
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfInput.WPF.dll
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfShared.WPF.dll
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfInput.WPF.xml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfShared.WPF.xml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfSkinManager.WPF.dll
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.Themes.Blend.WPF.dll
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfSkinManager.WPF.xml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.Themes.Blend.WPF.xml
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RankingsDbAdded.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RankingUpdatedWithScore.resources

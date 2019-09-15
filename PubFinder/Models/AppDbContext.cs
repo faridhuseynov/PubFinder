@@ -26,6 +26,8 @@ namespace PubFinder.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<CommentRate> CommentRates { get; set; }
+        public DbSet<Ranking> Rankings { get; set; }
+
 
 
         //public DbSet<Event> Events { get; set; }

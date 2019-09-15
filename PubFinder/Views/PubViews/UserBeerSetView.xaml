@@ -195,6 +195,7 @@
                     Command="{Binding ReturnToPubsCommand}">
                 Back to Pubs
             </Button>
+            
         </Grid>
     </Grid>
 </UserControl>

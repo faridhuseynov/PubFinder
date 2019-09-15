@@ -25,6 +25,9 @@ namespace PubFinder.ViewModels
         private int loggedInUser = new int();
         public int LoggedInUser { get => loggedInUser; set => Set(ref loggedInUser, value); }
 
+        private int userRate = new int();
+        public int UserRate { get => userRate; set => Set(ref userRate, value); }
+
         private Comment selectedComment = new Comment();
         public Comment SelectedComment { get => selectedComment; set => Set(ref selectedComment, value); }
 
@@ -34,8 +37,7 @@ namespace PubFinder.ViewModels
         private User activeUser = new User();
         public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
 
-
-
+        public Ranking Rank { get; set; }
 
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
@@ -56,11 +58,11 @@ namespace PubFinder.ViewModels
                 Pub = new Pub();
                 Pub = db.Pubs.FirstOrDefault(x => x.Id == msg.PubId);
                 Comments = new ObservableCollection<Comment>(db.Comments.Where(x => x.PubId == Pub.Id));
-                //foreach (var item in BeerSets)
-                //{
-                //    item.SetItems = new ObservableCollection<SetItem>();
-                //    item.SetItems = (db.SetItems.Where(x => x.BeerSetId == item.Id));
-                //}
+                Rank = db.Rankings.FirstOrDefault(x=>x.UserId==ActiveUser.Id && x.PubId==Pub.Id);
+                if (Rank == null)
+                    UserRate = 0;
+                else
+                    UserRate = Rank.Score;
             }, true);
         }
 
@@ -121,16 +123,6 @@ namespace PubFinder.ViewModels
                             --param.Like;
                         }
                     }
-                        //{
-                        //    db.CommentRates.Add(new CommentRate
-                        //    {
-                        //        PubId = Pub.Id,
-                        //        UserId = ActiveUser.Id,
-                        //        CommentId = param.Id,
-                        //        VoteId = 2
-                        //    });
-                        //    //++db.Comments.FirstOrDefault(x => x.Id == SelectedComment.Id).Like;
-                        //}
                     db.CommentRates.Add(new CommentRate
                     {
                         PubId = Pub.Id,
@@ -151,6 +143,7 @@ namespace PubFinder.ViewModels
             get => goToBeerSetPageCommand ?? (goToBeerSetPageCommand = new RelayCommand(
                 () =>
                 {
+                    RatingValueChangedCheck();
                     navigation.Navigate<UserBeerSetViewModel>();
                 }
             ));
@@ -163,17 +156,41 @@ namespace PubFinder.ViewModels
             get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
+                    RatingValueChangedCheck();
                     navigation.Navigate<UserMenuViewModel>();
                 }
             ));
         }
-
+        void RatingValueChangedCheck()
+        {
+            if (UserRate == 0)
+                return;
+            else if (Rank == null || Rank.Score == 0)
+                db.Rankings.Add(new Ranking { PubId = Pub.Id, UserId = ActiveUser.Id, Score = UserRate });
+            else if (UserRate != Rank.Score)
+                db.Rankings.FirstOrDefault(x => x.PubId == Pub.Id && x.UserId == ActiveUser.Id).Score = UserRate;
+            db.SaveChanges();
+            db.Pubs.FirstOrDefault(x=>x.Id==Pub.Id).Rate = db.Rankings.Where(x => x.PubId == Pub.Id).Sum(x=>x.Score)/ db.Rankings.Count(x => x.PubId == Pub.Id);
+            db.SaveChanges();
+        }
+        private RelayCommand ratingValueChangedCommand;
+        public RelayCommand RatingValueChangedCommand
+        {
+            get => ratingValueChangedCommand ?? (ratingValueChangedCommand = new RelayCommand(
+                () =>
+                {
+                    db.Pubs.FirstOrDefault(x => x.Id == Pub.Id).Rate = UserRate;
+                    db.SaveChanges();
+                }
+            ));
+        }
         private RelayCommand goToLocationPageCommand;
         public RelayCommand GoToLocationPageCommand
         {
             get => goToLocationPageCommand ?? (goToLocationPageCommand = new RelayCommand(
                 () =>
                 {
+                    RatingValueChangedCheck();
                     navigation.Navigate<UserLocationViewModel>();
                 }
             ));
@@ -207,6 +224,7 @@ namespace PubFinder.ViewModels
             get => returnToPubsCommand ?? (returnToPubsCommand = new RelayCommand(
                 () =>
                 {
+                    RatingValueChangedCheck();
                     Comments = null;
                     navigation.Navigate<UserAccountViewModel>();
                 }
@@ -221,6 +239,7 @@ namespace PubFinder.ViewModels
             get => logOutCommand ?? (logOutCommand = new RelayCommand(
                 () =>
                 {
+                    RatingValueChangedCheck();
                     Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
                     navigation.Navigate<StartPageViewModel>();
                 }

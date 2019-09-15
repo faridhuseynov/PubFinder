@@ -24,5 +24,10 @@ namespace PubFinder.Views.PubViews
         {
             InitializeComponent();
         }
+
+        private void RatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
+        {
+
+        }
     }
 }

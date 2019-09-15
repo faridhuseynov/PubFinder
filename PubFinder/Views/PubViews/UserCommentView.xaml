@@ -201,11 +201,26 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="0.3*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Content="{Binding Pub.Name}"
-                   Foreground="DarkGreen"
-                   FontSize="30"
-                   HorizontalContentAlignment="Center"
-                   VerticalAlignment="Center"></Label>
+            <DockPanel Grid.Row="0" HorizontalAlignment="Center" LastChildFill="False">
+                <Label Content="{Binding Pub.Name}"
+                       DockPanel.Dock="Left"
+                       Foreground="DarkGreen"
+                       FontSize="30"
+                       HorizontalContentAlignment="Center"
+                       VerticalAlignment="Center"></Label>
+                <materialDesign:RatingBar Value="{Binding UserRate,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"                                          
+                                          Foreground="Gold"                                          
+                                          VerticalAlignment="Center"
+                                          Margin="10 5 0 0"                                          
+                                          >
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="ValueChanged">
+                            <i:InvokeCommandAction Command="{Binding RatingValueChangedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                </materialDesign:RatingBar>
+           
+            </DockPanel>
             <ListBox Grid.Row="1" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedComment}"
                  ItemsSource="{Binding Comments,UpdateSourceTrigger=PropertyChanged}" Width="360"

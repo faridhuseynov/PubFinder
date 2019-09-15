@@ -50,6 +50,16 @@
             SetWindowPos options
             </summary>
         </member>
+        <member name="T:MaterialDesignThemes.Wpf.ButtonAssist">
+            <summary>
+            Helper properties for working with for make round corner.
+            </summary>
+        </member>
+        <member name="F:MaterialDesignThemes.Wpf.ButtonAssist.CornerRadiusProperty">
+            <summary>
+            Controls the corner radius of the surrounding box.
+            </summary>
+        </member>
         <member name="T:MaterialDesignThemes.Wpf.Card">
             <summary>
             A card is a content control, styled according to Material Design guidelines.
@@ -664,6 +674,25 @@
             Provides full information about a palette.
             </summary>
         </member>
+        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.ReplacePalette(MaterialDesignThemes.Wpf.Palette)">
+            <summary>
+            Replaces the entire palette
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.ReplacePrimaryColor(MaterialDesignColors.Swatch)">
+            <summary>
+            Replaces the primary color, selecting a balanced set of hues for the light, mid and dark hues.
+            </summary>
+            <param name="swatch"></param>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.QueryPalette">
+            <summary>
+            Attempts to query the current palette configured in the application's resources.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if there is any ambiguity regarding the palette. Provided
+            standard guidelines have been followed for palette configuration, this should not happen.</exception>
+        </member>
         <member name="T:MaterialDesignThemes.Wpf.Plane3D">
             <summary>
             View a control on a 3D plane.    
@@ -815,6 +844,12 @@
             Add / Remove ActionClickEvent handler 
             </summary>
         </member>
+        <member name="P:MaterialDesignThemes.Wpf.SnackbarMessageQueue.IgnoreDuplicate">
+            <summary>
+            Gets or sets a value that indicates whether this message queue displays messages without discarding duplicates. 
+            True to show every message even if there are duplicates.
+            </summary>
+        </member>
         <member name="P:MaterialDesignThemes.Wpf.SnackbarMessageQueueItem.Content">
             <summary>
             The content to be displayed
@@ -953,7 +988,7 @@
         </member>
         <member name="M:MaterialDesignThemes.Wpf.IHintProxy.IsEmpty">
             <summary>
-            Checks to see if the targetted control can be deemed as logically 
+            Checks to see if the targeted control can be deemed as logically 
             empty, even if not null, affecting the current hint display.
             </summary>
             <returns></returns>
@@ -1189,40 +1224,13 @@
         </member>
         <member name="E:MaterialDesignThemes.Wpf.PopupBox.Closed">
             <summary>
-            Raised when the popup is opened.
+            Raised when the popup is closed.
             </summary>
         </member>
         <member name="M:MaterialDesignThemes.Wpf.PopupBox.OnClosed">
             <summary>
             Raises <see cref="F:MaterialDesignThemes.Wpf.PopupBox.ClosedEvent"/>.
             </summary>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.ReplacePalette(MaterialDesignThemes.Wpf.Palette)">
-            <summary>
-            Replaces the entire palette
-            </summary>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.ReplacePrimaryColor(MaterialDesignColors.Swatch)">
-            <summary>
-            Replaces the primary colour, selecting a balanced set of hues for the light, mid and dark hues.
-            </summary>
-            <param name="swatch"></param>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.QueryPalette">
-            <summary>
-            Attempts to query the current palette configured in the application's resources.
-            </summary>
-            <returns></returns>
-            <exception cref="T:System.InvalidOperationException">Thrown if there is any ambiguouty regarding the palette. Provided
-            standard guidleines have been followed for palette configureation, this should not happen.</exception>
-        </member>
-        <member name="M:MaterialDesignThemes.Wpf.PaletteHelper.ReplaceEntry(System.Object,System.Object,System.Windows.ResourceDictionary)">
-            <summary>
-            Replaces a certain entry anywhere in the parent dictionary and its merged dictionaries
-            </summary>
-            <param name="entryName">The entry to replace</param>
-            <param name="newValue">The new entry value</param>
-            <param name="parentDictionary">The root dictionary to start searching at. Null means using Application.Current.Resources</param>
         </member>
         <member name="T:MaterialDesignThemes.Wpf.Properties.Resources">
             <summary>

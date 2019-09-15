@@ -7,6 +7,8 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:local="clr-namespace:PubFinder.Views"
              xmlns:vm="clr-namespace:PubFinder.ViewModels"
+             xmlns:sync="clr-namespace:Syncfusion.Windows.Controls.Input.Resources;assembly=Syncfusion.SfInput.Wpf"
+             
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400"
@@ -35,14 +37,18 @@
                         <Label  DockPanel.Dock="Bottom"   Content="{Binding Address}"                      
                            FontSize="10"></Label>
                     </DockPanel>
-                    <DockPanel DockPanel.Dock="Bottom">
-                        <Label DockPanel.Dock="Left" FontSize="15"
-                          Content="{Binding Rate}"  FontWeight="Bold" Foreground="OrangeRed"></Label>
+                    <materialDesign:RatingBar Value="{Binding Rate}" 
+                                              DockPanel.Dock="Bottom"
+                                              Foreground="Gold"
+                                              IsReadOnly="True"
+                                              VerticalAlignment="Center"
+                                              Margin="10 5 0 0"></materialDesign:RatingBar>
+                    <!--<Label DockPanel.Dock="Left" FontSize="15"
+                          Content="{Binding Rate}"  FontWeight="Bold" Foreground="OrangeRed"></Label>-->
                         <!--<Label DockPanel.Dock="Right"  Content="4.2"                      
                            FontSize="10"></Label>-->
                     </DockPanel>
                 </DockPanel>
-            </DockPanel>
         </DataTemplate>
     </UserControl.Resources>
 
@@ -176,5 +182,6 @@
                 
             </Button.Style>
         </Button>-->
+          
     </Grid>
 </UserControl>
