@@ -41,10 +41,11 @@
         <Grid x:Name="GridMenu" VerticalAlignment="Bottom" Background="Orange">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.0*"></ColumnDefinition>
-                    <ColumnDefinition Width="4.0*"></ColumnDefinition>
+                    <ColumnDefinition Width="80*"></ColumnDefinition>
+                    <ColumnDefinition Width="299*"></ColumnDefinition>
+                    <ColumnDefinition Width="21*"/>
                 </Grid.ColumnDefinitions>
-                <Ellipse Width="60" Height="60" Margin="5,-14,15,34">
+                <Ellipse Width="60" Height="60">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
                     </Ellipse.Fill>
@@ -57,7 +58,7 @@
                     </Image>-->
                 <ListView Height="60" Grid.Column="1" SelectedIndex="0"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.ColumnSpan="2">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal"></StackPanel>
@@ -154,10 +155,11 @@
                 </ListView>
             </Grid>
         </Grid>
-        <Grid Margin="0,60,0,85">
+        <Grid Margin="0,50,0,60">
             <Grid.Background>
-                <ImageBrush ImageSource="https://themepack.me/i/c/749x468/media/g/1203/beer-theme-qe11.jpg"
+                <ImageBrush Stretch="UniformToFill" ImageSource="../../Sources/beermenu-theme-qe11.jpg"
                             ></ImageBrush>
+
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -165,13 +167,13 @@
                 <RowDefinition Height="0.3*"></RowDefinition>
             </Grid.RowDefinitions>
 
-        <m:Map Margin="10 0" ZoomLevel="19" Grid.RowSpan="2"
+            <m:Map Margin="10 0" ZoomLevel="19" Grid.RowSpan="2"
                Mode="AerialWithLabels"
                Center="40.363703,49.819583"
                CredentialsProvider="Apvz3tb29nyul3gC1yacpKfH_QNpJ9pcbCOOLSQNIWL5BDPHPofetaoBQG2KK9_h"
                >
-            <m:Pushpin Location="40.363703,49.819583"/>
-        </m:Map>
+                <m:Pushpin Location="40.363703,49.819583"/>
+            </m:Map>
             <Button Grid.Row="2" VerticalAlignment="Bottom"
                     Margin="20 0 10 20"
                     Command="{Binding ReturnToPubsCommand}">

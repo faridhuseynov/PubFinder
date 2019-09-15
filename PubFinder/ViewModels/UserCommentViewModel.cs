@@ -25,6 +25,12 @@ namespace PubFinder.ViewModels
         private int loggedInUser = new int();
         public int LoggedInUser { get => loggedInUser; set => Set(ref loggedInUser, value); }
 
+        private bool isFavorite = false;
+        public bool IsFavorite { get => isFavorite; set => Set(ref isFavorite, value); }
+
+        private bool isntFavorite = true;
+        public bool IsntFavorite { get => isntFavorite; set => Set(ref isntFavorite, value); }
+
         private int userRate = new int();
         public int UserRate { get => userRate; set => Set(ref userRate, value); }
 
@@ -63,7 +69,31 @@ namespace PubFinder.ViewModels
                     UserRate = 0;
                 else
                     UserRate = Rank.Score;
+                if (db.FavoritePubs.FirstOrDefault(x => x.PubId == Pub.Id && x.UserId == ActiveUser.Id) != null)
+                {
+                    IsFavorite = true;
+                    IsntFavorite = false;
+                }
             }, true);
+        }
+        private RelayCommand addRemoveFavorite;
+        public RelayCommand AddRemoveFavorite
+        {
+            get => addRemoveFavorite ?? (addRemoveFavorite = new RelayCommand(
+                () =>
+                {
+                    if (IsFavorite == false)
+                    {
+                        IsFavorite = true;
+                        IsntFavorite = false;
+                    }
+                    else
+                    {
+                        IsFavorite = false;
+                        IsntFavorite = true;
+                    }
+                }
+            ));
         }
 
         private RelayCommand<Comment> commentLikedCommand;
@@ -143,7 +173,7 @@ namespace PubFinder.ViewModels
             get => goToBeerSetPageCommand ?? (goToBeerSetPageCommand = new RelayCommand(
                 () =>
                 {
-                    RatingValueChangedCheck();
+                    RatingAndFavoriteValueChangedCheck();
                     navigation.Navigate<UserBeerSetViewModel>();
                 }
             ));
@@ -156,12 +186,13 @@ namespace PubFinder.ViewModels
             get => goToMenuPageCommand ?? (goToMenuPageCommand = new RelayCommand(
                 () =>
                 {
-                    RatingValueChangedCheck();
+
+                    RatingAndFavoriteValueChangedCheck();
                     navigation.Navigate<UserMenuViewModel>();
                 }
             ));
         }
-        void RatingValueChangedCheck()
+        void RatingAndFavoriteValueChangedCheck()
         {
             if (UserRate == 0)
                 return;
@@ -171,6 +202,17 @@ namespace PubFinder.ViewModels
                 db.Rankings.FirstOrDefault(x => x.PubId == Pub.Id && x.UserId == ActiveUser.Id).Score = UserRate;
             db.SaveChanges();
             db.Pubs.FirstOrDefault(x=>x.Id==Pub.Id).Rate = db.Rankings.Where(x => x.PubId == Pub.Id).Sum(x=>x.Score)/ db.Rankings.Count(x => x.PubId == Pub.Id);
+            var favPub = db.FavoritePubs.FirstOrDefault(x => x.UserId == ActiveUser.Id && x.PubId == Pub.Id);
+            if (IsFavorite)
+            {
+                if (favPub == null)
+                    db.FavoritePubs.Add(new FavoritePub { PubId = Pub.Id, UserId = ActiveUser.Id });
+            }
+            else if (IsntFavorite)
+            {
+                if (favPub!= null)
+                    db.FavoritePubs.Remove(favPub);
+            }
             db.SaveChanges();
         }
         private RelayCommand ratingValueChangedCommand;
@@ -190,7 +232,7 @@ namespace PubFinder.ViewModels
             get => goToLocationPageCommand ?? (goToLocationPageCommand = new RelayCommand(
                 () =>
                 {
-                    RatingValueChangedCheck();
+                    RatingAndFavoriteValueChangedCheck();
                     navigation.Navigate<UserLocationViewModel>();
                 }
             ));
@@ -224,7 +266,7 @@ namespace PubFinder.ViewModels
             get => returnToPubsCommand ?? (returnToPubsCommand = new RelayCommand(
                 () =>
                 {
-                    RatingValueChangedCheck();
+                    RatingAndFavoriteValueChangedCheck();
                     Comments = null;
                     navigation.Navigate<UserAccountViewModel>();
                 }
@@ -239,7 +281,7 @@ namespace PubFinder.ViewModels
             get => logOutCommand ?? (logOutCommand = new RelayCommand(
                 () =>
                 {
-                    RatingValueChangedCheck();
+                    RatingAndFavoriteValueChangedCheck();
                     Messenger.Default.Send(new UserLogInOutMessage { UserId = 0 });
                     navigation.Navigate<StartPageViewModel>();
                 }

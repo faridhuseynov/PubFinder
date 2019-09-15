@@ -17,6 +17,10 @@ namespace PubFinder.ViewModels
         private readonly INavigationService navigation;
         private readonly AppDbContext db;
         private readonly IMessageService message;
+
+        public int LoggedInUser { get; set; }
+        private User activeUser = new User();
+        public User ActiveUser { get => activeUser; set => Set(ref activeUser, value); }
         public UserLocationViewModel(INavigationService navigation, AppDbContext db, IMessageService message)
         {
             this.navigation = navigation;
@@ -25,8 +29,8 @@ namespace PubFinder.ViewModels
             this.navigation = navigation;
             Messenger.Default.Register<UserLogInOutMessage>(this, msg =>
             {
-                //LoggedInUser = msg.UserId;
-                //ActiveUser = new User(db.Users.FirstOrDefault(x => x.Id == LoggedInUser));
+                LoggedInUser = msg.UserId;
+                ActiveUser = new User(db.Users.FirstOrDefault(x => x.Id == LoggedInUser));
             }, true);
             Messenger.Default.Register<PubSelectedMessage>(this, msg =>
             {

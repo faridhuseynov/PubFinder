@@ -81,7 +81,7 @@
                     <ColumnDefinition Width="1.0*"></ColumnDefinition>
                     <ColumnDefinition Width="4.0*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Ellipse Width="60" Height="60" Margin="5,-14,15,34">
+                <Ellipse Width="60" Height="60">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
                     </Ellipse.Fill>
@@ -186,7 +186,7 @@
                 </ListView>
             </Grid>
         </Grid>
-        <Grid Margin="0,50,0,75">
+        <Grid Margin="0,50,0,60">
             <Grid.Background>
                 <ImageBrush ImageSource="../../Sources/beermenu-theme-qe11.jpg"
                             Stretch="UniformToFill"

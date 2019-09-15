@@ -14,14 +14,14 @@
         <DataTemplate x:Key="beerSetLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
                 <Label DockPanel.Dock="Top" Content="{Binding Name}"
-                       Foreground="DarkBlue" FontWeight="Bold" HorizontalContentAlignment="Center"
+                       Foreground="LightYellow" FontWeight="Bold" HorizontalContentAlignment="Center"
                        FontSize="20"></Label>
                 <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" HorizontalAlignment="Center">
                     <Label DockPanel.Dock="Left" Content="{Binding Price}"
-                       Foreground="Blue" FontWeight="Bold" HorizontalAlignment="Right"
+                       Foreground="LightYellow" FontWeight="Bold" HorizontalAlignment="Right"
                        FontSize="15"></Label>
                     <Label DockPanel.Dock="Right" Content="AZN"
-                       Foreground="Blue" HorizontalContentAlignment="Stretch"
+                       Foreground="LightYellow" HorizontalContentAlignment="Stretch"
                        FontSize="15"></Label>
                 </DockPanel>
             </DockPanel>
@@ -30,7 +30,7 @@
             <DockPanel  Background="{x:Null}">
                 <DockPanel DockPanel.Dock="Right" LastChildFill="False" HorizontalAlignment="Right">
                     <Label DockPanel.Dock="Right" Content="{Binding Quantity}"
-                       Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
+                       Foreground="LightCoral" FontWeight="Bold" HorizontalAlignment="Right"
                            VerticalContentAlignment="Center"
                        FontSize="20"></Label>
                     <Label DockPanel.Dock="Left" Content="x"
@@ -39,7 +39,7 @@
                        FontSize="10" ></Label>
                 </DockPanel>
                 <Label DockPanel.Dock="Left" Content="{Binding Product}"
-                       Foreground="Black" FontWeight="Bold"
+                       Foreground="LightYellow" FontWeight="Bold"
                        FontSize="20"></Label>
             </DockPanel>
         </DataTemplate>
@@ -59,7 +59,7 @@
                     <ColumnDefinition Width="1.0*"></ColumnDefinition>
                     <ColumnDefinition Width="4.0*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Ellipse Width="60" Height="60" Margin="5,-14,15,34">
+                <Ellipse Width="60" Height="60">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
                     </Ellipse.Fill>
@@ -160,7 +160,7 @@
                 </ListView>
             </Grid>
         </Grid>
-        <Grid Margin="0,60,0,85">
+        <Grid Margin="0,50,0,60">
             <Grid.Background>
                 <ImageBrush ImageSource="../../Sources/beerset-theme-gb2.jpg"
                             Stretch="UniformToFill">
@@ -195,7 +195,7 @@
                     Command="{Binding ReturnToPubsCommand}">
                 Back to Pubs
             </Button>
-            
+
         </Grid>
     </Grid>
 </UserControl>

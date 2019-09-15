@@ -297,6 +297,10 @@
     <Compile Include="Migrations\201909151046236_RankingUpdatedWithScore.Designer.cs">
       <DependentUpon>201909151046236_RankingUpdatedWithScore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909151427127_FavoritePubsUpdated.cs" />
+    <Compile Include="Migrations\201909151427127_FavoritePubsUpdated.Designer.cs">
+      <DependentUpon>201909151427127_FavoritePubsUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
@@ -448,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909151046236_RankingUpdatedWithScore.resx">
       <DependentUpon>201909151046236_RankingUpdatedWithScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909151427127_FavoritePubsUpdated.resx">
+      <DependentUpon>201909151427127_FavoritePubsUpdated.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

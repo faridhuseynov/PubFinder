@@ -34,6 +34,7 @@ namespace PubFinder.Models
         public string SaltValue { get; set; }
         public string HashValue { get; set; }
         public IEnumerable<Ranking> Rankings { get; set; }
+        public IEnumerable<FavoritePub> FavoritePubs { get; set; }
 
         //this will be set later
         //public string Error => throw new NotImplementedException();

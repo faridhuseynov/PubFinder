@@ -619,3 +619,4 @@ C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.SfSkinManag
 C:\Users\FH189\source\repos\PubFinder\PubFinder\bin\Debug\Syncfusion.Themes.Blend.WPF.xml
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RankingsDbAdded.resources
 C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.RankingUpdatedWithScore.resources
+C:\Users\FH189\source\repos\PubFinder\PubFinder\obj\Debug\PubFinder.Migrations.FavoritePubsUpdated.resources

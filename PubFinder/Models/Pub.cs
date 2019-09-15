@@ -40,6 +40,7 @@ namespace PubFinder.Models
 
         public IEnumerable<Ranking> Rankings { get; set; }
         public int Rate { get; set; }
+        public IEnumerable<FavoritePub> FavoritePubs { get; set; }
 
 
         //public IEnumerable<Comment> Comments { get; set; }

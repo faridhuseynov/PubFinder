@@ -11,6 +11,7 @@
              d:DesignHeight="700" d:DesignWidth="400" Name="CommentViewWindow"
              d:DataContext="{d:DesignInstance vm:UserCommentViewModel}">
     <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <DataTemplate x:Key="commentsLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
                 <Label DockPanel.Dock="Top" Content="{Binding Feedback}"
@@ -202,24 +203,53 @@
                 <RowDefinition Height="0.3*"></RowDefinition>
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" HorizontalAlignment="Center" LastChildFill="False">
-                <Label Content="{Binding Pub.Name}"
-                       DockPanel.Dock="Left"
-                       Foreground="DarkGreen"
-                       FontSize="30"
-                       HorizontalContentAlignment="Center"
-                       VerticalAlignment="Center"></Label>
-                <materialDesign:RatingBar Value="{Binding UserRate,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"                                          
-                                          Foreground="Gold"                                          
-                                          VerticalAlignment="Center"
-                                          Margin="10 5 0 0"                                          
-                                          >
-                    <!--<i:Interaction.Triggers>
-                        <i:EventTrigger EventName="ValueChanged">
-                            <i:InvokeCommandAction Command="{Binding RatingValueChangedCommand}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
-                </materialDesign:RatingBar>
-           
+                <DockPanel DockPanel.Dock="Left">
+                    <Label Content="{Binding Pub.Name}"
+                           DockPanel.Dock="Left"
+                           Foreground="DarkGreen"
+                           FontSize="30"
+                           HorizontalContentAlignment="Center"
+                           VerticalAlignment="Center">
+                    </Label>
+                    <materialDesign:RatingBar Value="{Binding UserRate,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"                                          
+                                              Foreground="Gold"                                          
+                                              VerticalAlignment="Center"
+                                              Margin="10 5 0 0">
+                    </materialDesign:RatingBar>
+                </DockPanel>
+                <Button DockPanel.Dock="Right"
+                        Background="AliceBlue" HorizontalAlignment="Right"
+                        Foreground="Red"
+                        BorderThickness="0"
+                        Visibility="{Binding IsFavorite,
+                    Converter={StaticResource BoolToVis}}"
+                        Command="{Binding AddRemoveFavorite}">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="Heart"></materialDesign:PackIcon>
+
+                    </Button.Content>
+                </Button>
+                <Button DockPanel.Dock="Right"
+                        Background="AliceBlue" HorizontalAlignment="Right"
+                        Foreground="PaleVioletRed" Margin="20 0 0 0"
+                        BorderThickness="0"
+                        Visibility="{Binding IsntFavorite,Converter={StaticResource BoolToVis}}"
+                        Command="{Binding AddRemoveFavorite}">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="Heart"></materialDesign:PackIcon>
+                    </Button.Content>
+                    <!--<Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsFavorite,UpdateSourceTrigger=PropertyChanged}">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>                   
+                        </Style>
+                    </Button.Style>-->
+                    
+            </Button>
             </DockPanel>
             <ListBox Grid.Row="1" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedComment}"

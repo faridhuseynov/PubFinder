@@ -11,6 +11,172 @@
              d:DataContext="{d:DesignInstance vm:StartPageViewModel}">
     <UserControl.Resources>
         <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
+            <Border x:Name="border" CornerRadius="25" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsDefaulted" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                    <Setter Property="Foreground" Value="#FF838383"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Sources/beer-theme-bg9.jpg"
+                        Stretch="UniformToFill"
+                        />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="../Sources/pin-place-beer-pub-location-512.png"
+               HorizontalAlignment="Center">
+        </Image>
+        <DockPanel LastChildFill="False"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   Margin="0 20">
+            <Label HorizontalAlignment="Center" 
+                   FontSize="30" Foreground="White"
+                   DockPanel.Dock="Top"
+                   Content="Username"></Label>
+            <TextBox DockPanel.Dock="Bottom" Name="UserName" FontSize="20"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Bottom"
+                     Foreground="White"
+                     Text="{Binding Username,
+                ValidatesOnDataErrors=True,
+                NotifyOnValidationError=True,
+                UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="2"
+                   VerticalAlignment="Bottom"
+                   LastChildFill="False"
+                   HorizontalAlignment="Center">
+            <Label HorizontalAlignment="Center"
+               DockPanel.Dock="Top"
+               FontSize="30" Foreground="White"
+               Content="Password"></Label>
+            <PasswordBox x:Name="password" FontSize="30"
+                     VerticalAlignment="Bottom"
+                         Foreground="White"
+                     DockPanel.Dock="Bottom"
+                     HorizontalContentAlignment="Center"                     
+                     ></PasswordBox>
+        </DockPanel>
+        <!--<DockPanel>
+
+        </DockPanel>-->
+        <Label  FontSize="20" Foreground="White" Grid.Row="3"
+               Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=password}"/>
+        <DockPanel Grid.Row="3"  VerticalAlignment="Bottom">
+            <UniformGrid DockPanel.Dock="Bottom">
+                <RadioButton FontSize="20"
+                             x:Name="UserButton"
+                          BorderThickness="5" Foreground="White"
+                          HorizontalContentAlignment="Center"
+                          HorizontalAlignment="Center"
+                             BorderBrush="White"
+                          IsChecked="{Binding UserRadBut}">
+                    User</RadioButton>
+                <RadioButton FontSize="20"
+                             x:Name="OwnerButton"
+                             BorderThickness="5" Foreground="White"
+                             HorizontalAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             IsChecked="{Binding OwnerRadBut}">
+                    Pub Owner</RadioButton>
+            </UniformGrid>
+        </DockPanel>
+        <DockPanel Grid.Row="4" HorizontalAlignment="Center" LastChildFill="False">
+            <Button FontSize="20" DockPanel.Dock="Right"
+                        Margin="0 0 10 30" Padding="20" Height="70"                  
+                        Command="{Binding LoginCommand}" Template="{DynamicResource ButtonControlTemplate1}"
+                        CommandParameter="{Binding ElementName=password}"
+                        >
+                <Button.Content>
+                    <materialDesign:PackIcon Kind="Heart"></materialDesign:PackIcon>
+                </Button.Content>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightGreen" Offset="0"/>
+                        <GradientStop Color="#FF8FDC87" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF27F408" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Style>
+                    <Style TargetType="Button" x:Name="LoginButton">
+                        <Setter Property="IsEnabled" Value="False"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button FontSize="20" DockPanel.Dock="Left"
+                    Height="70"
+                    Margin="0 0 10 30" Padding="20"
+                    Command="{Binding SignUpCommand}" Content="Sign Up" Template="{DynamicResource ButtonControlTemplate1}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightBlue" Offset="0"/>
+                        <GradientStop Color="#FFC8FEFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=UserButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=OwnerButton}" Value="True">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </DockPanel>
+    </Grid>
+
+
+    <!--<UserControl.Resources>-->
+        <!--<ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
             <Grid>
                 <AdornerDecorator CacheMode="{Binding (materialDesign:ShadowAssist.CacheMode), RelativeSource={RelativeSource Self}}">
                     <Grid>
@@ -163,8 +329,20 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Template="{DynamicResource ButtonControlTemplate1}"></Button>
+
         </UniformGrid>
-    </Grid>
+    </Grid>-->
+            <!--<StackPanel>
+        <Button Background="White">
+            <DockPanel>
+                --><!--<Label DockPanel.Dock="Left"
+                       VerticalAlignment="Center"
+                       VerticalContentAlignment="Center">Add to favorites</Label>--><!--
+                <materialDesign:PackIcon Kind="Heart"
+                                         Foreground="Red">                    
+                </materialDesign:PackIcon>
+            </DockPanel>
+        </Button>
+            </StackPanel>-->
 </UserControl>
 
