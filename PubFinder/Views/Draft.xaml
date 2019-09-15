@@ -9,6 +9,46 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance vm:StartPageViewModel}">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
+            <Grid>
+                <AdornerDecorator CacheMode="{Binding (materialDesign:ShadowAssist.CacheMode), RelativeSource={RelativeSource Self}}">
+                    <Grid>
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2">
+                            <Border.Effect>
+                                <Binding Path="(materialDesign:ShadowAssist.ShadowDepth)" RelativeSource="{RelativeSource TemplatedParent}">
+                                    <Binding.Converter>
+                                        <materialDesign:ShadowConverter/>
+                                    </Binding.Converter>
+                                </Binding>
+                            </Border.Effect>
+                        </Border>
+                        <ProgressBar x:Name="ProgressBar" Background="{Binding (materialDesign:ButtonProgressAssist.IndicatorBackground), RelativeSource={RelativeSource TemplatedParent}}" Foreground="{Binding (materialDesign:ButtonProgressAssist.IndicatorForeground), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Left" Height="{TemplateBinding Height}" IsIndeterminate="{Binding (materialDesign:ButtonProgressAssist.IsIndeterminate), RelativeSource={RelativeSource TemplatedParent}}" Maximum="{Binding (materialDesign:ButtonProgressAssist.Maximum), RelativeSource={RelativeSource TemplatedParent}}" Minimum="{Binding (materialDesign:ButtonProgressAssist.Minimum), RelativeSource={RelativeSource TemplatedParent}}" Opacity="{Binding (materialDesign:ButtonProgressAssist.Opacity), RelativeSource={RelativeSource TemplatedParent}}" Style="{DynamicResource MaterialDesignLinearProgressBar}" Value="{Binding (materialDesign:ButtonProgressAssist.Value), RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ButtonBase}}}">
+                            <ProgressBar.Visibility>
+                                <Binding Path="(materialDesign:ButtonProgressAssist.IsIndicatorVisible)" RelativeSource="{RelativeSource TemplatedParent}">
+                                    <Binding.Converter>
+                                        <BooleanToVisibilityConverter/>
+                                    </Binding.Converter>
+                                </Binding>
+                            </ProgressBar.Visibility>
+                        </ProgressBar>
+                    </Grid>
+                </AdornerDecorator>
+                <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="materialDesign:ShadowAssist.Darken" TargetName="border" Value="True"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="materialDesign:ShadowAssist.Darken" TargetName="border" Value="True"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.23"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\FH189\source\repos\PubFinder\PubFinder\Sources\beer-theme-bg9.jpg"></ImageBrush>
@@ -82,12 +122,6 @@
                      Height="60"
                      
                      Margin="50,10,50,10">
-            <UniformGrid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FFA66565" Offset="1"/>
-                </LinearGradientBrush>
-            </UniformGrid.Background>
             <Button FontSize="30" 
                     Command="{Binding SignUpCommand}" Content="Sign Up">
                 <Button.Background>
@@ -111,6 +145,7 @@
                 </Button.Style>
             </Button>
             <Button FontSize="30"
+                    Margin="50 0 0 0"
                     Command="{Binding LoginCommand}"
                     CommandParameter="{Binding ElementName=password}"
                     Content="Login">
@@ -128,6 +163,7 @@
                     </Style>
                 </Button.Style>
             </Button>
+            <Button Template="{DynamicResource ButtonControlTemplate1}"></Button>
         </UniformGrid>
     </Grid>
 </UserControl>

@@ -37,9 +37,9 @@
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Bottom">
                         <Label DockPanel.Dock="Left" FontSize="15"
-                          Content="4.2"  FontWeight="Bold" Foreground="OrangeRed"></Label>
-                        <Label DockPanel.Dock="Right"  Content="4.2"                      
-                           FontSize="10"></Label>
+                          Content="{Binding Rate}"  FontWeight="Bold" Foreground="OrangeRed"></Label>
+                        <!--<Label DockPanel.Dock="Right"  Content="4.2"                      
+                           FontSize="10"></Label>-->
                     </DockPanel>
                 </DockPanel>
             </DockPanel>

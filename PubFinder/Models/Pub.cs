@@ -38,7 +38,8 @@ namespace PubFinder.Models
         public IEnumerable<Menu> Menus { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
 
-        //public IEnumerable<Ranking> Rankings { get; set; }
+        public IEnumerable<Ranking> Rankings { get; set; }
+        public int Rate { get; set; }
 
 
         //public IEnumerable<Comment> Comments { get; set; }

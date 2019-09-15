@@ -270,12 +270,17 @@
     <Compile Include="Migrations\201909131754564_CommetAndCommentRatesUpdate.Designer.cs">
       <DependentUpon>201909131754564_CommetAndCommentRatesUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909150803295_RankingModelAdded.cs" />
+    <Compile Include="Migrations\201909150803295_RankingModelAdded.Designer.cs">
+      <DependentUpon>201909150803295_RankingModelAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\BeerSet.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\FavoritePub.cs" />
     <Compile Include="Models\CommentRate.cs" />
+    <Compile Include="Models\Ranking.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -411,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909131754564_CommetAndCommentRatesUpdate.resx">
       <DependentUpon>201909131754564_CommetAndCommentRatesUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909150803295_RankingModelAdded.resx">
+      <DependentUpon>201909150803295_RankingModelAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

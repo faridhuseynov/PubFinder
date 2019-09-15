@@ -188,8 +188,8 @@
         </Grid>
         <Grid Margin="0,50,0,75">
             <Grid.Background>
-                <ImageBrush
-                    ImageSource="../../Sources/beermenu-theme-qe11.jpg"
+                <ImageBrush ImageSource="../../Sources/beermenu-theme-qe11.jpg"
+                            Stretch="UniformToFill"
                             ></ImageBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
