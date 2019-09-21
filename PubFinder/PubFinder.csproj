@@ -463,6 +463,12 @@
     <None Include="autofac.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Resource Include="Fonts\PlayfairDisplay-Regular.ttf" />
+    <Resource Include="Fonts\Vibes-Regular.ttf" />
+    <Resource Include="Fonts\Lato-Regular.ttf" />
+    <Resource Include="Fonts\Mansalva-Regular.ttf" />
+    <Resource Include="Fonts\NotoSans-Regular.ttf" />
+    <Resource Include="Fonts\RobotoSlab-Regular.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -555,5 +561,9 @@
   <ItemGroup>
     <Resource Include="Sources\start.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sources\gettyimages.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

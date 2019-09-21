@@ -40,14 +40,27 @@
                        Foreground="Green" FontWeight="Bold" HorizontalAlignment="Right"
                            VerticalContentAlignment="Center"
                        FontSize="20"></Label>
+                    <Label DockPanel.Dock="Left" Content="₼"
+                       Foreground="Green" FontWeight="Bold" VerticalAlignment="Bottom"
+                           HorizontalContentAlignment="Left"
+                           HorizontalAlignment="Left"
+                       FontSize="10"></Label>
                     <Label DockPanel.Dock="Right" Content="{Binding Quantity}"
                        FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                            VerticalAlignment="Center"
                        FontSize="10" ></Label>
                 </DockPanel>
-                <Label DockPanel.Dock="Left" Content="{Binding Product}"
-                       Foreground="White" FontWeight="Bold"
-                       FontSize="20"></Label>
+                <TextBlock DockPanel.Dock="Left" Text="{Binding Product}"
+                           TextWrapping="Wrap"
+                           Foreground="White" FontWeight="Bold"
+                           FontFamily="../../Fonts/#Lato"
+                           FontSize="20">
+                    <!--<Label.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                        </Style>
+                    </Label.Resources>-->
+                </TextBlock>
             </DockPanel>
         </DataTemplate>
     </UserControl.Resources>

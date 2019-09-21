@@ -14,9 +14,10 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <DataTemplate x:Key="commentsLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
-                <Label DockPanel.Dock="Top" Content="{Binding Feedback}"
-                       Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Left"
-                       FontSize="20" Background="AliceBlue"></Label>
+                <TextBlock DockPanel.Dock="Top" Text="{Binding Feedback}"
+                       Foreground="Black" FontWeight="Bold" TextWrapping="Wrap"
+                       FontSize="20" Background="AliceBlue"
+                           FontFamily="../../Fonts/#RobotoSlab"></TextBlock>
                 <DockPanel DockPanel.Dock="Bottom"
                            Background="Transparent"
                            HorizontalAlignment="Left">
@@ -85,10 +86,10 @@
         <Grid x:Name="GridMenu" VerticalAlignment="Bottom" Background="Orange">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.0*"></ColumnDefinition>
-                    <ColumnDefinition Width="4.0*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Ellipse Width="60" Height="60" Margin="5,-14,15,34">
+                <Ellipse Width="60" Height="60">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="{Binding ActiveUser.PhotoLink}" />
                     </Ellipse.Fill>

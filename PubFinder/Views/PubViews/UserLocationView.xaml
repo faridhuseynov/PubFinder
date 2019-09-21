@@ -41,9 +41,8 @@
         <Grid x:Name="GridMenu" VerticalAlignment="Bottom" Background="Orange">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80*"></ColumnDefinition>
-                    <ColumnDefinition Width="299*"></ColumnDefinition>
-                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Ellipse Width="60" Height="60">
                     <Ellipse.Fill>
@@ -159,7 +158,6 @@
             <Grid.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="../../Sources/beermenu-theme-qe11.jpg"
                             ></ImageBrush>
-
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>

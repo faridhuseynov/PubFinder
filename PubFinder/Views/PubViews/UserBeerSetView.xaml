@@ -14,14 +14,14 @@
         <DataTemplate x:Key="beerSetLbTemplate">
             <DockPanel LastChildFill="False" Background="{x:Null}">
                 <Label DockPanel.Dock="Top" Content="{Binding Name}"
-                       Foreground="LightYellow" FontWeight="Bold" HorizontalContentAlignment="Center"
+                       Foreground="DarkSlateBlue" FontWeight="Bold" HorizontalContentAlignment="Center"
                        FontSize="20"></Label>
                 <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" HorizontalAlignment="Center">
                     <Label DockPanel.Dock="Left" Content="{Binding Price}"
-                       Foreground="LightYellow" FontWeight="Bold" HorizontalAlignment="Right"
+                       Foreground="DarkSlateBlue" FontWeight="Bold" HorizontalAlignment="Right"
                        FontSize="15"></Label>
-                    <Label DockPanel.Dock="Right" Content="AZN"
-                       Foreground="LightYellow" HorizontalContentAlignment="Stretch"
+                    <Label DockPanel.Dock="Right" Content="₼"
+                       Foreground="DarkSlateBlue" HorizontalContentAlignment="Stretch"
                        FontSize="15"></Label>
                 </DockPanel>
             </DockPanel>
@@ -30,7 +30,7 @@
             <DockPanel  Background="{x:Null}">
                 <DockPanel DockPanel.Dock="Right" LastChildFill="False" HorizontalAlignment="Right">
                     <Label DockPanel.Dock="Right" Content="{Binding Quantity}"
-                       Foreground="LightCoral" FontWeight="Bold" HorizontalAlignment="Right"
+                       Foreground="DarkSlateGray" FontWeight="Bold" HorizontalAlignment="Right"
                            VerticalContentAlignment="Center"
                        FontSize="20"></Label>
                     <Label DockPanel.Dock="Left" Content="x"
@@ -39,7 +39,9 @@
                        FontSize="10" ></Label>
                 </DockPanel>
                 <Label DockPanel.Dock="Left" Content="{Binding Product}"
-                       Foreground="LightYellow" FontWeight="Bold"
+                       FontWeight="Bold"
+                       FontFamily="../../Fonts/#RobotoSlab"
+                       Foreground="IndianRed"
                        FontSize="20"></Label>
             </DockPanel>
         </DataTemplate>
@@ -162,7 +164,7 @@
         </Grid>
         <Grid Margin="0,50,0,60">
             <Grid.Background>
-                <ImageBrush ImageSource="../../Sources/beerset-theme-gb2.jpg"
+                <ImageBrush ImageSource="../../Sources/gettyimages.jpg"
                             Stretch="UniformToFill">
                     
                 </ImageBrush>
@@ -175,10 +177,11 @@
             <ListBox Grid.Row="0" HorizontalAlignment="Right"
                  SelectedItem="{Binding SelectedSet}"
                  ItemsSource="{Binding BeerSets}" Width="360"
+                     
                  ItemTemplate="{StaticResource beerSetLbTemplate}"
                      VerticalAlignment="Top"
                      Margin="0 0 20 0"
-                     HorizontalContentAlignment="Stretch">
+                     HorizontalContentAlignment="Center">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <i:InvokeCommandAction Command="{Binding BeerSetSelectedCommand}"/>
@@ -188,6 +191,7 @@
             <ListBox Grid.Row="1" HorizontalAlignment="Right" Margin="0 10 10 20"
                  ItemsSource="{Binding BeerSetItems}" Width="380"
                  ItemTemplate="{StaticResource beerSetItemsLbTemplate}"
+                 Foreground="AliceBlue" 
                  HorizontalContentAlignment="Stretch">
             </ListBox>
             <Button Grid.Row="2" VerticalAlignment="Bottom"
